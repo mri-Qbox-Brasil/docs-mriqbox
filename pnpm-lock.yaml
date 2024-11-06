@@ -31,6 +31,9 @@ importers:
       nextra:
         specifier: ^2.13.4
         version: 2.13.4(patch_hash=lmtsof477bkdpd5wo5qlmftqea)(next@13.5.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      nextra-docs-template:
+        specifier: 'file:'
+        version: file:(@algolia/client-search@4.23.3)(@types/react@18.3.3)(search-insights@2.8.3)
       nextra-theme-docs:
         specifier: ^2.13.4
         version: 2.13.4(next@13.5.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(nextra@2.13.4(patch_hash=lmtsof477bkdpd5wo5qlmftqea)(next@13.5.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -1422,6 +1425,9 @@ packages:
         optional: true
       sass:
         optional: true
+
+  'nextra-docs-template@file:':
+    resolution: {directory: '', type: directory}
 
   nextra-theme-docs@2.13.4:
     resolution: {integrity: sha512-2XOoMfwBCTYBt8ds4ZHftt9Wyf2XsykiNo02eir/XEYB+sGeUoE77kzqfidjEOKCSzOHYbK9BDMcg2+B/2vYRw==}
@@ -3760,6 +3766,27 @@ snapshots:
     transitivePeerDependencies:
       - '@babel/core'
       - babel-plugin-macros
+
+  nextra-docs-template@file:(@algolia/client-search@4.23.3)(@types/react@18.3.3)(search-insights@2.8.3):
+    dependencies:
+      '@docsearch/css': 3.6.0
+      '@docsearch/react': 3.6.0(@algolia/client-search@4.23.3)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(search-insights@2.8.3)
+      '@tabler/icons-react': 2.47.0(react@18.3.1)
+      next: 13.5.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      next-sitemap: 4.2.3(next@13.5.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+      nextra: 2.13.4(patch_hash=lmtsof477bkdpd5wo5qlmftqea)(next@13.5.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      nextra-theme-docs: 2.13.4(next@13.5.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(nextra@2.13.4(patch_hash=lmtsof477bkdpd5wo5qlmftqea)(next@13.5.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+    transitivePeerDependencies:
+      - '@algolia/client-search'
+      - '@babel/core'
+      - '@opentelemetry/api'
+      - '@types/react'
+      - babel-plugin-macros
+      - sass
+      - search-insights
+      - supports-color
 
   nextra-theme-docs@2.13.4(next@13.5.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(nextra@2.13.4(patch_hash=lmtsof477bkdpd5wo5qlmftqea)(next@13.5.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
