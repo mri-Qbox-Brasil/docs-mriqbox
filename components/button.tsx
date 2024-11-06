@@ -36,7 +36,7 @@ export function GhButton(props: Props) {
 export function DocButton(props: Props) {
   return (
     <Button icon={<IconFileText />} side={props.side} link={props.link}>
-      {props.label || "Documentation"}
+      {props.label || "Documentação"}
     </Button>
   );
 }
@@ -60,7 +60,7 @@ export function ReleaseButton(props: Props) {
 export function NpmButton(props: Props) {
   return (
     <Button icon={<IconBrandNpm />} side={props.side} link={props.link}>
-      {props.label || "Package"}
+      {props.label || "Pacote"}
     </Button>
   );
 }

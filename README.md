@@ -1,4 +1,4 @@
-# Overextended Resources Documentation
+# mri-Qbox Project Documentation
 
 ## Local Development
 
@@ -6,6 +6,7 @@ First, run `pnpm i` to install the dependencies.
 
 Then, run `pnpm dev` to start the development server and visit localhost:3000.
 
-## License
+## Acknowledgements
 
-This project is licensed under the MIT License.
+- [`shuding/nextra-docs-template`](https://github.com/shuding/nextra-docs-template) - the template used
+- [`overextended/overextended.github.io`](https://github.com/overextended/overextended.github.io) - 99.9 % of the styling copied over from here

@@ -6,9 +6,9 @@ const DonateLink: React.FC<{ image: string; name: string; kofiName: string }> = 
       <p>{name}</p>
       <img src={image} alt={`${name}-image`} className="rounded-md bg-neutral-100 shadow-md dark:bg-neutral-900" />
       <a href={`https://ko-fi.com/${kofiName}`} target="_blank" className="w-full">
-        <button className="flex w-full items-center justify-center gap-2 rounded-md bg-sky-500/20 p-2 text-sky-500 hover:bg-sky-500/30">
+        <button className="flex w-full items-center justify-center gap-2 rounded-md bg-green-500/20 p-2 text-green-500 hover:bg-green-500/30">
           <IconCoffee />
-          Support
+          Apoie
         </button>
       </a>
     </div>

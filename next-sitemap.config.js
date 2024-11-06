@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: 'https://overextended.dev/',
+  siteUrl: 'https://docs.mriqbox.com.br',
   generateRobotsTxt: true,
   generateIndexSitemap: false,
   outDir: './out',

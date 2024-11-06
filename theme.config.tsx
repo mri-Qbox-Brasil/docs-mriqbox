@@ -6,13 +6,13 @@ import Search from '@components/Search';
 function useHead() {
   const { asPath } = useRouter();
   const { frontMatter, title } = useConfig();
-  const url = `https://overextended.dev${asPath}`;
-  const description = frontMatter.description || "Documentation for Overextended's resources for FiveM/RedM";
+  const url = `https://docs.mriqbox.com.br${asPath}`;
+  const description = frontMatter.description || "Documentação para os recursos desenvolvidos pela mri-Qbox.";
 
   return (
     <>
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="icon" type="image/x-icon" href="/static/ox.ico" />
+      <link rel="icon" type="image/x-icon" href="/static/mri.ico" />
       <meta httpEquiv="Content-Language" content="en" />
       <meta name="description" content={description} />
       <meta name="og:title" content={title} />
@@ -25,13 +25,13 @@ function useHead() {
 function useNextSeoProps() {
   const { asPath } = useRouter();
   const arr = asPath.replace(/[-_]/g, ' ').split('/');
-  const category = (arr[1][0] !== '#' && arr[1]) || 'Overextended';
+  const category = (arr[1][0] !== '#' && arr[1]) || 'mri-Qbox';
   const rawTitle = arr[arr.length - 1];
   const title = /[a-z]/.test(rawTitle) && /[A-Z]/.test(rawTitle) ? rawTitle : '%s';
 
   return {
     titleTemplate: `${title} - ${
-      rawTitle === category ? 'Documentation' : category.replace(/(^\w|\s\w)/g, (m) => m.toUpperCase())
+      rawTitle === category ? 'Documentação' : category.replace(/(^\w|\s\w)/g, (m) => m.toUpperCase())
     }`,
   };
 }
@@ -42,29 +42,29 @@ const config: DocsThemeConfig = {
       style={{
         paddingLeft: '50px',
         lineHeight: '38px',
-        background: "url('https://avatars.githubusercontent.com/u/88127058?s=38') no-repeat left",
+        background: "url('https://avatars.githubusercontent.com/u/164149697?s=96&v=4') no-repeat left",
         backgroundSize: '38px',
         fontWeight: 550,
       }}
     >
-      Overextended
+      mri-Qbox
     </div>
   ),
   project: {
-    link: 'https://github.com/overextended/overextended.github.io',
+    link: 'https://github.com/mri-Qbox-Brasil/docs.mriqbox.github.io',
   },
   chat: {
-    link: 'https://discord.overextended.dev',
+    link: 'https://discord.gg/uEfGD4mmVh',
   },
-  docsRepositoryBase: 'https://github.com/overextended/overextended.github.io/blob/main',
+  docsRepositoryBase: 'https://github.com/mri-Qbox-Brasil/docs.mriqbox.github.io/blob/main',
   footer: {
-    text: 'Overextended',
+    text: 'Copyright © 2024 - mri-Qbox',
   },
   search: {
     component: <Search />,
   },
   head: useHead,
-  primaryHue: { dark: 200, light: 200 },
+  primaryHue: { dark: 103, light: 103 },
   sidebar: {
     defaultMenuCollapseLevel: 1,
   },
