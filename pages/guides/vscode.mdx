@@ -3,6 +3,7 @@ title: VS Code
 ---
 
 import { DownloadButton, GhButton, DocButton } from '@components/button';
+import { Callout } from 'nextra/components';
 
 # VS Code
 
@@ -15,6 +16,10 @@ O Visual Studio Code é nosso editor recomendado ao trabalhar com Lua.
 As extensões permitem que você adicione linguagens, depuradores e outras ferramentas ao VS Code, melhorando sua experiência como desenvolvedor.
 
 ### sumneko.lua
+
+<Callout type="warning">
+Cuidado ao usar essa extensão com SSH no vsCode. Ela é conhecida por consumir RAM e CPU excessivamente no servidor e pode travá-lo.
+</Callout>
 
 O Lua Language Server fornece numerosos recursos de linguagem para tornar o desenvolvimento mais fácil e rápido, por exemplo:
 
