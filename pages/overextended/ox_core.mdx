@@ -7,30 +7,31 @@ import { NpmButton } from '@components/button';
 
 <ResourceLinks repo="https://github.com/overextended/ox_core" />
 
-A modern FiveM framework, designed to properly support features like OneSync, statebags, and server-side entities.
+Um framework moderno para FiveM, projetado para oferecer suporte adequado a recursos como OneSync, statebags e entidades no lado do servidor.
 
-## txAdmin recipe
+## Receita txAdmin
 
-If you're looking to quickly install and setup ox_core, try using [our recipe](https://github.com/overextended/txAdminRecipe).
+Se você está procurando instalar e configurar rapidamente o ox_core, tente usar [nossa receita](https://github.com/overextended/txAdminRecipe).
 
-## Installation
+## Instalação
 
 <Callout type="info">
 
-We **strongly** recommend referring to [Guides](../guides) to setup necessary development tools.
+Recomendamos **fortemente** consultar os [Guias](../guides) para configurar as ferramentas de desenvolvimento necessárias.
 
 </Callout>
 
 <Steps>
-### Install all resource dependencies.
+### Instale todas as dependências do recurso.
 - [oxmysql](../oxmysql)
 - [ox_lib](../ox_lib/)
 
-### Download the latest [release](https://github.com/overextended/ox_core/releases/latest) or build the source code.
+### Baixe a última [versão](https://github.com/overextended/ox_core/releases/latest) ou compile o código-fonte.
 
-- Setup [Git](../guides/git), [Node.js](../guides/nodejs), and [pnpm](../guides/pnpm).
-- Download and setup [MariaDB 11.4+](https://mariadb.com/downloads/community/community-server/).
-- Run the following commands in your CLI (e.g. Terminal, Command Prompt).
+- Configure [Git](../guides/git), [Node.js](../guides/nodejs), e [pnpm](../guides/pnpm).
+- Baixe e configure [MariaDB 11.4+](https://mariadb.com/downloads/community/community-server/).
+- Execute os seguintes comandos no seu CLI (ex.: Terminal, Prompt de Comando).
+
 
 ```bash
 git clone https://github.com/overextended/ox_core.git
@@ -39,9 +40,9 @@ pnpm i
 pnpm build
 ```
 
-### Install optional dependencies.
+### Instale dependências opcionais.
 
-These resources aren't strictly required, but they are strongly recommended.
+Esses recursos não são estritamente necessários, mas são fortemente recomendados.
 
 - [ox_inventory](../ox_inventory/)
 - [npwd](https://github.com/project-error/npwd)
@@ -49,16 +50,16 @@ These resources aren't strictly required, but they are strongly recommended.
 
 </Steps>
 
-## Using ox_core in your resources
+## Usando ox_core nos seus recursos
 
 ### Lua
 
-You can import ox_core definitions by loading `@ox_core/lib/init.lua` into your resource.
+Você pode importar as definições do ox_core carregando `@ox_core/lib/init.lua` no seu recurso.
 
 <Tabs items={['fxmanifest.lua', 'require']}>
   <Tab>
 
-    This can be a client_script or server_script, if preferred.
+    Isto pode ser um `client_script` ou `server_script`, se preferir.
     ```lua
     shared_script '@ox_core/lib/init.lua'
     ```
@@ -66,7 +67,7 @@ You can import ox_core definitions by loading `@ox_core/lib/init.lua` into your 
   </Tab>
   <Tab>
 
-    If you prefer, you can use our [require](../ox_lib/Modules/Require/Shared) function from [ox_lib](../ox_lib).
+    Se preferir, você pode usar nossa função [require](../ox_lib/Modules/Require/Shared) do [ox_lib](../ox_lib).
     ```lua
     local Ox = require '@ox_core/lib/init'
     ```
@@ -76,40 +77,39 @@ You can import ox_core definitions by loading `@ox_core/lib/init.lua` into your 
 
 ### JavaScript
 
-To use ox_core with your JavaScript resources you'll need to use our npm package, providing full support for TypeScript and Intellisense.
+Para usar o ox_core com seus recursos JavaScript, você precisará do nosso pacote npm, que fornece suporte completo para TypeScript e Intellisense.
 
 <NpmButton link="https://www.npmjs.com/package/@overextended/ox_core" />
 
-To get started, try our [fivem-typescript-boilerplate](https://github.com/overextended/fivem-typescript-boilerplate) and install the ox_core package.
+Para começar, experimente nosso [fivem-typescript-boilerplate](https://github.com/overextended/fivem-typescript-boilerplate) e instale o pacote ox_core.
 
 ```bash
 pnpm i @overextended/ox_core
 ```
 
-## Config
+## Configuração
 
-Resource configuration is handled using [convars](https://docs.fivem.net/docs/scripting-reference/convars/).
+A configuração do recurso é gerenciada usando [convars](https://docs.fivem.net/docs/scripting-reference/convars/).
 
-### Replicated
+### Replicados
 
-These convars should use the `setr` command to be read by clients.
+Esses convars devem usar o comando `setr` para serem lidos pelos clientes.
 
 - `ox:debug`
-  - Default: `false`
-  - Enables debug messages and commands. Enabled by default when using `pnpm watch`.
+  - Padrão: `false`
+  - Ativa mensagens e comandos de depuração. Habilitado por padrão ao usar `pnpm watch`.
 - `ox:characterSlots`
-  - Default: `1`
-  - Sets the number of character slots available for character selection resources (e.g. ox_charselect).
+  - Padrão: `1`
+  - Define o número de slots de personagem disponíveis para recursos de seleção de personagens (ex.: ox_charselect).
 - `ox:plateFormat`
-  - Default: `"........"`
-  - See [SET_DEFAULT_VEHICLE_NUMBER_PLATE_TEXT_PATTERN](https://docs.fivem.net/natives/?_0x79780FD2).
+  - Padrão: `"........"`
+  - Consulte [SET_DEFAULT_VEHICLE_NUMBER_PLATE_TEXT_PATTERN](https://docs.fivem.net/natives/?_0x79780FD2).
 - `ox:deathSystem`
-  - Default: `true`
-  - Enables the built-in death and respawn system.
+  - Padrão: `true`
+  - Ativa o sistema de morte e respawn integrado.
 - `ox:characterSelect`
-  - Default: `true`
-  - Enables built-in character registration, and uses that character when joining.
+  - Padrão: `true`
+  - Ativa o registro de personagem integrado e utiliza esse personagem ao entrar.
 - `ox:spawnLocation`
-  - Default: `[-258.211, -293.077, 21.6132, 206.0]`
-  - Sets the default spawn location for newly created characters.
-  
+  - Padrão: `[-258.211, -293.077, 21.6132, 206.0]`
+  - Define o local de spawn padrão para personagens recém-criados.
