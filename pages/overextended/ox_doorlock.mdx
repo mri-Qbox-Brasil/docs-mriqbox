@@ -6,22 +6,23 @@ import ResourceLinks from '@components/resource-links';
 
 <ResourceLinks repo="https://github.com/overextended/ox_doorlock" />
 
-A door management resource that can be used standalone or alongside ox_core, qbx_core, and es_extended.
+Um recurso de gerenciamento de portas que pode ser usado de forma independente ou junto com ox_core, qbx_core e es_extended.
 
-## Installation
+## Instalação
 
 <Callout type="info">
 
-We **strongly** recommend referring to [Guides](../guides) for setting up Git, Node.js, and pnpm.
+Recomendamos **fortemente** que consulte os [Guias](../guides) para configurar Git, Node.js e pnpm.
 
 </Callout>
 
 <Steps>
-### Install all resource dependencies.
+
+### Instale todas as dependências do recurso.
 - [oxmysql](../oxmysql)
 - [ox_lib](../ox_lib/)
 
-### Download a [release](https://github.com/overextended/ox_doorlock/releases) or build the source code.
+### Baixe uma [release](https://github.com/overextended/ox_doorlock/releases) ou compile o código-fonte.
 
 ```bash
 git clone https://github.com/overextended/ox_doorlock.git
@@ -30,31 +31,31 @@ pnpm i
 pnpm build
 ```
 
-### Install optional dependencies.
+### Instale dependências opcionais.
 
-These resources aren't required but provide additional functionality.
+Esses recursos não são obrigatórios, mas oferecem funcionalidades adicionais.
 
 - [ox_target](../ox_target/)
 
 </Steps>
 
-## Opening the UI
+## Abrindo a UI
 
-If you have installed and started the resource, you can use `/doorlock` to open the UI.
+Se você instalou e iniciou o recurso, pode usar o comando `/doorlock` para abrir a interface de usuário.
 
-- If the cursor is displayed but not the UI then you have not built it.
-- You may not be authorised to use the command.
+- Caso o cursor seja exibido, mas a UI não apareça, então você não a construiu corretamente.
+- Talvez você não tenha permissão para usar o comando.
 
-  - Enter `test_ace player.1 command.doorlock` in the server console (replace 1 with your server id).
+  - Insira `test_ace player.1 command.doorlock` no console do servidor (substitua 1 pelo seu ID de servidor).
 
-## Convert doors
+## Converter portas
 
-Door configuration files written for nui_doorlock can be automatically added to your MySQL database.
+Arquivos de configuração de portas escritos para `nui_doorlock` podem ser automaticamente adicionados ao seu banco de dados MySQL.
 
-- Any files with the `.lua` extension placed in the `ox_doorlock/convert` directory will be read on resource start.
-- If the directory doesn't exist, you can create it.
-- Conversion cannot be guaranteed, especially if the config was not written for nui_doorlock.
+- Todos os arquivos com extensão `.lua` colocados no diretório `ox_doorlock/convert` serão lidos ao iniciar o recurso.
+- Se o diretório não existir, você pode criá-lo.
+- A conversão não pode ser garantida, especialmente se o arquivo de configuração não foi escrito para `nui_doorlock`.
 
-## Adding new native audio
+## Adicionando novos áudios nativos
 
-A guide can be found [here](https://forum.cfx.re/t/how-to-make-a-simplesound-using-native-audio/5156001) for adding new native audio.
+Um guia pode ser encontrado [aqui](https://forum.cfx.re/t/how-to-make-a-simplesound-using-native-audio/5156001) para adicionar novos áudios nativos.
