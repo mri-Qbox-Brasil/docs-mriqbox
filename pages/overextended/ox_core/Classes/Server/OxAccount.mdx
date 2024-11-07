@@ -4,7 +4,7 @@ title: OxAccount
 
 ## OxAccount
 
-- accountId` number`
+- accountId `number`
 
 
 ## OxAccountMetadata
@@ -19,37 +19,37 @@ title: OxAccount
 
 ## OxAccount.get
 
-Get the value of specific key(s) from the account's metadata.
+Pega o valor de uma chave específica dos metadados da conta.
 
 ```lua
 account.get(key)
 ```
 
-**Parameters**
+**Parâmetros**
 
 - key: `string` | `string[]`
 
-**Returns**
+**Retornos**
 
 - `OxAccountMetadata[key]` | `OxAccountMetadata[key][]`
-  - Returns an array if passing multiple keys.
+  - Retorna um array se forem passadas múltiplas chaves.
 
 
 ## OxAccount.addBalance
 
-Add funds to the account.
+Adiciona fundos a conta.
 
 ```lua
 account.addBalance({ amount, message })
 ```
 
-**Parameters**
+**Parâmetros**
 
 - `object`
   - amount: `number`
   - message?: `string`
 
-**Returns**
+**Retornos**
 
 - `object`
   - success: `boolean`
@@ -58,20 +58,20 @@ account.addBalance({ amount, message })
 
 ## OxAccount.removeBalance
 
-Remove funds from the account.
+Remove fundos da conta.
 
 ```lua
 account.removeBalance({ amount, message, overdraw })
 ```
 
-**Parameters**
+**Parâmetros**
 
 - `object`
   - amount: `number`
   - message?: `string`
   - overdraw?: `boolean`
 
-**Returns**
+**Retornos**
 
 - `object`
   - success: `boolean`
@@ -80,25 +80,25 @@ account.removeBalance({ amount, message, overdraw })
 
 ## OxAccount.transferBalance
 
-Transfer funds to another account.
+Transfere fundos para outra conta.
 
 ```lua
 account.transferBalance({ toId, amount, overdraw, message, note, actorId })
 ```
 
-**Parameters**
+**Parâmetros**
 
 - `object`
   - toId: `number`
-    - The accountId to transfer funds to.
+    - O accountId que receberá os fundos.
   - amount: `number`
   - message?: `string`
   - overdraw?: `boolean`
   - note?: `string`
   - actorId? `number`
-    - The charId of the player initiating the transfer.
+    - O charId do player que fez a transferência.
 
-**Returns**
+**Retornos**
 
 - `object`
   - success: `boolean`
@@ -107,20 +107,20 @@ account.transferBalance({ toId, amount, overdraw, message, note, actorId })
 
 ## OxAccount.depositMoney
 
-Deposit money into the account.
+Deposita dinheiro na conta.
 
 ```lua
 account.transferBalance(playerId, amount, message, note)
 ```
 
-**Parameters**
+**Parâmetros**
 
 - playerId: `number`
 - amount: `number`
 - message?: `string`
 - note?: `string`
 
-**Returns**
+**Retornos**
 
 - `object`
   - success: `boolean`
@@ -130,20 +130,20 @@ account.transferBalance(playerId, amount, message, note)
 
 ## OxAccount.withdrawMoney
 
-Withdraw money from the account.
+Retira dinheiro da conta(saque).
 
 ```lua
 account.transferBalance(playerId, amount, message, note)
 ```
 
-**Parameters**
+**Parâmetros**
 
 - playerId: `number`
 - amount: `number`
 - message?: `string`
 - note?: `string`
 
-**Returns**
+**Retornos**
 
 - `object`
   - success: `boolean`
@@ -152,13 +152,13 @@ account.transferBalance(playerId, amount, message, note)
 
 ## OxAccount.deleteAccount
 
-Mark the account as deleted. It can no longer be accessed, but remains in the database.
+Marca a conta como excluída. Ela não pode mais ser acessada, mas permanece no banco de dados.
 
 ```lua
 account.deleteAccount()
 ```
 
-**Returns**
+**Retornos**
 
 - `object`
   - success: `boolean`
@@ -167,35 +167,35 @@ account.deleteAccount()
 
 ## OxAccount.getCharacterRole
 
-Get the account access role of a character by charId or stateId.
+Pega o cargo de acesso de um personagem pelo seu charId ou stateId.
 
 ```lua
 account.getCharacterRole(id)
 ```
 
-**Parameters**
+**Parâmetros**
 
 - id: `number` | `string`
 
-**Returns**
+**Retornos**
 
 - `string`
 
 
 ## OxAccount.setCharacterRole
 
-Set the account access role of a character by charId or stateId.
+Seta o cargo de acesso de um personagem pelo seu charId ou stateId.
 
 ```lua
 account.setCharacterRole(id, role)
 ```
 
-**Parameters**
+**Parâmetros**
 
 - id: `number` | `string`
 - role?: `string`
 
-**Returns**
+**Retornos**
 
 - `object`
   - success: `boolean`
@@ -204,31 +204,31 @@ account.setCharacterRole(id, role)
 
 ## OxAccount.playerHasPermission
 
-Checks if a player's active character has permission to perform an action on the account.
+Verifica se o personagem ativo do jogadortem permissão para realizar uma ação na conta.
 
 ```lua
 account.playerHasPermission(playerId, permission)
 ```
 
-**Parameters**
+**Parâmetros**
 
 - playerId: `number`
 - permission: `string`
 
-**Returns**
+**Retornos**
 
 - `boolean`
 
 
 ## OxAccount.setShared
 
-Set the account as shared, allowing permissions to be assigned to other characters.
+Marca a conta como compartilhada, permitindo que permissões sejam atribuidas a outros personagens.
 
 ```lua
 account.setShared()
 ```
 
-**Returns**
+**Retornos**
 
 - `object`
   - success: `boolean`
@@ -237,24 +237,24 @@ account.setShared()
 
 ## OxAccount.createInvoice
 
-Create an unpaid invoice on the account.
+Cria uma nova cobrança na conta.
 
 ```lua
 account.createInvoice(invoice)
 ```
 
-**Parameters**
+**Parâmetros**
 
 - invoice: `object`
   - actorId?: number;
-    - The charId of the player creating the invoice.
+    - O charId do player que fez a cobrança.
   - toAccount: number;
-    - The accountId of the account receiving the invoice.
+    - O accountId da conta que receberá a cobrança.
   - amount: number;
   - message: string;
   - dueDate: string;
 
-**Returns**
+**Retornos**
 
 - `object`
   - success: `boolean`

@@ -11,150 +11,150 @@ title: OxPlayer
 
 ## OxPlayer.addStatus
 
-Increases value of a status.
+Aumenta o valor de um status.
 
 ```lua
 player.addStatus(statusName, value)
 ```
 
-**Parameters**
+**Parâmetros**
 - statusName: `string`
 - value: `number`
 
-**Returns**
+**Retornos**
 - success: `boolean`
 
 ## OxPlayer.get
 
-Returns a value from the players metadata.
+Retorna o valor de uma chave dos metadados do player.
 
 ```lua
 player.get(key)
 ```
 
-**Parameters**
+**Parâmetros**
 - key: `string`
 
-**Returns**
+**Retornos**
 - `unknown`
 
 ## OxPlayer.getCoords
 
-Returns the player's current coordinates.
+Retorna as coordenadas do player.
 
 ```lua
 player.getCoords()
 ```
 
-**Parameters**
+**Parâmetros**
 - `vector3`
 
 ## OxPlayer.getGroup
 
-Returns the player's grade of a given group name, or the first matched name and grade in a filter.
+Retorna o grau do player em um dado grupo, ou o primeiro nome e grau em um filtro.
 
 ```lua
 player.getGroup(filter)
 ```
 
-**Parameters**
+**Parâmetros**
 - filter: `string`|`string[]`|`{ [string]: number }`
 
-**Returns**
+**Retornos**
 - `unknown`
 
 ## OxPlayer.getGroupByType
 
-Returns the player's name and grade of a group with a matching type.
+Retorna o nome do player e o grau de um grupo com um tipo correspondente.
 
 ```lua
 player.getGroupByType(type)
 ```
 
-**Parameters**
+**Parâmetros**
 - type: `string`
 
-**Returns**
+**Retornos**
 - `string`
 - `number`
 
 ## OxPlayer.getGroups
 
-Returns an object of all groups the player is currently in, using the group name as a key.
+Retorna um objeto com todos os grupos do player, usando o nome do grupo como chave.
 
 ```lua
 player.getGroups()
 ```
 
-**Returns**
+**Retornos**
 - `{ [string]: number }`
 
 ## OxPlayer.getStatus
 
-Returns the value of the status.
+Retorna o valor de um status.
 
 ```lua
 player.getStatus(statusName)
 ```
 
-**Parameters**
+**Parâmetros**
 - statusName: `string`
 
-**Returns**
+**Retornos**
 - `number`
 
 ## OxPlayer.getStatuses
 
-Returns an object containing all statuses, using the status name as the key.
+Retorna todos os status do player, usando o nome do status como chave.
 
 ```lua
 player.getStatuses()
 ```
 
-**Returns**
+**Retornos**
 - `{ [string]: number }`
 
 ## OxPlayer.hasPermission
 
-Checks if a user has been granted a permission by one of their groups.
+Verifica se um jogador tem uma permissão através de de seus um grupos.
 
 ```lua
 player.hasPermission(permission)
 ```
 
-**Parameters**
+**Parâmetros**
 - permission: `string`
 
-**Returns**
+**Retornos**
 - `boolean`
 
 ## OxPlayer.removeStatus
 
-Reduces the value of a status.
+Reduz o valor de um status.
 
 ```lua
 player.removeStatus(statusName, value)
 ```
 
-**Parameters**
+**Parâmetros**
 - statusName: `string`
 - value: `number`
 
-**Returns**
+**Retornos**
 - `boolean`
 
 ## OxPlayer.on
 
-Listens for changes to the players metadata, specified by a key.
+Escuta por alterações nos metadados do  player, especificando uma chave.
 
 ```lua
 player.on(key, cb(data))
 ```
 
-**Parameters**
+**Parâmetros**
 - key: `string`
 - cb: `function`
 
-**Returns**
+**Retornos**
 - data: `unknown`
   - new value of `key`
