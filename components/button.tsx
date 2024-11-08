@@ -13,7 +13,7 @@ const Button: React.FC = ({ side = 'left', children, icon, link }: Props) => {
   return (
     <div className="h-fit w-fit">
       <a href={link}>
-        <div className="flex w-26 items-center justify-center gap-1.5 rounded-sm border border-black p-1.5 text-black hover:bg-black hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-black mt-2">
+        <div className="flex w-full items-center justify-center gap-2 rounded-md bg-green-500/20 p-2 text-green-500 hover:bg-green-500/30">
           {side === 'left' && <div>{icon}</div>}
           {children}
           {side === 'right' && <div>{icon}</div>}

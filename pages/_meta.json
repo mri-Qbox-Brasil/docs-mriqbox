@@ -1,7 +1,9 @@
 {
   "index": "Introdução",
   "guides": "Guias",
+  "mri": "mri-Qbox",
   "overextended": "Overextended",
+  "qbox": "Qbox",
   "support": {
     "title": "Nos apoie",
     "type": "page",
