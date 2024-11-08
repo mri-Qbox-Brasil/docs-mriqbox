@@ -51,12 +51,12 @@ const config: DocsThemeConfig = {
     </div>
   ),
   project: {
-    link: 'https://github.com/mri-Qbox-Brasil/docs.mriqbox.github.io',
+    link: 'https://github.com/mri-Qbox-Brasil',
   },
   chat: {
     link: 'https://discord.gg/uEfGD4mmVh',
   },
-  docsRepositoryBase: 'https://github.com/mri-Qbox-Brasil/docs.mriqbox.github.io/blob/main',
+  docsRepositoryBase: 'https://github.com/mri-Qbox-Brasil/docs-mriqbox/blob/main',
   footer: {
     text: 'Copyright © 2024 - mri-Qbox',
   },

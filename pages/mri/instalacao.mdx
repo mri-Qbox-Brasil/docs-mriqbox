@@ -2,37 +2,38 @@
 title: Instalação
 ---
 
-import { Tab, Tabs } from 'nextra-theme-docs';
-import { Callout } from 'nextra/components';
+import { Callout, Steps, Tabs } from 'nextra/components';
 
-# ➡️ Instalação
+# Instalação
 
 <Callout type="info">
 Recomendamos fortemente usar **txAdmin** para instalar o seu servidor de FiveM.
 Para saber como fazer isso confira [Setting up a server using txAdmin](https://docs.fivem.net/docs/server-manual/setting-up-a-server-txadmin/).
 </Callout>
 
+<Steps>
+    ### Baixe os artefatos do servidor
 
-## 1 - Baixe os arquivos do servidor
+    Baixe o último Artefato do FiveM conforme seu sistema operacional [Windows ](https://runtime.fivem.net/artifacts/fivem/build\_server\_windows/master/)/ [Linux](https://runtime.fivem.net/artifacts/fivem/build\_proot\_linux/master/) e extraia os arquivos para uma pasta onde o servidor ficará.
 
-Baixe o último Artefato do FiveM [Windows ](https://runtime.fivem.net/artifacts/fivem/build\_server\_windows/master/)/ [Linux](https://runtime.fivem.net/artifacts/fivem/build\_proot\_linux/master/) e extraia os arquivos.
+    <Callout type="info">
+    O artefato recomendado pelo FiveM não é o mais recente, recomenados que utilize sempre o mais recente e somente versões anteriores em casos de BUGs.
+    </Callout>
 
-## 2 - inicie a instalação do servidor
+    ![Artefatos do Servidor](/static/images/artifacts.png)
 
-Execute \`FXServer.exe\` para iniciar e siga a instruções.
+    ### Inicie a instalação do servidor
 
-## 3 - Execute o deploy da receita
+    Abra a pasta dos artefatos e execute `FXServer.exe` para iniciar a instalação.
 
-Use o link abaixo:
+    ### Execute o deploy da receita
 
-<Tabs items={[ 'Receita']} defaultIndex="0">
-    <Tabs.Tab>
-      ```ansi filename="Receita mri-Qbox" copy
-      https://receita_aqui_em_breve
-      ```
-    </Tabs.Tab>
-</Tabs>
+    Use o link abaixo:
 
-## 4 - Rode o servidor
+    ```ansi filename="Receita mri-Qbox" copy
+    https://receita_aqui_em_breve
+    ```
+    ### Inicie o servidor
 
-Uma vez que você tenha completado a instalação, rode o servidor.
+    Uma vez que a instalação esteja finalizada, você pode executar o servidor. A primeira inicialização pode levar um tempo.
+</Steps>
