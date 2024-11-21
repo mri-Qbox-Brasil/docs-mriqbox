@@ -1,7 +1,50 @@
----
-title: Addons
----
 
-# Addons
 
-Aqui você pode encontrar todos os addons desenvolvidos pela equipe MRI.
+import { Callout, Steps, Tabs } from 'nextra/components';
+
+
+<Callout type="info">
+Recomendamos fortemente usar a pasta [addons] para seus resources de mapas,carros,roupas,peds etc...
+</Callout>
+
+    ### Arquitetura de pastas
+
+    As pastas já foram renomeadas para serem utilizadas conforme a necessidade.\
+    Caso precise fazer alguma alteração, por favor, faça com cautela.
+
+     ```json
+        📁addons
+        ├── 📁[maps]
+        │     ├──📁[prison_map]
+        │     │    ├──📂prison_canteen
+        │     │    ├──📂prison_main
+        │     │    └──📂prison_meeting
+        │     ├──📁dealer_map
+        |     ├──📁hospital_map
+        │     └──📁gordela_petshop
+        ├──📁[peds]
+        │    └──📁K9addon
+        ├──📁[props]
+        │    └──📁gordela_props
+        ├──📁[roupas]
+        |    └──📁pastas_roupas
+        ├──📁[shells]
+        |    └──📁gordela_shells_free
+        ├──📁[veiculos]
+        |    └──📁pastas_veiculos
+        |_
+    ```
+    ### Remover/adicionar resources
+
+    Para remover qualquer resource de dentro das pastas, basta deletar o arquivo desejado.\
+    Lembre-se de nunca excluir as pastas principais, conforme mostrado acima em [Arquitetura de pastas](addons#arquitetura-de-pastas).\
+    Recomendo realizar um backup antes de proceder com a exclusão desejada.
+
+    <Callout type="warning">
+    Não delete a pasta 📁[shells], pois ela contém arquivos essenciais para o funcionamento do `ps-housing`.
+    </Callout>
+
+    ### Props
+
+    Para utilizar as props custom da MRI, é obrigatório ter a pasta 📁[props] no seu servidor.\
+    Para obter acesso à lista de props existentes, basta acessar a categoria de [Props](https://docs.mriqbox.com.br/mri/addons/props).
