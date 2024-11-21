@@ -1,6 +1,9 @@
 import DonateLink from '@components/DonateLink';
-
+import { Table, Td, Th, Tr } from 'nextra/components'
 import { Callout, Steps, Tabs } from 'nextra/components';
+import CollapsibleTable from '@components/CollapsibleTable';
+
+
 
     ### Colocar props
 
@@ -15,7 +18,7 @@ import { Callout, Steps, Tabs } from 'nextra/components';
 
    ![Artefatos do Servidor](/static/gif/removeprop.gif)
 
-   ### Lista de props
+   {/* ### Lista de props
   <div className="mt-2 flex flex-wrap justify-evenly gap-4">
   <img src="https://avatars.githubusercontent.com/u/65407488?v=4"width="128"/>
   <img src="https://avatars.githubusercontent.com/u/39926192?v=4"width="128"/>
@@ -24,22 +27,192 @@ import { Callout, Steps, Tabs } from 'nextra/components';
   <img src="https://avatars.githubusercontent.com/u/31368547?v=4"width="128"/>
   <img src="https://avatars.githubusercontent.com/u/31368547?v=4"width="128"/>
   <img src="https://avatars.githubusercontent.com/u/65407488?v=4"width="128"/>
-  <img src="https://avatars.githubusercontent.com/u/39926192?v=4"width="128"/>
-  <img src="https://avatars.githubusercontent.com/u/31368547?v=4"width="128"/>
-  <img src="https://avatars.githubusercontent.com/u/31368547?v=4"width="128"/>
-  <img src="https://avatars.githubusercontent.com/u/31368547?v=4"width="128"/>
   <img src="https://avatars.githubusercontent.com/u/31368547?v=4"width="128"/>
   <img src="https://avatars.githubusercontent.com/u/65407488?v=4"width="128"/>
   <img src="https://avatars.githubusercontent.com/u/39926192?v=4"width="128"/>
-  <img src="https://avatars.githubusercontent.com/u/31368547?v=4"width="128"/>
-  <img src="https://avatars.githubusercontent.com/u/31368547?v=4"width="128"/>
-  <img src="https://avatars.githubusercontent.com/u/31368547?v=4"width="128"/>
-  <img src="https://avatars.githubusercontent.com/u/31368547?v=4"width="128"/>
-  <img src="https://avatars.githubusercontent.com/u/65407488?v=4"width="128"/>
-  <img src="https://avatars.githubusercontent.com/u/39926192?v=4"width="128"/>
-  <img src="https://avatars.githubusercontent.com/u/31368547?v=4"width="128"/>
-  <img src="https://avatars.githubusercontent.com/u/31368547?v=4"width="128"/>
-  <img src="https://avatars.githubusercontent.com/u/31368547?v=4"width="128"/>
-  <img src="https://avatars.githubusercontent.com/u/31368547?v=4"width="128"/>
-  <img src="https://avatars.githubusercontent.com/u/31368547?v=4"width="128"/>
-  </div>
+
+  </div> */}
+
+
+
+### Lista de props
+
+<CollapsibleTable>
+<Table className="mt-8 gap-4 overflow-x-hidden">
+  <thead>
+    <Tr>
+      <Th className="w-3/3">Nome</Th>
+      <Th className="w-1/3 text-center">Imagem</Th>
+    </Tr>
+  </thead>
+  <tbody>
+    <Tr>
+      <Td>
+        ```bash copy
+        h4_int_sub_bed
+        ```
+      </Td>
+      <Td className="text-center">
+        <img 
+          src="https://avatars.githubusercontent.com/u/65407488?v=4" 
+          alt="Imagem 1" 
+          width="128" 
+          height="128" 
+          className="inline-block"
+        />
+      </Td>
+    </Tr>
+    <Tr>
+      <Td>
+        ```bash copy
+        hashdaprop
+        ```
+      </Td>
+      <Td className="text-center">
+        <img 
+          src="https://avatars.githubusercontent.com/u/39926192?v=4" 
+          alt="Imagem 2" 
+          width="128" 
+          height="128" 
+          className="inline-block"
+        />
+      </Td>
+    </Tr>
+
+    <Tr>
+      <Td>
+        ```bash copy
+        hashdaprop
+        ```
+      </Td>
+      <Td className="text-center">
+        <img 
+          src="https://avatars.githubusercontent.com/u/31368547" 
+          alt="Imagem 1" 
+          width="128" 
+          height="128" 
+          className="inline-block"
+        />
+      </Td>
+    </Tr>
+
+     <Tr>
+      <Td>
+        ```bash copy
+        hashdaprop
+        ```
+      </Td>
+      <Td className="text-center">
+        <img 
+          src="https://avatars.githubusercontent.com/u/39926192?v=4" 
+          alt="Imagem 2" 
+          width="128" 
+          height="128" 
+          className="inline-block"
+        />
+      </Td>
+    </Tr>
+     <Tr>
+      <Td>
+        ```bash copy
+        h4_int_sub_bed
+        ```
+      </Td>
+      <Td className="text-center">
+        <img 
+          src="https://avatars.githubusercontent.com/u/31368547" 
+          alt="Imagem 2" 
+          width="128" 
+          height="128" 
+          className="inline-block"
+        />
+      </Td>
+    </Tr>
+     <Tr>
+      <Td>
+        ```bash copy
+        h4_int_sub_bed
+        ```
+      </Td>
+      <Td className="text-center">
+        <img 
+          src="https://avatars.githubusercontent.com/u/65407488?v=4" 
+          alt="Imagem 2" 
+          width="128" 
+          height="128" 
+          className="inline-block"
+        />
+      </Td>
+    </Tr>
+     <Tr>
+      <Td>
+        ```bash copy
+        h4_int_sub_bed
+        ```
+      </Td>
+      <Td className="text-center">
+        <img 
+          src="https://avatars.githubusercontent.com/u/39926192?v=4" 
+          alt="Imagem 2" 
+          width="128" 
+          height="128" 
+          className="inline-block"
+        />
+      </Td>
+    </Tr>
+     <Tr>
+      <Td>
+        ```bash copy
+        h4_int_sub_bed
+        ```
+      </Td>
+      <Td className="text-center">
+        <img 
+          src="https://avatars.githubusercontent.com/u/65407488?v=4" 
+          alt="Imagem 2" 
+          width="128" 
+          height="128" 
+          className="inline-block"
+        />
+      </Td>
+    </Tr>
+     <Tr>
+      <Td>
+        ```bash copy
+            hashdaprop
+        ```
+      </Td>
+      <Td className="text-center">
+        <img 
+          src="https://avatars.githubusercontent.com/u/39926192?v=4" 
+          alt="Imagem 2" 
+          width="128" 
+          height="128" 
+          className="inline-block"
+        />
+      </Td>
+    </Tr>
+     <Tr>
+      <Td>
+        ```bash copy
+        h4_int_sub_bed
+        ```
+      </Td>
+      <Td className="text-center">
+        <img 
+          src="https://avatars.githubusercontent.com/u/39926192?v=4" 
+          alt="Imagem 2" 
+          width="128" 
+          height="128" 
+          className="inline-block"
+        />
+      </Td>
+    </Tr>
+  </tbody>
+</Table>
+</CollapsibleTable>
+
+  
+
+
+
