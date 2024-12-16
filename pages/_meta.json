@@ -1,4 +1,5 @@
 {
+  "comparison": "Qual diferença entre QBCore, Qbox e mri Qbox?",
   "index": "Introdução",
   "guides": "Guias",
   "mri": "mri-Qbox",
@@ -7,6 +8,6 @@
   "support": {
     "title": "Nos apoie",
     "type": "page",
-    "href": "https://docs.mriqbox.com.br/#support-our-team"
+    "href": "https://patreon.com/mriqboxbrasil"
   }
 }
