@@ -12,7 +12,7 @@ triggerClientCallback(eventName, playerId, ...args)
 - playerId: `number`
 - ...args: `any`
 
-## Register Server Callback
+## Registar a chamada de retorno do servidor
 
 ### onClientCallback
 
@@ -23,9 +23,9 @@ onClientCallback(eventName, cb)
 * eventName: `string`
 * cb: `function`(playerId: `number`, ...args: `any`)
 
-## Usage Example
+## Exemplo de uso
 
-For this example to fully make sense take a look at the example on the [client](./Client#usage-example) page for the callbacks.
+Para que este exemplo faça todo o sentido, dê uma olhada ao exemplo na secção [client](./Client#usage-example) página para as rechamadas.
 
 ```ts
 import { onClientCallback, triggerClientCallback } from '@overextended/ox_lib/server';

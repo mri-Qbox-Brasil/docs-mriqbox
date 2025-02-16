@@ -1,10 +1,10 @@
 # Server
 
-## Trigger Client Callback
+## Ativar a chamada de retorno do cliente
 
 ### lib.callback
 
-The response is handled in a separate coroutine.
+A resposta é tratada numa coroutine separada.
 
 ```lua
 lib.callback(name, playerId, cb, ...)
@@ -25,7 +25,7 @@ end, args.radius)
 
 ### lib.callback.await
 
-The current coroutine is yielded until a response is received.
+A corrotina atual é cedida até ser recebida uma resposta.
 
 ```lua
 lib.callback.await(name, playerId, ...)
@@ -43,11 +43,11 @@ for i = 1, #vehicles do
 end
 ```
 
-## Register Server Callback
+## Registar a chamada de retorno do servidor
 
 ### lib.callback.register
 
-Register an event handler for responding to client requests.
+Registar um manipulador de eventos para responder a pedidos de clientes.
 
 ```lua
 lib.callback.register(name, cb)

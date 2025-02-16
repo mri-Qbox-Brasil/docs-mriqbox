@@ -1,13 +1,13 @@
 import { Tabs, Tab } from 'nextra-theme-docs';
 
-# Server
+# Servidor
 
-Wrapper around the built-in ACL system. Handles lib.addCommand and ox_groups permissions.  
-Refer to [Basic Aces & Principals overview/guide](https://forum.cfx.re/t/basic-aces-principals-overview-guide/90917) for more information.
+Envolvente em torno do sistema ACL embutido. Lida com as permissões lib.addCommand e ox_groups.  
+Consulte [Basic Aces & Principals overview/guide](https://forum.cfx.re/t/basic-aces-principals-overview-guide/90917) para mais informações.
 
 ## lib.addAce
 
-Assigns the ace permission to a principal. Third parameter defaults to 'allow', while passing `false` sets the permission to 'deny'.
+Atribui a permissão ace a um diretor. O terceiro parâmetro é predefinido como “allow”, enquanto que a passagem de false define a permissão como “deny”.
 
 <Tabs items={["Lua", "JS"]}>
     <Tab>
@@ -34,7 +34,7 @@ Assigns the ace permission to a principal. Third parameter defaults to 'allow', 
 
 ## lib.removeAce
 
-Removes the ace permission from a principal. Third parameter defaults to 'allow', while passing `false` sets the permission to 'deny'.
+Remove a permissão ace de um diretor. O terceiro parâmetro é predefinido como “allow”, enquanto que a passagem de false define a permissão como “deny”.
 
 <Tabs items={["Lua", "JS"]}>
     <Tab>
@@ -61,7 +61,7 @@ Removes the ace permission from a principal. Third parameter defaults to 'allow'
 
 ## lib.addPrincipal
 
-Assigns a principal to a parent principal. Children inherit permissions from the parent.
+Atribui um principal a um principal pai. As crianças herdam permissões do pai.
 
 <Tabs items={["Lua", "JS"]}>
     <Tab>
@@ -87,7 +87,7 @@ Assigns a principal to a parent principal. Children inherit permissions from the
 
 ## lib.removePrincipal
 
-Removes a principal from a parent principal.
+Remove um principal de um principal pai.
 
 <Tabs items={["Lua", "JS"]}>
     <Tab>

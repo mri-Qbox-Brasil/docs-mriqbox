@@ -1,6 +1,6 @@
 # Server
 
-Registers commands and simplifies argument validation, permissions, and chat suggestions.
+Registra comandos e simplifica a validação de argumentos, permissões e sugestões de chat.
 
 ```lua
 lib.addCommand(commandName, properties, cb)
@@ -18,27 +18,27 @@ lib.addCommand(commandName, properties, cb)
 
 ```lua
 lib.addCommand('giveitem', {
-    help = 'Gives an item to a player',
+    help = 'Dá um item a um jogador',
     params = {
         {
             name = 'target',
             type = 'playerId',
-            help = 'Target player\'s server id',
+            help = 'ID do jogador alvo',
         },
         {
             name = 'item',
             type = 'string',
-            help = 'Name of the item to give',
+            help = 'Nome do item a ser dado',
         },
         {
             name = 'count',
             type = 'number',
-            help = 'Amount of the item to give, or blank to give 1',
+            help = 'Quantidade do item a ser dado, ou em branco para dar 1',
             optional = true,
         },
         {
             name = 'metatype',
-            help = 'Sets the item\'s "metadata.type"',
+            help = 'Define o "metadata.type" do item',
             optional = true,
         },
     },

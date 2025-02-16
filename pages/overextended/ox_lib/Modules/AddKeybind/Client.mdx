@@ -1,34 +1,34 @@
 # Client
 
-Registers keybinds and simplifies interactions of the keybinds.
+Registra atalhos de teclado e simplifica as interações dos atalhos.
 
 ## CKeybind Class
 
-A table representing a keybind with the following properties.
+Uma tabela que representa um atalho de teclado com as seguintes propriedades.
 
 - name: `string`
 - description: `string`
-- currentKey: `string`
-  - Key that the current user has this keybind set to
+- teclaAtual: `string`
+  - Tecla que o usuário atual definiu para este atalho de teclado
 - disabled: `boolean`
-  - Whether or not the keybind is currently disabled
+  - Se o atalho de teclado está atualmente desativado
 - hash: `number`
-  - Internal hash of the keybind that is used to reference it within the game itself
+  - Hash interno do atalho de teclado que é usado para referenciá-lo dentro do próprio jogo
 - defaultKey?: `string`
-  - Default key to set the keybind to for new players
-  - NOTE: Changing this will not change the key for existing players
+  - Tecla padrão para definir o atalho de teclado para novos jogadores
+  - NOTA: Alterar isso não mudará a tecla para jogadores existentes
 - defaultMapper?: `string`
-  - See [Input Mapper Ids](https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/) for more information
+  - Veja [IDs de Mapeador de Entrada](https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/) para mais informações
 - secondaryKey?: `string`
-  - An optional secondary keybind.
+  - Uma tecla secundária opcional.
 - secondaryMapper?: `string`
-  - An optional mapper for the secondary key, otherwise using the default mapper.
+  - Um mapeador opcional para a tecla secundária, caso contrário, usando o mapeador padrão.
 - disable: `function(self: CKeybind, disable: boolean)`
-  - Built-in function to enable / disable a keybind
+  - Função interna para habilitar / desabilitar um atalho de teclado
 - onPressed?: `function(self: CKeybind)`
-  - User-defined function triggered on keybind press
+  - Função definida pelo usuário acionada ao pressionar o atalho de teclado
 - onReleased?: `function(self: CKeybind)`
-  - User-defined function triggered on keybind release
+  - Função definida pelo usuário acionada ao soltar o atalho de teclado
 
 ## lib.addKeybind
 
@@ -46,7 +46,7 @@ lib.addKeybind(data)
   - secondaryKey?: `string`
   - secondaryMapper?: `string`
   - disabled?: `boolean`
-    - Whether or not the keybind should be disabled by default
+    - Se o atalho de teclado deve estar desativado por padrão
   - onPressed?: `function(self: CKeybind)`
     - Function triggered on keybind press
   - onReleased?: `function(self: CKeybind)`
@@ -54,23 +54,23 @@ lib.addKeybind(data)
 
 ```lua
 local keybind = lib.addKeybind({
-    name = 'respects',
-    description = 'press F to pay respects',
+    nome = 'respeitos',
+    descrição = 'pressione F para prestar respeitos',
     defaultKey = 'F',
     onPressed = function(self)
-        print(('pressed %s (%s)'):format(self.currentKey, self.name))
+      print(('pressionado %s (%s)'):format(self.teclaAtual, self.nome))
     end,
     onReleased = function(self)
-        print(('released %s (%s)'):format(self.currentKey, self.name))
+      print(('solto %s (%s)'):format(self.teclaAtual, self.nome))
     end
 })
 ```
 
-### Enable / Disable Keybinds
+### Habilitar / Desabilitar Atalhos de Teclado
 
-Keybinds can be enabled / disabled by using the disable method.
+Atalhos de teclado podem ser habilitados / desabilitados usando o método disable.
 
 ```lua
-keybind:disable(true) -- disables the keybind
-keybind:disable(false) -- enables the keybind
+keybind:disable(true) -- desativa o atalho de teclado
+keybind:disable(false) -- ativa o atalho de teclado
 ```

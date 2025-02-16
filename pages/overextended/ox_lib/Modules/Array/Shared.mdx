@@ -2,11 +2,11 @@
 
 ## lib.array
 
-A table used as a prototype for the Array class. Functions can be used as class methods or standard functions.
+Uma tabela usada como protótipo para a classe Array. Funções podem ser usadas como métodos de classe ou funções padrão.
 
 ### lib.array:new
 
-Constructs instance of Array containing the given elements.
+Constrói uma instância de Array contendo os elementos fornecidos.
 
 ```lua
 lib.array:new(...)
@@ -20,7 +20,7 @@ lib.array:new(...)
 
 ### lib.isArray
 
-Determines if the given table is an instance of Array or an array-like table.
+Determina se a tabela fornecida é uma instância de Array ou uma tabela semelhante a um array.
 
 ```lua
 lib.array.isArray(tbl)
@@ -34,7 +34,7 @@ lib.array.isArray(tbl)
 
 ### lib.array.merge
 
-Combines the elements of two arrays into a new array.
+Combina os elementos de dois arrays em um novo array.
 
 - a: `Array`
 - b: `Array`
@@ -49,7 +49,7 @@ lib.array.merge(a, b)
 
 ### lib.array.every
 
-Tests if all elements in an array succeed in passing the provided test function.
+Verifica se todos os elementos de um array passam na função de teste fornecida.
 
 - arr: `Array`
 - testFn: `function`
@@ -64,7 +64,7 @@ lib.array.every(arr, testFn)
 
 ### lib.array.filter
 
-Creates a new array containing the elements from an array that pass the provided test function.
+Cria um novo array contendo os elementos de um array que passam na função de teste fornecida.
 
 - arr: `Array`
 - testFn: `function`
@@ -79,12 +79,12 @@ lib.array.filter(arr, testFn)
 
 ### lib.array.find
 
-Returns the first element of an array the passes the provided test function.
+Retorna o primeiro elemento de um array que passa na função de teste fornecida.
 
 - arr: `Array`
 - testFn: `function`
 - reverse?: `boolean`
-  - Iterate over the array in reverse order.
+  - Itera sobre o array em ordem reversa.
 
 ```lua
 lib.array.find(arr, function(element) end, reverse)
@@ -96,12 +96,12 @@ lib.array.find(arr, function(element) end, reverse)
 
 ### lib.array.findIndex
 
-Returns the index of the first element of an array the passes the provided test function.
+Retorna o índice do primeiro elemento de um array que passa na função de teste fornecida.
 
 - arr: `Array`
 - testFn: `function`
 - reverse?: `boolean`
-  - Iterate over the array in reverse order.
+  - Itera sobre o array em ordem reversa.
 
 ```lua
 lib.array.findIndex(arr, function(element) end, reverse)
@@ -113,12 +113,12 @@ lib.array.findIndex(arr, function(element) end, reverse)
 
 ### lib.array.indexOf
 
-Returns the index of the first element of an array the matches the provided value.
+Retorna o índice do primeiro elemento de um array que corresponde ao valor fornecido.
 
 - arr: `Array`
 - value: `any`
 - reverse?: `boolean`
-  - Iterate over the array in reverse order.
+  - Itera sobre o array em ordem reversa.
 
 ```lua
 lib.array.indexOf(arr, value, reverse)
@@ -130,7 +130,7 @@ lib.array.indexOf(arr, value, reverse)
 
 ### lib.array.forEach
 
-Executes the provided function for each element in an array.
+Executa a função fornecida para cada elemento de um array.
 
 - arr: `Array`
 - cb: `function`
@@ -145,7 +145,7 @@ lib.array.forEach(arr, function(element) end, reverse)
 
 ### lib.array.join
 
-Concatenates all elements of an array into a string, separated by commas or the specified seperator.
+Concatena todos os elementos de um array em uma string, separados por vírgulas ou pelo separador especificado.
 
 - arr: `Array`
 - seperator?: `string`
@@ -160,7 +160,7 @@ lib.array.join(arr, seperator)
 
 ### lib.array.pop
 
-Removes the last element from an array and returns the value.
+Remove o último elemento de um array e retorna o valor.
 
 - arr: `Array`
 
@@ -170,11 +170,11 @@ lib.array.pop(arr)
 
 **Returns:**
 
-- element: `unknown`
+- elemento: `desconhecido`
 
 ### lib.array.push
 
-Adds the given elements to the end of an array and returns the new array length.
+Adiciona os elementos fornecidos ao final de um array e retorna o novo comprimento do array.
 
 - arr: `Array`
 - ...: `any`
@@ -189,7 +189,7 @@ lib.array.push(arr, ...)
 
 ### lib.array.shift
 
-Removes the first element from an array and returns the value.
+Remove o primeiro elemento de um array e retorna o valor.
 
 - arr: `Array`
 
@@ -199,12 +199,12 @@ lib.array.shift(arr)
 
 **Returns:**
 
-- element: `unknown`
+- elemento: `desconhecido`
 
 ### lib.array.reduce
 
-The "reducer" function is applied to every element in an array, with the previous result serving as the accumulator.  
-If an initial value is provided it's used as the accumulator for the first index; otherwise iteration starts at the second index, with the first index as the accumulator.
+A função "reducer" é aplicada a cada elemento de um array, com o resultado anterior servindo como acumulador.  
+Se um valor inicial for fornecido, ele é usado como o acumulador para o primeiro índice; caso contrário, a iteração começa no segundo índice, com o primeiro índice como o acumulador.
 
 - arr: `Array`
 - reducer: `function`
@@ -216,4 +216,4 @@ lib.array.reduce(arr, function(accumulator, element, index) end)
 
 **Returns:**
 
-- accumulator: `unknown`
+- acumulador: `desconhecido`

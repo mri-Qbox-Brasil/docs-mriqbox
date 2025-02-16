@@ -2,60 +2,60 @@
 
 ## Classes
 
-A class is a template for creating objects with set attributes and behaviours.
+Uma classe é um modelo para criar objectos com atributos e comportamentos definidos.
 
-- Though Lua does not typically support object-oriented programming, it is possible to simulate it with [metatables](https://www.lua.org/manual/5.4/manual.html#2.4).
-- Our implementation of classes are loosely based on [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes).
+- Embora Lua não suporte tipicamente programação orientada a objetos, é possível simulá-la com [metatables](https://www.lua.org/manual/5.4/manual.html#2.4).
+- A nossa implementação de classes é vagamente baseada em [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes).
 
-### Inheritance
+### Herança
 
-Classes can inherit attributes and behaviors from other classes, similar to how instances inherit from their parent class.
+As classes podem herdar atributos e comportamentos de outras classes, da mesma forma que as instâncias herdam da sua classe-mãe.
 
-When specifying a "super" class in a class declaration, you create a derived or "sub" class. This subclass inherits both fields and methods from its parent. This inheritance extends across multiple levels of derived classes, enabling class attributes to be shared throughout the class hierarchy.
+Ao especificar uma classe “super” numa declaração de classe, cria-se uma classe derivada ou “subclasse”. Esta subclasse herda tanto os campos como os métodos da sua classe-mãe. Esta herança estende-se a vários níveis de classes derivadas, permitindo que os atributos da classe sejam partilhados ao longo da hierarquia de classes.
 
-### Encapsulation
+### Encapsulamento
 
-Encapsulation is the practice of bundling data (attributes) and methods (behaviors) within a class.
+O encapsulamento é a prática de agrupar dados (atributos) e métodos (comportamentos) dentro de uma classe.
 
-This practice helps to organize related functionalities and prevents outside interference with the internal workings of the class. By encapsulating these elements, we promote modularity, maintain data integrity, and control how data is accessed and manipulated within a program.
+Esta prática ajuda a organizar as funcionalidades relacionadas e evita interferências externas no funcionamento interno da classe. Ao encapsular estes elementos, promovemos a modularidade, mantemos a integridade dos dados e controlamos a forma como os dados são acedidos e manipulados dentro de um programa.
 
 ## OxClass
 
-OxClass is a blueprint used for all classes created with `lib.class`. It provides some some basic attributes and behaviours shared by all classes.
+OxClass é um modelo usado para todas as classes criadas com `lib.class`. Ele fornece alguns atributos básicos e comportamentos compartilhados por todas as classes.
 
-### Attributes
+### Atributos
 
 - __name: `string`
-  - A protected field representing the name of the class.
+  - Um campo protegido que representa o nome da classe.
 - constructor?: `function`
-  - A protected method used to instantiate a new object inheriting from a class.
+  - Um método protegido utilizado para instanciar um novo objeto herdado de uma classe.
   - Called by `class:new(...)` if `class:constructor()` exists.
 - private?: `table`
-  - A protected field which holds all private data in a class.
-  - Private data cannot be accessed outside of class methods, enforcing security and data integrity.
+  - Um campo protegido que contém todos os dados privados de uma classe.
+  - Os dados privados não podem ser acedidos fora dos métodos da classe, reforçando a segurança e a integridade dos dados.
 - super?: `class`
-  - A protected method referencing the constructor of a superclass.
-  - Must be called inside a class constructor when instantiating a class.
+  - Um método protegido que faz referência ao construtor de uma superclasse.
+  - Deve ser chamado dentro de um construtor de classe ao instanciar uma classe.
 
 ## lib.class
 
-This function allows you to define a new class, optionally inheriting from a parent or "super" class.
+Esta função permite-lhe definir uma nova classe, opcionalmente herdando de uma classe-mãe ou “super”.
 
 ```lua
 local MyClass = lib.class(name, super)
 ```
 
-### Parameters
+### Parâmetros
 
 - name: `string`
 - super?: `table`
-  - Sets the new class as a subset of the super class.
+  - Define a nova classe como um subconjunto da superclasse.
 
 ### Returns
 - `table`
-  - The newly created class.
+  - A classe recém-criada.
 
-### Example
+### Exemplo
 
 ```lua
 ---@class Person : OxClass
@@ -63,7 +63,7 @@ local MyClass = lib.class(name, super)
 local Person = lib.class('Person')
 
 function Person:constructor(name)
-    print('calling Person constructor for', name)
+    print('chamando o construtor Person para', name)
     self.name = name
 end
 
@@ -74,13 +74,13 @@ end
 local Professor = lib.class('Professor', Person)
 
 function Professor:constructor(name, teaches)
-    print('calling Professor constructor for', name)
+    print('chamando o Professor construtor para', name)
     self:super(name)
     self.teaches = teaches
 end
 
 function Professor:introduceSelf()
-    print(("My name is %s, and I will be your %s professor."):format(self.name, self.teaches))
+    print(("O meu nome é %s, e serei o vosso professor de %s."):format(self.name, self.teaches))
 end
 
 function Professor:grade(paper)
@@ -92,7 +92,7 @@ CreateThread(function()
     local walter = Professor:new('Walter', 'Chemistry')
 
     walter:introduceSelf()
-    walter:grade('my paper')
+    walter:grade('o meu trabalho')
 end)
 
 
@@ -105,13 +105,13 @@ local Student = lib.class('Student', Person)
 ---@param name string
 ---@param year number
 function Student:constructor(name, year)
-    print('calling Student constructor for', name)
+    print('chamando o construtor do aluno para', name)
     self:super(name)
     self.private.year = year
 end
 
 function Student:introduceSelf()
-    print(("Hi! I'm %s, and I'm in year %s."):format(self.name, self.private.year))
+    print(("Olá! Chamo-me %s e estou no ano %s."):format(self.name, self.private.year))
 end
 
 ---@param year number
@@ -122,9 +122,9 @@ end
 CreateThread(function()
     local jesse = Student:new('Jesse', 2)
 
-    jesse:introduceSelf() -- Hi! I'm Jesse, and I'm in year 2.
+    jesse:introduceSelf() -- Olá! Chamo-me Jesse e estou no 2º ano.
     jesse:setYear(3)
-    jesse:introduceSelf() -- Hi! I'm Jesse, and I'm in year 3.
+    jesse:introduceSelf() -- Olá! Chamo-me Jesse e estou no 3º ano.
     print(jesse.private.year) -- nil
     print(getmetatable(jesse.private)) -- private
     jesse.private.year = 4 -- error

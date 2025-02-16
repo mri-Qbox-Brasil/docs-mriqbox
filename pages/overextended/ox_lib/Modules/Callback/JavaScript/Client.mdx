@@ -10,7 +10,7 @@ triggerServerCallback(eventName, delay, ...args)
 
 - eventName: `string`
 - delay: `number` or `null`
-  - Amount of time until this callback can be triggered again
+  - Período de tempo até que esta chamada de retorno possa ser acionada novamente
 - ..args: `any`
 
 ## Register Client Callback
@@ -24,9 +24,9 @@ onServerCallback(eventName, cb)
 - eventName: `string`
 - cb: `function`(...args: `any`)
 
-## Usage Example
+## Exemplo de utilização
 
-For this example to fully make sense take a look at the example on the [server](./Server#usage-example) page for the callbacks.
+Para que este exemplo faça todo o sentido, dê uma olhada ao exemplo na secção [server](./Server#usage-example) página para as rechamadas.
 
 ```ts
 import { onServerCallback, triggerServerCallback } from '@overextended/ox_lib/client'
@@ -36,7 +36,7 @@ import { onServerCallback, triggerServerCallback } from '@overextended/ox_lib/cl
 onServerCallback('test:client', (...args: [number, number, string]) => {
   console.log(args);
   return {
-    clientValue: 'Value from the client',
+    clientValue: 'Valor do cliente',
   };
 });
 ```

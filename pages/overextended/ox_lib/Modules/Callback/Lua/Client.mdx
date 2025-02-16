@@ -1,10 +1,10 @@
 # Client
 
-## Trigger Server Callback
+## Ativar a chamada de retorno do servidor
 
 ### lib.callback
 
-The response is handled in a separate coroutine.
+A resposta é tratada numa coroutine separada.
 
 ```lua
 lib.callback(name, delay, cb, ...)
@@ -12,7 +12,7 @@ lib.callback(name, delay, cb, ...)
 
 - name: `string`
 - delay: `number` or `false`
-  - Amount of time until this callback can be triggered again
+  - Período de tempo até que esta chamada de retorno possa ser acionada novamente
 - cb: `function`
 - ...: `any`
 
@@ -24,7 +24,7 @@ end, 'water', {type = 'fresh'})
 
 ### lib.callback.await
 
-The current coroutine is yielded until a response is received.
+A corrotina atual é cedida até ser recebida uma resposta.
 
 ```lua
 lib.callback.await(name, delay, ...)
@@ -32,7 +32,7 @@ lib.callback.await(name, delay, ...)
 
 - name: `string`
 - delay: `number` or `false`
-  - Amount of time until this callback can be triggered again
+  - Período de tempo até que esta chamada de retorno possa ser acionada novamente
 - ...: `any`
 
 ```lua
@@ -40,11 +40,11 @@ local count = lib.callback.await('ox_inventory:getItemCount', false, 'water', {t
 print(count)
 ```
 
-## Register Client Callback
+## Registar a chamada de retorno do cliente
 
 ### lib.callback.register
 
-Register an event handler for responding to server requests.
+Registar um manipulador de eventos para responder a pedidos do servidor.
 
 ```lua
 lib.callback.register(name, cb)
