@@ -1,8 +1,9 @@
 {
     "repositories": [
         {
-            "name": "cw-rep",
-            "repo": "cw-rep"
+            "name": "CW Rep",
+            "repo": "cw-rep",
+            "org": "mri-Qbox-Brasil"
         }
     ]
 }
