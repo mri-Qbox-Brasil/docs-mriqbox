@@ -1,0 +1,42 @@
+name: Update Documentation
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  update-docs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do repositório da documentação
+        uses: actions/checkout@v4
+
+      - name: Configurar Git
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
+
+      - name: Baixar e processar READMEs
+        run: |
+          repos=$(jq -r '.repositories[]' repos.json)
+          for repo in $repos; do
+            owner=$(echo $repo | cut -d'/' -f1)
+            repo_name=$(echo $repo | cut -d'/' -f2)
+            mkdir -p pages/mri/resources/$repo_name
+            echo "Baixando README de $repo..."
+            curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+              -H "Accept: application/vnd.github.v3.raw" \
+              "https://api.github.com/repos/$repo/readme" -o "docs/repos/$repo_name.md" || echo "Falha ao baixar $repo"
+          done
+
+      - name: Commit e Push se houver mudanças
+        run: |
+          git add pages/mri/resources
+          if git diff --cached --quiet; then
+            echo "Sem mudanças, finalizando."
+          else
+            git commit -m "Atualização automática dos READMEs"
+            git push
+          fi
