@@ -25,7 +25,7 @@ jobs:
 
       - name: Baixar e processar READMEs
         run: |
-          mkdir -p docs/repos
+          mkdir -p pages/mri/resources
           jq -c '.repositories[]' repos.json | while read -r repo_info; do
             org=$(echo $repo_info | jq -r '.org')
             repo=$(echo $repo_info | jq -r '.repo')
@@ -33,12 +33,12 @@ jobs:
             echo "Baixando README de $repo da organização $org ($name)..."
             curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
               -H "Accept: application/vnd.github.v3.raw" \
-              "https://api.github.com/repos/$org/$repo/readme" -o "docs/repos/$repo.md" || echo "Falha ao baixar $repo"
+              "https://api.github.com/repos/$org/$repo/readme" -o "pages/mri/resources/$repo.md" || echo "Falha ao baixar $repo"
           done
 
       - name: Commit e Push se houver mudanças
         run: |
-          git add docs/repos/
+          git add pages/mri/resources/
           if git diff --cached --quiet; then
             echo "Sem mudanças, finalizando."
             echo "no_changes=true" >> $GITHUB_ENV
