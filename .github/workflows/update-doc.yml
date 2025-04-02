@@ -7,8 +7,8 @@ on:
 
 jobs:
   update-docs:
+    name: Update Documentation
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout do repositório da documentação
         uses: actions/checkout@v4
@@ -48,7 +48,7 @@ jobs:
             echo "no_changes=false" >> $GITHUB_ENV
           fi
 
-      - name: Disparar outro workflow se houver mudanças
+      - name: Disparar deploy se houver mudanças
         if: env.no_changes == 'false'
         run: |
           curl -X POST -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
