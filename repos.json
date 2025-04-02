@@ -4,6 +4,11 @@
             "name": "CW Rep",
             "repo": "cw-rep",
             "org": "mri-Qbox-Brasil"
+        },
+        {
+            "name": "MRI QMenu",
+            "repo": "mri_Qmenu",
+            "org": "mri-Qbox-Brasil"
         }
     ]
 }
