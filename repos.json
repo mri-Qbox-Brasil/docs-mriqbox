@@ -9,6 +9,11 @@
             "name": "MRI QMenu",
             "repo": "mri_Qmenu",
             "org": "mri-Qbox-Brasil"
+        },
+        {
+            "name": "MRI QTyreControl",
+            "repo": "mri_Qtyrecontrol",
+            "org": "mri-Qbox-Brasil"
         }
     ]
 }
