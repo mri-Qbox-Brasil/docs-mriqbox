@@ -1,0 +1,168 @@
+# 🛡️ Guia Rápido de Permissões no FiveM
+
+Este guia tem como objetivo explicar como funcionam as permissões no FiveM, como configurá-las corretamente, e como utilizá-las em conjunto com recursos como `ox_lib` e scripts que dependem de permissões por `ACE`.
+
+---
+
+## 🧠 Conceitos Fundamentais
+
+### 🔑 Principals
+
+Um **principal** representa uma entidade que pode receber permissões:
+
+* `group.admin`
+* `identifier.steam:110000112345678`
+* `resource.meu_script`
+
+### 🎯 Objetos
+
+Um **objeto** representa uma ação ou permissão específica:
+
+* `command` (acesso a qualquer comando)
+* `command.giveitem` (acesso a um comando específico)
+* `admin`, `mod`, `qbadmin.join` (padrões usados por scripts)
+
+### ✅ Permissão: allow / deny
+
+Define se o principal tem acesso (`allow`) ou não (`deny`) ao objeto.
+
+---
+
+## ⚙️ Comandos de Controle de Acesso
+
+### ➕ `add_ace`
+
+Adiciona uma permissão para um principal sobre um objeto.
+
+```cfg
+add_ace [principal] [object] [allow|deny]
+```
+
+**Exemplo:**
+
+```cfg
+add_ace group.admin command.giveitem allow
+```
+
+### ❌ `remove_ace`
+
+Remove uma permissão existente.
+
+```cfg
+remove_ace [principal] [object] [allow|deny]
+```
+
+**Exemplo:**
+
+```cfg
+remove_ace identifier.steam:110000112345678 command.apple deny
+```
+
+### 👥 `add_principal`
+
+Faz um principal herdar permissões de outro.
+
+```cfg
+add_principal [child] [parent]
+```
+
+**Exemplo:**
+
+```cfg
+add_principal identifier.steam:110000112345678 group.admin
+```
+
+### 🔁 `remove_principal`
+
+Remove uma herança entre principals.
+
+```cfg
+remove_principal [child] [parent]
+```
+
+### 🧪 `test_ace`
+
+Testa se um principal tem permissão para um objeto.
+
+```bash
+test_ace group.admin command.adminstuff
+```
+
+---
+
+## 📦 Integração com ox\_lib
+
+A `ox_lib` permite registrar comandos com permissões diretamente.
+
+### 💡 Exemplo:
+
+```lua
+lib.addCommand('giveitem', {
+  help = 'Gives an item to a player',
+  params = {
+    { name = 'target', type = 'playerId', help = 'Target player\'s server id' },
+    { name = 'item', type = 'string', help = 'Name of the item to give' },
+    { name = 'count', type = 'number', help = 'Amount to give', optional = true },
+    { name = 'metatype', help = 'Sets metadata.type', optional = true }
+  },
+  restricted = 'group.admin'
+}, function(source, args, raw)
+  Inventory.AddItem(args.target, args.item, args.count or 1, args.metatype)
+end)
+```
+
+O campo `restricted` aceita:
+
+* `false`: comando livre
+* `true`: comando restrito a admins
+* `'group.admin'`: ACE específico
+* `{'group.admin', 'group.mod'}`: múltiplos grupos
+
+---
+
+## 📝 Exemplo de Arquivo de Permissões (`server.cfg`)
+
+```cfg
+# Permissão total para comandos do grupo admin
+group.admin command allow
+
+# Permitir qbx_core executar comandos
+add_ace resource.qbx_core command allow
+
+# ox_lib - permitir controle de ACEs
+add_ace resource.ox_lib command.add_ace allow
+add_ace resource.ox_lib command.remove_ace allow
+add_ace resource.ox_lib command.add_principal allow
+add_ace resource.ox_lib command.remove_principal allow
+
+# Permissões personalizadas para grupos
+add_ace group.admin admin allow
+add_ace group.mod mod allow
+add_ace group.support support allow
+add_ace group.support qbadmin.join allow
+
+# Herança de grupos
+add_principal group.admin group.mod
+add_principal group.mod group.support
+
+# Permitir comandos de scripts
+add_ace resource.zdiscord command.add_principal allow
+add_ace resource.zdiscord command.remove_principal allow
+
+```
+
+---
+
+## 💡 Dicas e Boas Práticas
+
+* 🗂️ Sempre organize seus grupos de permissão e mantenha padrões de nome.
+* 🚫 Evite dar `command allow` global a não ser em scripts confiáveis.
+* 🧪 Utilize `test_ace` para diagnosticar permissões.
+* 🔐 Use `restricted` no `ox_lib` para proteger comandos.
+* 📋 Scripts como `zdiscord`, `qb-adminmenu`, `ox_target` e outros fazem uso extensivo de ACEs, então mantenha sua configuração revisada.
+
+---
+
+## 🏁 Conclusão
+
+Compreender e configurar corretamente as permissões no FiveM garante mais segurança, organização e controle sobre sua comunidade e scripts. Use este guia como referência sempre que precisar criar ou auditar suas permissões. 🚀
