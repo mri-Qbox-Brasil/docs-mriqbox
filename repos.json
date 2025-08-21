@@ -19,6 +19,11 @@
             "name": "MRI Qstashes",
             "repo": "mri_Qstashes",
             "org": "mri-Qbox-Brasil"
+        },
+        {
+            "name": "MRI Qboombox",
+            "repo": "mri_Qboombox",
+            "org": "mri-Qbox-Brasil"
         }
     ]
 }
