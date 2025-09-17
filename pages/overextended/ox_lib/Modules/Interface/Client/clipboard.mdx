@@ -1,22 +1,22 @@
 ---
-title: Clipboard
+title: Área de Transferência
 ---
 
 import { Tabs, Tab } from 'nextra-theme-docs';
 import { Callout } from 'nextra/components';
 
-# Clipboard
+# Área de Transferência
 
 ## lib.setClipboard
 
-Sets the player's clipboard to the specified string value.
+Define o conteúdo da área de transferência do jogador com o valor da string especificada.
 
 <Callout>
-    Will not work if focus is already taken by some NUI component.
+    Não funcionará se o foco já estiver sendo utilizado por algum componente NUI.
 </Callout>
 
 <Callout>
-    To create a new line use `\t\n` not just `\n` in your string.
+    Para criar uma nova linha, use `\t\n` e **não apenas** `\n` na sua string.
 </Callout>
 
 <Tabs items={["Lua", "JS"]}>

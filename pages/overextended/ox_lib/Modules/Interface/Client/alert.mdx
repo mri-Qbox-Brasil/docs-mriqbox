@@ -1,14 +1,14 @@
 ---
-title: Alert Dialog
+title: Caixa de Alerta
 ---
 
 import { Tabs, Tab } from 'nextra-theme-docs';
 import { Callout } from 'nextra/components';
 
-# Alert Dialog
+# Caixa de Alerta
 
-Simple alert dialog that can display a message to the player.  
-Returns whether the player pressed the confirm button or canceled the dialog.
+Uma caixa de alerta simples que pode exibir uma mensagem ao jogador.  
+Retorna se o jogador pressionou o botão de confirmar ou se cancelou o diálogo.
 
 ## lib.alertDialog
 
@@ -29,7 +29,7 @@ Returns whether the player pressed the confirm button or canceled the dialog.
   </Tab>
   <Tab>
     <Callout>
-      This function is **asynchronous** requiring you to do a `.then` callback on the promise or make your function `async`.
+      Esta função é **assíncrona**, sendo necessário utilizar um callback `.then` ou tornar sua função `async`.
     </Callout>
 
     ```ts
@@ -42,26 +42,26 @@ Returns whether the player pressed the confirm button or canceled the dialog.
 
 - data: `table` (`object`)
   - header: `string`
-    - Dialog title.
+    - Título do diálogo.
   - content: `string`
-    - Dialog body content, supports markdown.
+    - Conteúdo do corpo do diálogo, com suporte a markdown.
   - centered?: `boolean`
-    - Centers the dialog vertically and horizontally.
+    - Centraliza o diálogo vertical e horizontalmente.
   - cancel?: `boolean`
-    - Displays a cancel button (ESC is still available if this is not defined).
-  - size?: `'xs'` or `'sm'` or `'md'` or `'lg'` or `'xl'`
+    - Exibe um botão de cancelar (ESC ainda funciona mesmo que não esteja definido).
+  - size?: `'xs'` ou `'sm'` ou `'md'` ou `'lg'` ou `'xl'`
   - overflow?: `boolean`
   - labels?: `table`
-    - Allows you to define the displayed labels for cancel and/or confirm buttons.
+    - Permite definir os rótulos exibidos para os botões de cancelar e/ou confirmar.
     - cancel?: `string`
     - confirm?: `string`
 
-Returns `'confirm'` if the player pressed the confirm button, otherwise if the player pressed the cancel button
-or has exited the dialog with ESC the return will be `'cancel'`.
+Retorna `'confirm'` se o jogador pressionar o botão de confirmar.  
+Caso contrário, se pressionar cancelar ou sair com ESC, o retorno será `'cancel'`.
 
 ## lib.closeAlertDialog
 
-Force closes the active alert dialog and sets its return data as `nil`
+Força o fechamento da caixa de alerta ativa e define seu retorno como `nil`.
 
 <Tabs items={["Lua", "JS"]}>
   <Tab>
@@ -78,14 +78,14 @@ Force closes the active alert dialog and sets its return data as `nil`
   </Tab>
 </Tabs>
 
-## Example
+## Exemplo
 
 <Tabs items={["Lua", "JS"]}>
   <Tab>
     ```lua
     local alert = lib.alertDialog({
-        header = 'Hello there',
-        content = 'General Kenobi  \n Markdown support!',
+        header = 'Olá!',
+        content = 'General Kenobi  \n Suporte a Markdown!',
         centered = true,
         cancel = true
     })
@@ -98,8 +98,8 @@ Force closes the active alert dialog and sets its return data as `nil`
     import lib from '@overextended/ox_lib/client';
 
     const alert = await lib.alertDialog({
-      header: 'Hello there',
-      content: 'General Kenobi  \n Markdown support!',
+      header: 'Olá!',
+      content: 'General Kenobi  \n Suporte a Markdown!',
       centered: true,
       cancel: true,
     });
