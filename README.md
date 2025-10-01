@@ -1,12 +1,12 @@
-# mri-Qbox Project Documentation
+# mri-Qbox - Documentação do Projeto
 
-## Local Development
+## Desenvolvimento Local
 
-First, run `pnpm i` to install the dependencies.
+Primeiro, rode `pnpm i` para instalar as dependências.
 
-Then, run `pnpm dev` to start the development server and visit localhost:3000.
+Depois, rode `pnpm dev` para iniciar o servidor de desenvolvimento (`http://localhost:3000`).
 
-## Acknowledgements
+## Agradecimentos
 
-- [`shuding/nextra-docs-template`](https://github.com/shuding/nextra-docs-template) - the template used
-- [`overextended/overextended.github.io`](https://github.com/overextended/overextended.github.io) - 99.9 % of the styling copied over from here
+- [`shuding/nextra-docs-template`](https://github.com/shuding/nextra-docs-template) - o template
+- [`overextended/overextended.github.io`](https://github.com/overextended/overextended.github.io) - 99.9 % da estilização veio daqui
