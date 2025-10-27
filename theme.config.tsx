@@ -54,7 +54,7 @@ const config: DocsThemeConfig = {
     link: 'https://github.com/mri-Qbox-Brasil',
   },
   chat: {
-    link: 'https://discord.gg/uEfGD4mmVh',
+    link: 'https://discord.mriqbox.com.br',
   },
   docsRepositoryBase: 'https://github.com/mri-Qbox-Brasil/docs-mriqbox/blob/main',
   footer: {
