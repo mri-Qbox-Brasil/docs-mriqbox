@@ -34,6 +34,7 @@ const Contributors = () => {
             key={contributor.id}
             image={contributor.avatar_url}
             username={contributor.login}
+            kofiName={contributor.kofi_username}
           />
         ))
       ) : (
