@@ -29,6 +29,11 @@
             "name": "ZDiscord",
             "repo": "zdiscord",
             "org": "mri-Qbox-Brasil"
+        },
+        {
+            "name": "mri QRequest",
+            "repo": "mri_Qrequest",
+            "org": "mri-Qbox-Brasil"
         }
     ]
 }
