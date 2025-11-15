@@ -6,7 +6,7 @@ settings:
 
 patchedDependencies:
   nextra@2.13.4:
-    hash: lmtsof477bkdpd5wo5qlmftqea
+    hash: 83fa49590048c96c31e9acbc827a4955c8d7b18eeaadcd54017e65ec57ed322e
     path: patches/nextra@2.13.4.patch
 
 importers:
@@ -30,13 +30,13 @@ importers:
         version: 4.2.3(next@14.2.32(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       nextra:
         specifier: ^2.13.4
-        version: 2.13.4(patch_hash=lmtsof477bkdpd5wo5qlmftqea)(next@14.2.32(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 2.13.4(patch_hash=83fa49590048c96c31e9acbc827a4955c8d7b18eeaadcd54017e65ec57ed322e)(next@14.2.32(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       nextra-docs-template:
         specifier: 'file:'
         version: file:(@algolia/client-search@4.23.3)(@types/react@18.3.3)(search-insights@2.8.3)
       nextra-theme-docs:
         specifier: ^2.13.4
-        version: 2.13.4(next@14.2.32(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(nextra@2.13.4(patch_hash=lmtsof477bkdpd5wo5qlmftqea)(next@14.2.32(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 2.13.4(next@14.2.32(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(nextra@2.13.4(patch_hash=83fa49590048c96c31e9acbc827a4955c8d7b18eeaadcd54017e65ec57ed322e)(next@14.2.32(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -1022,6 +1022,7 @@ packages:
 
   intersection-observer@0.12.2:
     resolution: {integrity: sha512-7m1vEcPCxXYI8HqnL8CKI6siDyD+eIWSwgB3DZA+ZTogxk9I4CDnj4wilt9x/+/QbHI4YG5YZNmC6458/e9Ktg==}
+    deprecated: The Intersection Observer polyfill is no longer needed and can safely be removed. Intersection Observer has been Baseline since 2019.
 
   is-alphabetical@2.0.1:
     resolution: {integrity: sha512-FWyyY60MeTNyeSRpkM2Iry0G9hpr7/9kD40mD/cGQEuilcZYS4okz8SN2Q6rLCJ8gbCt6fN+rC+6tMGS99LaxQ==}
@@ -1102,12 +1103,12 @@ packages:
   js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
 
-  js-yaml@3.14.1:
-    resolution: {integrity: sha512-okMH7OXXJ7YrN9Ok3/SXrnu4iX9yOk+25nqX4imS2npuvTYDmo/QEZoqwZkYaIDk3jVvBOTOIEgEhaLOynBS9g==}
+  js-yaml@3.14.2:
+    resolution: {integrity: sha512-PMSmkqxr106Xa156c2M265Z+FTrPl+oxd/rgOQy2tijQeK5TxQ43psO1ZCwhVOSdnn+RzkzlRz/eY4BgJBYVpg==}
     hasBin: true
 
-  js-yaml@4.1.0:
-    resolution: {integrity: sha512-wpxZs9NoxZaJESJGIZTyDEaYpl0FKSA+FB9aJiyemKhMwkxQg63h4T1KJgUGHpTqPDNRcmmYLugrRjJlBtWvRA==}
+  js-yaml@4.1.1:
+    resolution: {integrity: sha512-qQKT4zQxXl8lLwBtHMWwaTcGfFOZviOJet3Oy/xmGk2gZH677CJM9EvtfdSkgWcATZhj/55JZ0rmy3myCT5lsA==}
     hasBin: true
 
   jsonc-parser@3.2.1:
@@ -2960,7 +2961,7 @@ snapshots:
 
   gray-matter@4.0.3:
     dependencies:
-      js-yaml: 3.14.1
+      js-yaml: 3.14.2
       kind-of: 6.0.3
       section-matter: 1.0.0
       strip-bom-string: 1.0.0
@@ -3156,12 +3157,12 @@ snapshots:
 
   js-tokens@4.0.0: {}
 
-  js-yaml@3.14.1:
+  js-yaml@3.14.2:
     dependencies:
       argparse: 1.0.10
       esprima: 4.0.1
 
-  js-yaml@4.1.0:
+  js-yaml@4.1.1:
     dependencies:
       argparse: 2.0.1
 
@@ -3787,8 +3788,8 @@ snapshots:
       '@tabler/icons-react': 2.47.0(react@18.3.1)
       next: 14.2.32(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       next-sitemap: 4.2.3(next@14.2.32(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
-      nextra: 2.13.4(patch_hash=lmtsof477bkdpd5wo5qlmftqea)(next@14.2.32(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      nextra-theme-docs: 2.13.4(next@14.2.32(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(nextra@2.13.4(patch_hash=lmtsof477bkdpd5wo5qlmftqea)(next@14.2.32(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      nextra: 2.13.4(patch_hash=83fa49590048c96c31e9acbc827a4955c8d7b18eeaadcd54017e65ec57ed322e)(next@14.2.32(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      nextra-theme-docs: 2.13.4(next@14.2.32(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(nextra@2.13.4(patch_hash=83fa49590048c96c31e9acbc827a4955c8d7b18eeaadcd54017e65ec57ed322e)(next@14.2.32(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
     transitivePeerDependencies:
@@ -3802,7 +3803,7 @@ snapshots:
       - search-insights
       - supports-color
 
-  nextra-theme-docs@2.13.4(next@14.2.32(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(nextra@2.13.4(patch_hash=lmtsof477bkdpd5wo5qlmftqea)(next@14.2.32(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  nextra-theme-docs@2.13.4(next@14.2.32(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(nextra@2.13.4(patch_hash=83fa49590048c96c31e9acbc827a4955c8d7b18eeaadcd54017e65ec57ed322e)(next@14.2.32(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@headlessui/react': 1.7.19(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@popperjs/core': 2.11.8
@@ -3816,13 +3817,13 @@ snapshots:
       next: 14.2.32(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       next-seo: 6.5.0(next@14.2.32(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       next-themes: 0.2.1(next@14.2.32(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      nextra: 2.13.4(patch_hash=lmtsof477bkdpd5wo5qlmftqea)(next@14.2.32(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      nextra: 2.13.4(patch_hash=83fa49590048c96c31e9acbc827a4955c8d7b18eeaadcd54017e65ec57ed322e)(next@14.2.32(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
       scroll-into-view-if-needed: 3.1.0
       zod: 3.23.8
 
-  nextra@2.13.4(patch_hash=lmtsof477bkdpd5wo5qlmftqea)(next@14.2.32(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  nextra@2.13.4(patch_hash=83fa49590048c96c31e9acbc827a4955c8d7b18eeaadcd54017e65ec57ed322e)(next@14.2.32(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@headlessui/react': 1.7.19(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@mdx-js/mdx': 2.3.0
@@ -4403,7 +4404,7 @@ snapshots:
     dependencies:
       '@types/js-yaml': 4.0.9
       is-buffer: 2.0.5
-      js-yaml: 4.1.0
+      js-yaml: 4.1.1
 
   vfile-message@3.1.4:
     dependencies:
