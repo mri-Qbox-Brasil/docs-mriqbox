@@ -1,15 +1,15 @@
-# Client
+# Cliente
 
 ## lib.marker
 
-Simple way to create markers
+Método simples para criar marcadores.
 
-## Marker Class
+## Classe Marker
 
-A table representing a marker with the following properties.
+Uma tabela que representa um marcador com as seguintes propriedades.
 
-- type: `number` or `string`
-  - This field accepts either a numerical value representing the marker ID or a string containing the name of a marker as documented on [FiveM Docs](https://docs.fivem.net/docs/game-references/markers/).
+ - type: `number` ou `string`
+  - Este campo aceita um valor numérico representando o ID do marcador ou uma string contendo o nome do marcador conforme documentado na [FiveM Docs](https://docs.fivem.net/docs/game-references/markers/).
 - coords?: `vector3`
 - width?: `number`
 - height?: `number`
@@ -24,24 +24,24 @@ lib.marker.new(options)
 ```
 - Returns: `Marker`
 
-### Usage Example
+### Exemplo de Uso
 ```lua
 local marker = lib.marker.new({
-	type = 1,
-	coords = GetEntityCoords(cache.ped),
-	color = { r = 255, g = 0, b = 0, a = 200 },
+    type = 1,
+    coords = GetEntityCoords(cache.ped),
+    color = { r = 255, g = 0, b = 0, a = 200 },
 })
 
 Citizen.CreateThread(function()
-	while true do
-		marker:draw()
+    while true do
+        marker:draw()
 
-		Citizen.Wait(1)
-	end
+        Citizen.Wait(1)
+    end
 end)
 ```
 
-### Interactive Example
+### Exemplo Interativo
 ```lua
 
 local center = vec3(430.452759, -1026.108032, 27.846140)

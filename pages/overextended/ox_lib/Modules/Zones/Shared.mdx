@@ -3,11 +3,10 @@ import { Callout } from 'nextra/components';
 
 # Shared
 
-Faster alternative to PolyZone utilising [glm.polygon](https://github.com/citizenfx/lua/blob/luaglm-dev/cfx/EXTENDED.md).
+Alternativa mais rápida ao PolyZone, utilizando [glm.polygon](https://github.com/citizenfx/lua/blob/luaglm-dev/cfx/EXTENDED.md).
 
 <Callout>
-  Currently zones only have basic support on the server side. Some features will not work such as `onEnter`, `onExit`,
-  and `inside`.
+  Atualmente as zones possuem apenas suporte básico no lado do servidor. Algumas funcionalidades não funcionarão, como `onEnter`, `onExit` e `inside`.
 </Callout>
 
 ## lib.zones.poly
@@ -18,9 +17,9 @@ lib.zones.poly(data)
 
 - data: `table`
   - points: `vector3[]`
-    - An array of 3d points defining the polygon's shape.
+    - Um array de pontos 3D que definem a forma do polígono.
   - thickness?: `number`
-    - The height of the polygon, defaulting to `4`.
+    - A altura do polígono, padrão `4`.
   - onEnter?: `function(self: table)`
   - onExit?: `function(self: table)`
   - inside?: `function(self: table)`
@@ -35,9 +34,9 @@ lib.zones.box(data)
 - data: `table`
   - coords: `vector3`
   - size?: `vector3`
-    - Default: `vec3(2, 2, 2)`
+    - Padrão: `vec3(2, 2, 2)`
   - rotation?: `number`
-    - Angle in degrees, defaulting to `0`.
+    - Ângulo em graus, padrão `0`.
   - onEnter?: `function(self: table)`
   - onExit?: `function(self: table)`
   - inside?: `function(self: table)`
@@ -52,17 +51,17 @@ lib.zones.sphere(data)
 - data: `table`
   - coords: `vector3`
   - radius?: `number`
-    - Default: `2`
+    - Padrão: `2`
   - onEnter?: `function(self: table)`
   - onExit?: `function(self: table)`
   - inside?: `function(self: table)`
   - debug?: `boolean`
 
-## Methods
+## Métodos
 
 ### remove
 
-Zones can be deleted by using the remove method. The data will not be cleared from the script, and can be used to recreate a zone later.
+Zones podem ser deletadas usando o método `remove`. Os dados não serão removidos do script, e podem ser usados para recriar a zone mais tarde.
 
 ```lua
 local zone = lib.zones.box({...})
@@ -76,7 +75,7 @@ end)
 
 ### contains
 
-Tests if a point exists inside the zone, returning a `boolean`.
+Testa se um ponto existe dentro da zone, retornando um `boolean`.
 
 ```lua
 local zone = lib.zones.box({...})
@@ -86,7 +85,7 @@ if zone:contains(vec3(1, 1, 1)) then
 end
 ```
 
-## Usage Examples
+## Exemplos de uso
 
 ```lua
 function onEnter(self)
@@ -143,12 +142,12 @@ local box = lib.zones.box({
 })
 ```
 
-## Zone creation script
+## Script de criação de Zones
 
-You can use our builtin zone-creator with `/zone` - with `poly`, `box` or `sphere` as an argument.  
-Available controls will be displayed on the right side.
+Você pode usar nosso criador de zones embutido com `/zone` — passando `poly`, `box` ou `sphere` como argumento.
+Os controles disponíveis serão exibidos no lado direito.
 
-Zones will be saved to `ox_lib/created_zones.lua` with your chosen format.
+As zones serão salvas em `ox_lib/created_zones.lua` no formato escolhido.
 
 <Tabs items={["function", "array", "ox_target"]}>
   <Tab>

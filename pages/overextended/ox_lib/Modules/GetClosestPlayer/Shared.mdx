@@ -2,22 +2,22 @@
 
 ## lib.getClosestPlayer
 
-Get the player id, ped handle, and coords of the closest player to a set of coordinates.
+Retorna o id do jogador, o handle do ped e as coordenadas do jogador mais próximo a partir de um conjunto de coordenadas.
 
 ```lua
 lib.getClosestPlayer(coords, maxDistance, includePlayer)
 ```
 
 - coords: `vector3`
-  - The coords to check from.
+  - Coordenadas a partir das quais será feita a verificação.
 - maxDistance?: `number`
-  - The max distance to check.
-  - Default: `2.0`
+  - Distância máxima para verificação.
+  - Padrão: `2.0`
 - includePlayer?: `boolean`
-  - Whether or not to include the current player. Ignored on the server.
-  - Default: `false`
+  - Se deve incluir o jogador atual. Ignorado no servidor.
+  - Padrão: `false`
 
-Return:
+Retorno:
 
 - playerId?: `number`
 - playerPed?: `number`

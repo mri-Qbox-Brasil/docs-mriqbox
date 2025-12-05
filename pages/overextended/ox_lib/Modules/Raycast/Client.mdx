@@ -1,67 +1,67 @@
 import { Callout } from 'nextra/components';
 
-# Client
+# Cliente
 
 ## lib.raycast.fromCoords
 
-Starts a shapetest originating from starting coordinates and ending at destination coordinates.
+Inicia um shapetest a partir de coordenadas iniciais até coordenadas de destino.
 
 ```lua
 lib.raycast.fromCoords(coords, destination, flags, ignore)
 ```
 
 - coords: `vector3`
-  - Starting coords for raycast
+  - Coordenadas iniciais para o raycast
 - destination: `vector3`
-  - Destination coords for raycast
+  - Coordenadas de destino para o raycast
 - flags?: `number`
-  - See: https://docs.fivem.net/natives/?_0x377906D8A31E5586
-  - Default: `511`
+  - Veja: https://docs.fivem.net/natives/?_0x377906D8A31E5586
+  - Padrão: `511`
 - ignore?: `number`
-  - A bit mask with bits 1, 2, 4, or 7 relating to collider types. 4 and 7 are usually used.
-  - Default: `4`
+  - Máscara de bits com os bits 1, 2, 4 ou 7 relacionados a tipos de colisores. Geralmente utilizam-se 4 e 7.
+  - Padrão: `4`
 
-Return:
+Retorno:
 
 - hit: `boolean`
-  - Whether or not an entity was hit
+  - Indica se uma entidade foi atingida
 - entityHit: `number`
-  - Entity handle of hit entity
+  - Handle da entidade atingida
 - endCoords: `vector3`
-  - Closest coords to where the raycast hit
+  - Coordenadas mais próximas de onde o raycast acertou
 - surfaceNormal: `vector3`
-  - Normal to the surface that was hit
+  - Normal à superfície atingida
 - materialHash: `number`
 
 ## lib.raycast.fromCamera
 
-Starts a shapetest originating from the camera, extending to ~10m by default.
+Inicia um shapetest a partir da câmera, estendendo por ~10m por padrão.
 
 ```lua
 lib.raycast.fromCamera(flags, ignore, distance)
 ```
 
 - flags?: `number`
-  - See: https://docs.fivem.net/natives/?_0x377906D8A31E5586
-  - Default: `511`
+  - Veja: https://docs.fivem.net/natives/?_0x377906D8A31E5586
+  - Padrão: `511`
 - ignore?: `number`
-  - A bit mask with bits 1, 2, 4, or 7 relating to collider types. 4 and 7 are usually used.
-  - Default: `4`
+  - Máscara de bits com os bits 1, 2, 4 ou 7 relacionados a tipos de colisores. Geralmente utilizam-se 4 e 7.
+  - Padrão: `4`
 - distance?: `number`
-  - Default: `10`
+  - Padrão: `10`
 
-Return:
+Retorno:
 
 - hit: `boolean`
-  - Whether or not an entity was hit
+  - Indica se uma entidade foi atingida
 - entityHit: `number`
-  - Entity handle of hit entity
+  - Handle da entidade atingida
 - endCoords: `vector3`
-  - Closest coords to where the raycast hit
+  - Coordenadas mais próximas de onde o raycast acertou
 - surfaceNormal: `vector3`
-  - Normal to the surface that was hit
+  - Normal à superfície atingida
 - materialHash: `number`
 
 ## lib.raycast.cam
 
-<Callout type="warning">lib.raycast.cam is depreciated alias for lib.raycast.fromCamera and may be removed at any time. Use lib.raycast.fromCamera instead!</Callout>
+<Callout type="warning">`lib.raycast.cam` é um alias obsoleto para `lib.raycast.fromCamera` e pode ser removido a qualquer momento. Use `lib.raycast.fromCamera` em seu lugar!</Callout>

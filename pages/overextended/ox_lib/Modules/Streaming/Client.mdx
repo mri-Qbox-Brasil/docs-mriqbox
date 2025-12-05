@@ -1,15 +1,15 @@
 import { Tabs, Tab } from 'nextra-theme-docs';
 import { Callout } from 'nextra/components';
 
-# Client
+# Cliente
 
-Check if assets exist, such as models, and loads them into memory.  
-Throws errors for invalid assets and returns true if the asset is loaded.
+Verifica se assets existem (por exemplo, modelos) e os carrega na memória.
+Lança erros para assets inválidos e retorna `true` se o asset foi carregado.
 
 ## lib.requestAnimDict
 
 <Callout>
-    Remember to call `RemoveAnimDict(dict)` at the end of you code!
+  Lembre-se de chamar `RemoveAnimDict(dict)` ao final do seu código!
 </Callout>
 
 <Tabs items={["Lua", "JS"]}>
@@ -29,13 +29,13 @@ Throws errors for invalid assets and returns true if the asset is loaded.
 
 - dict: `string`
 - timeout?: `number`
-  - Number of ticks to wait for the asset to load.
-  - Default: `10000`
+  - Número de ticks para aguardar o carregamento do asset.
+  - Padrão: `10000`
 
 ## lib.requestAnimSet
 
 <Callout>
-    Remember to call `RemoveAnimSet(set)` at the end of you code!
+  Lembre-se de chamar `RemoveAnimSet(set)` ao final do seu código!
 </Callout>
 
 <Tabs items={["Lua", "JS"]}>
@@ -55,13 +55,13 @@ Throws errors for invalid assets and returns true if the asset is loaded.
 
 - set: `string`
 - timeout?: `number`
-  - Number of ticks to wait for the asset to load.
-  - Default: `10000`
+  - Número de ticks para aguardar o carregamento do asset.
+  - Padrão: `10000`
 
 ## lib.requestModel
 
 <Callout>
-    Remember to call `SetModelAsNoLongerNeeded(model)` at the end of you code!
+  Lembre-se de chamar `SetModelAsNoLongerNeeded(model)` ao final do seu código!
 </Callout>
 
 <Tabs items={["Lua", "JS"]}>
@@ -81,13 +81,13 @@ Throws errors for invalid assets and returns true if the asset is loaded.
 
 - model: `string`
 - timeout?: `number`
-  - Number of ticks to wait for the asset to load.
-  - Default: `10000`
+  - Número de ticks para aguardar o carregamento do asset.
+  - Padrão: `10000`
 
 ## lib.requestStreamedTextureDict
 
 <Callout>
-    Remember to call `SetStreamedTextureDictAsNoLongerNeeded(dict)` at the end of you code!
+  Lembre-se de chamar `SetStreamedTextureDictAsNoLongerNeeded(dict)` ao final do seu código!
 </Callout>
 
 <Tabs items={["Lua", "JS"]}>
@@ -107,13 +107,13 @@ Throws errors for invalid assets and returns true if the asset is loaded.
 
 - dict: `string`
 - timeout?: `number`
-  - Number of ticks to wait for the asset to load.
-  - Default: `10000`
+  - Número de ticks para aguardar o carregamento do asset.
+  - Padrão: `10000`
 
 ## lib.requestNamedPtfxAsset
 
 <Callout>
-    Remember to call `RemoveNamedPtfxAsset(dict)` at the end of you code!
+  Lembre-se de chamar `RemoveNamedPtfxAsset(dict)` ao final do seu código!
 </Callout>
 
 <Tabs items={["Lua", "JS"]}>
@@ -133,13 +133,13 @@ Throws errors for invalid assets and returns true if the asset is loaded.
 
 - ptFxName: `string`
 - timeout?: `number`
-  - Number of ticks to wait for the asset to load.
-  - Default: `10000`
+  - Número de ticks para aguardar o carregamento do asset.
+  - Padrão: `10000`
 
 ## lib.requestScaleformMovie
 
 <Callout>
-    Remember to call `SetScaleformMovieAsNoLongerNeeded(scaleformName)` at the end of you code!
+  Lembre-se de chamar `SetScaleformMovieAsNoLongerNeeded(scaleformName)` ao final do seu código!
 </Callout>
 
 <Tabs items={["Lua", "JS"]}>
@@ -159,13 +159,13 @@ Throws errors for invalid assets and returns true if the asset is loaded.
 
 - scaleformName: `string`
 - timeout?: `number`
-  - Number of ticks to wait for the asset to load.
-  - Default: `1000`
+  - Número de ticks para aguardar o carregamento do asset.
+  - Padrão: `1000`
 
 ## lib.requestWeaponAsset
 
 <Callout>
-    Remember to call `RemoveWeaponAsset(weaponType)` at the end of you code!
+  Lembre-se de chamar `RemoveWeaponAsset(weaponType)` ao final do seu código!
 </Callout>
 
 <Tabs items={["Lua", "JS"]}>
@@ -185,12 +185,12 @@ Throws errors for invalid assets and returns true if the asset is loaded.
 
 - weaponType: `string | number`
 - timeout?: `number`
-  - Number of ticks to wait for the asset to load.
-  - Default: `10000`
+  - Número de ticks para aguardar o carregamento do asset.
+  - Padrão: `10000`
 - weaponResourceFlags?: `WeaponResourceFlags`
-  - Default: `31`
+  - Padrão: `31`
 - extraWeaponComponentFlags?: `ExtraWeaponComponentFlags`
-  - Default: `0`
+  - Padrão: `0`
 
 ### WeaponResourceFlags
 

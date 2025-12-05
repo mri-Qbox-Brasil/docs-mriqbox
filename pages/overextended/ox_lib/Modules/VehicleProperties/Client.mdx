@@ -1,6 +1,6 @@
 # Client
 
-Mostly follows the format used by ESX and QBCore, with extra data such as damaged/missing props.  
+Segue em sua maioria o formato usado por ESX e QBCore, com dados extras como props danificados/ausentes.
 https://github.com/overextended/ox_lib/blob/master/resource/vehicleProperties/client.lua#L3
 
 import { Tabs, Tab } from 'nextra-theme-docs';
@@ -12,7 +12,7 @@ lib.getVehicleProperties(vehicle)
 ```
 
 - vehicle: `number`
-  - vehicle handle of the vehicle to get the properties for
+  - Handle do veículo cujas propriedades serão obtidas.
 
 
 <Tabs items={["Lua", "JS"]}>
@@ -32,7 +32,7 @@ lib.getVehicleProperties(vehicle)
 
 ## lib.setVehicleProperties
 
-Sets properties on a vehicle (i.e. mods, plate text, etc.) and returns true if the client owns the entity.
+Define propriedades em um veículo (por exemplo: mods, texto da placa, etc.) e retorna `true` se o cliente for o proprietário da entidade.
 
 ```lua
 lib.setVehicleProperties(vehicle, props)
@@ -60,18 +60,18 @@ lib.setVehicleProperties(vehicle, props)
   </Tab>
 </Tabs>
 
-**Returns:**
+**Retorna:**
 - isEntityOwner: `boolean`
 
-### Recommended Usage
+### Uso recomendado
 
-The server should tell the owner of the entity to set properties, using the following trigger.
+O servidor deve instruir o proprietário da entidade a definir as propriedades, usando o trigger abaixo.
 
 ```lua
 TriggerClientEvent('ox_lib:setVehicleProperties', entityOwner, vehNetId, data)
 ```
 
-## Vehicle Properties
+## Propriedades do veículo
 
 - model?: `number`
 - plate?: `string`
@@ -82,8 +82,8 @@ TriggerClientEvent('ox_lib:setVehicleProperties', entityOwner, vehNetId, data)
 - fuelLevel?: `number`
 - oilLevel?: `number`
 - dirtLevel?: `number`
-- color1?: `number` or `number[]`
-- color2?: `number` or `number[]`
+- color1?: `number` ou `number[]`
+- color2?: `number` ou `number[]`
 - pearlescentColor?: `number`
 - interiorColor?: `number`
 - dashboardColor?: `number`
@@ -94,9 +94,9 @@ TriggerClientEvent('ox_lib:setVehicleProperties', entityOwner, vehNetId, data)
 - windowTint?: `number`
 - xenonColor?: `number`
 - neonEnabled?: `boolean[]`
-- neonColor?: `number` or `number[]`
+- neonColor?: `number` ou `number[]`
 - extras?: `table<number | string, 0 | 1>`
-- tyreSmokeColor?: `number` or `number[]`
+- tyreSmokeColor?: `number` ou `number[]`
 - modSpoilers?: `number`
 - modFrontBumper?: `number`
 - modRearBumper?: `number`

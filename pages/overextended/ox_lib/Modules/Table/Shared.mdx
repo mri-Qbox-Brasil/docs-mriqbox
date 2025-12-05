@@ -1,10 +1,10 @@
 # Shared
 
-Adds additional functions alongside the standard table library.
+Adiciona funções adicionais além da biblioteca padrão `table`.
 
 ## lib.table.contains
 
-Checks if `table` contains the given `value`. Only intended for simple values and unnested tables.
+Verifica se a `table` contém o `value` fornecido. Destinado apenas a valores simples e tabelas não aninhadas.
 
 ```lua
 lib.table.contains(tbl, value)
@@ -13,12 +13,12 @@ lib.table.contains(tbl, value)
 - tbl: `table`
 - value: `any`
 
-Return:
+Retorno:
 - isContained: `boolean`
 
 ## lib.table.matches
 
-Compares if two values are equal, iterating over tables and matching both keys and values.
+Compara se dois valores são iguais, iterando sobre tabelas e comparando tanto chaves quanto valores.
 
 ```lua
 lib.table.matches(tableOne, tableTwo)
@@ -27,12 +27,12 @@ lib.table.matches(tableOne, tableTwo)
 - tableOne: `table`
 - tableTwo: `table`
 
-Return:
+Retorno:
 - matches: `boolean`
 
 ## lib.table.deepclone
 
-Recursively clones a table to ensure no table references remain.
+Clona recursivamente uma tabela para garantir que não restem referências à tabela original.
 
 ```lua
 lib.table.deepclone(tbl)
@@ -40,12 +40,12 @@ lib.table.deepclone(tbl)
 
 - tbl: `table`
 
-Return:
+Retorno:
 - clonedTable: `table`
 
 ## lib.table.merge
 
-Merges two tables together. Duplicate keys will be added together if they are numbers, otherwise `tableTwo`'s value will be used.
+Mescla duas tabelas. Chaves duplicadas serão somadas se forem números; caso contrário, o valor de `tableTwo` será usado.
 
 ```lua
 lib.table.merge(tableOne, tableTwo)
@@ -54,12 +54,12 @@ lib.table.merge(tableOne, tableTwo)
 - tableOne: `table`
 - tableTwo: `table`
 
-Return:
+Retorno:
 - tableOne: `table`
 
 ## lib.table.freeze
 
-Makes a table read-only, preventing further modification. Unfrozen tables stored within `table` are still mutable.
+Transforma uma tabela em somente-leitura, impedindo modificações posteriores. Tabelas internas não congeladas permanecem mutáveis.
 
 ```lua
 lib.table.freeze(tbl)
@@ -67,12 +67,12 @@ lib.table.freeze(tbl)
 
 - tbl: `table`
 
-Return:
+Retorno:
 - frozenTable: `table`
 
 ## lib.table.isFrozen
 
-Returns true if `tbl` is set as read-only.
+Retorna `true` se `tbl` estiver marcado como somente-leitura.
 
 ```lua
 lib.table.isFrozen(tbl)
@@ -80,5 +80,5 @@ lib.table.isFrozen(tbl)
 
 - tbl: `table`
 
-Return:
+Retorno:
 - isFrozen: `boolean`

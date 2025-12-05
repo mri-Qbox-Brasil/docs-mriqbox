@@ -1,10 +1,10 @@
-# Client
+# Cliente
 
-Simple and centralised dui creation, supporting sending message, change url and deletion
+Criação simples e centralizada de DUIs, suportando envio de mensagens, alteração de URL e remoção.
 
 ## lib.dui:new
 
-Constructs instance of Dui.
+Constrói uma instância de `Dui`.
 
 ```lua
 lib.dui:new(data)
@@ -16,7 +16,7 @@ lib.dui:new(data)
   - height: `number`
   - debug?: `boolean`
 
-Returns:
+Retorna:
 
 - dui: `Dui`
   - url: `string`
@@ -30,24 +30,24 @@ Returns:
   - sendMessage: `function`(data: `table`)
   - remove: `function`
 
-### Usage Example
+### Exemplo de Uso
 ```lua
 local dui = lib.dui:new({
-	url = ("nui://%s/web/index.html"):format(cache.resource), 
-	width = 1920, 
-	height = 1080,
-	debug = true
+    url = ("nui://%s/web/index.html"):format(cache.resource),
+    width = 1920,
+    height = 1080,
+    debug = true
 })
 
--- Change url
+-- Alterar URL
 dui:setUrl("https://google.com")
 
--- Send a message
+-- Enviar mensagem
 dui:sendMessage({
-	action = "display",
-	value = true
+    action = "display",
+    value = true
 })
 
--- Destroy
+-- Remover
 dui:remove()
 ```

@@ -4,15 +4,15 @@
 
 ### lib.callback
 
-The response is handled in a separate coroutine.
+A resposta é tratada em uma coroutine separada.
 
 ```lua
 lib.callback(name, delay, cb, ...)
 ```
 
 - name: `string`
-- delay: `number` or `false`
-  - Amount of time until this callback can be triggered again
+- delay: `number` ou `false`
+  - Quantidade de tempo até que este callback possa ser acionado novamente
 - cb: `function`
 - ...: `any`
 
@@ -24,15 +24,15 @@ end, 'water', {type = 'fresh'})
 
 ### lib.callback.await
 
-The current coroutine is yielded until a response is received.
+A coroutine atual é suspensa até que uma resposta seja recebida.
 
 ```lua
 lib.callback.await(name, delay, ...)
 ```
 
 - name: `string`
-- delay: `number` or `false`
-  - Amount of time until this callback can be triggered again
+- delay: `number` ou `false`
+  - Quantidade de tempo até que este callback possa ser acionado novamente
 - ...: `any`
 
 ```lua
@@ -44,7 +44,7 @@ print(count)
 
 ### lib.callback.register
 
-Register an event handler for responding to server requests.
+Registra um manipulador de evento para responder a requisições do servidor.
 
 ```lua
 lib.callback.register(name, cb)

@@ -2,16 +2,16 @@ import { Callout } from 'nextra/components';
 
 # Shared
 
-_This module is always loaded by default._
+_Este módulo é carregado por padrão._
 
 ## require
 
-Loads the given module. The function starts by indexing the `loaded` table to determine whether `modname` is already loaded. If it is, then `require` returns the value stored at `loaded[modname]`.
+Carrega o módulo especificado. A função verifica a tabela `loaded` para determinar se `modname` já foi carregado. Se já estiver, `require` retorna o valor armazenado em `loaded[modname]`.
 
-- Module names are the path to a file relative to the resource.
-- The module name must point to a `.lua` file.
-- Use `.` to separate directories in a path.
-- Modules can be loaded from external resources using `@resource.modname`.
+- Os nomes de módulo são caminhos para arquivos relativos ao recurso.
+- O nome do módulo deve apontar para um arquivo `.lua`.
+- Use `.` para separar diretórios em um caminho.
+- Módulos podem ser carregados de recursos externos usando `@resource.modname`.
 
 ```lua
 require 'modname'
@@ -19,11 +19,11 @@ require 'modname'
 
 <Callout type="warning">
 
-Client modules must be defined in the `file` section of the resource manifest.
+Módulos do cliente devem ser definidos na seção `file` do manifesto do recurso.
 
 ```lua filename="fxmanifest.lua"
 file 'modname.lua'
--- or
+-- ou
 files {
   'modname.lua'
 }
@@ -33,7 +33,7 @@ files {
 
 
 
-### Usage Example
+### Exemplo de uso
 
 ```
 - resources/
@@ -68,18 +68,18 @@ print(mylib.events.disconnect)
 
 ## lib.load
 
-Loads and runs a Lua file at the given path. Unlike require, the chunk is not cached for future use.
+Carrega e executa um arquivo Lua no caminho fornecido. Diferente de `require`, o chunk não é cacheado para uso futuro.
 
 ```lua
 lib.load(filePath, env)
 ```
 
 - filePath: `string`
-  - A path to the Lua file, using the same rules as `require`.
+  - Um caminho para o arquivo Lua, seguindo as mesmas regras de `require`.
 - env?: `table`
-  - A table to use as the global environment, defaulting to `_ENV`.
+  - Uma tabela a ser usada como ambiente global, por padrão `_ENV`.
 
-### Usage Example
+### Exemplo de uso
 
 ```lua filename="myresource/import.lua"
 local events = lib.load('data.events')
@@ -95,16 +95,16 @@ return {
 
 ## lib.loadJson
 
-Loads a JSON file at the given path and decodes it as a table.
+Carrega um arquivo JSON no caminho especificado e decodifica-o como uma tabela.
 
 ```lua
 lib.loadJson(filePath)
 ```
 
 - filePath: `string`
-  - A path to the Lua file, using the same rules as `require`.
+  - Um caminho para o arquivo JSON, seguindo as mesmas regras de `require`.
 
-### Usage Example
+### Exemplo de uso
 
 ```lua filename="myresource/import.lua"
 local events = lib.loadJson('data.events')

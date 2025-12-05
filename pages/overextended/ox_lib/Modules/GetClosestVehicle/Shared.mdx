@@ -2,22 +2,22 @@
 
 ## lib.getClosestVehicle
 
-Get the vehicle handle and coords of the closest vehicle to a set of coordinates.
+Retorna o identificador (handle) e as coordenadas do veículo mais próximo de um conjunto de coordenadas.
 
 ```lua
 lib.getClosestVehicle(coords, maxDistance, includePlayerVehicle)
 ```
 
 - coords: `vector3`
-  - The coords to check from.
+  - Coordenadas a partir das quais será feita a verificação.
 - maxDistance?: `number`
-  - The max distance to check.
-  - Default: `2.0`
+  - Distância máxima para verificação.
+  - Padrão: `2.0`
 - includePlayerVehicle?: `boolean`
-  - Whether or not to include the player's current vehicle. Ignored on the server.
-  - Default: `false`
+  - Se deve incluir o veículo atual do jogador. Ignorado no servidor.
+  - Padrão: `false`
 
-Return:
+Retorno:
 
 - vehicle?: `number`
 - vehicleCoords?: `vector3`

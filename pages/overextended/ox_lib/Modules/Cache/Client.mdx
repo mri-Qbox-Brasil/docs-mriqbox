@@ -1,33 +1,32 @@
 import { Tabs, Tab } from 'nextra-theme-docs';
 
-# Client
+# Cliente
 
-Values and cache functionality available to the client, in addition to the [shared](../Shared) values.
+Valores e funcionalidades de cache disponíveis no cliente, além dos valores [shared](../Shared).
 
-## Default values
-
-- ped: `number`
-  - player entity id
-- playerId: `number`
-  - player id
-- serverId: `number`
-  - player server id
-- weapon: `number` or `false`
-  - current weapon hash
-- vehicle: `number` or `false`
-  - vehicle entity id
-- seat: `number` or `false`
-  - vehicle seat index
-- coords: `vector3`
-  - current player coords
-  - only populated if using `zones` or `points`
-  - cannot be listened for with `lib.onCache`
-- mount: `number` or `false` (RedM only)
-  - mount entity id
+## Valores Padrão
+ - ped: `number`
+  - id da entidade do jogador
+ - playerId: `number`
+  - id do jogador
+ - serverId: `number`
+  - id do jogador no servidor
+ - weapon: `number` ou `false`
+  - hash da arma atual
+ - vehicle: `number` ou `false`
+  - id da entidade do veículo
+ - seat: `number` ou `false`
+  - índice do assento no veículo
+ - coords: `vector3`
+  - coordenadas atuais do jogador
+  - preenchido apenas se estiver usando `zones` ou `points`
+  - não pode ser ouvido com `lib.onCache`
+ - mount: `number` ou `false` (RedM only)
+  - id da montaria
 
 ## lib.onCache
 
-Register an event handler that is triggered when the cached value is updated.
+Registra um manipulador de evento acionado quando um valor em cache é atualizado.
 
 <Tabs items={["Lua", "JS"]}>
   <Tab>

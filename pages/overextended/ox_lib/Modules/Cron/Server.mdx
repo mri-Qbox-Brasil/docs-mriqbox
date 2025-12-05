@@ -1,49 +1,49 @@
 # Server
 
-A Lua implementation of cron, allowing tasks to be scheduled to run periodically at fixed times, dates, and intervals.
+Uma implementação em Lua de cron, permitindo agendar tarefas para execução periódica em horários, datas e intervalos fixos.
 
-## Cron expression
+## Expressão Cron
 
-A string containing five values separated by white spaces, representing a set of times to execute a task.
+Uma string contendo cinco valores separados por espaços em branco, representando um conjunto de horários para executar uma tarefa.
 
-| Field        | Valid values        |
-| ------------ | ------------------- |
-| Minutes      | `0-59`              |
-| Hours        | `0-23`              |
-| Day of month | `1-31`              |
-| Month        | `1-12` or `jan-dec` |
-| Day of week  | `1-7` or `sun-sat`  |
+| Field        | Valores válidos        |
+| ------------ | ---------------------- |
+| Minutes      | `0-59`                 |
+| Hours        | `0-23`                 |
+| Day of month | `1-31`                 |
+| Month        | `1-12` ou `jan-dec`    |
+| Day of week  | `1-7` ou `sun-sat`     |
 
-**Note:** Day of the week is set to match `os.date` and starts at 1, unlike the cron-standard which starts at 0.
+**Nota:** O dia da semana está configurado para coincidir com `os.date` e começa em 1, diferente do padrão cron que começa em 0.
 
-### `*` Wildcards
-Represents all values, e.g. `* * * * *` will run every minute, or `* * * * 1` will run every minute on Sunday.
+### `*` Coringa
+Representa todos os valores, por exemplo `* * * * *` executará a cada minuto; ou `* * * * 1` executará a cada minuto no domingo.
 
-### `,` Lists
-Commas can be used to create a list of values, e.g. `* * * * sun,mon,tue` will run every minute on Sunday, Monday, and Tuesday.
+### `,` Listas
+Vírgulas podem ser usadas para criar uma lista de valores, por exemplo `* * * * sun,mon,tue` executará a cada minuto no domingo, segunda e terça.
 
-### `-` Ranges
-Dashes define a range of values, e.g. `10-30 * * * *` will start running the task at the 10th minute, and every minute until the 30th minute.
+### `-` Intervalos
+Hífens definem um intervalo de valores, por exemplo `10-30 * * * *` iniciará a tarefa no minuto 10 e repetirá a cada minuto até o minuto 30.
 
-### `/` Steps
-Slashes can be used for step values, e.g. `* */4 * * *` will run every 4 hours and is shorthand for `* 0,4,8,12,16,20 * * *`.
+### `/` Passos
+Barras podem ser usadas para valores em passo, por exemplo `* */4 * * *` executará a cada 4 horas e é equivalente a `* 0,4,8,12,16,20 * * *`.
 
-## Functions
+## Funções
 
 ### lib.cron.new
 
-Creates a new [cronjob](https://en.wikipedia.org/wiki/Cron), scheduling a task to run at fixed times or intervals.  
+Cria um novo [cronjob](https://en.wikipedia.org/wiki/Cron), agendando uma tarefa para ser executada em horários fixos ou intervalos.
 
 ```lua
 lib.cron.new(expression, job, options)
 ```
 
 - expression: `string`
-  - A cron expression such as `* * * * *` representing minute, hour, day, month, and day of the week
+  - Uma expressão cron como `* * * * *` representando minuto, hora, dia, mês e dia da semana
 - job: `fun(task: OxTask, date: osdate)`
 - options?: `table`
   - debug?: `boolean`
 
-Return:
+Retorno:
 
 - task: `OxTask`

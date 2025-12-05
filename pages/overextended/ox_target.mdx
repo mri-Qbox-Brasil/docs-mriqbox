@@ -6,55 +6,55 @@ import { Callout } from 'nextra/components';
 
 <ResourceLinks repo="https://github.com/overextended/ox_target" />
 
-A performant and flexible standalone targeting resource or "third-eye", with additional functionality for ox_inventory, ox_core, qbx_core, and es_extended.
+Um recurso de targeting independente, performático e flexível ("terceiro-olho"), com funcionalidades adicionais para `ox_inventory`, `ox_core`, `qbx_core` e `es_extended`.
 
-## Installation
+## Instalação
 
 <Callout type="info">
 
-We **strongly** recommend referring to [Guides](../guides) for setting up Git, Node.js, and pnpm.
+Recomendamos **fortemente** consultar os [Guias](../guides) para configurar o Git, Node.js e pnpm.
 
 </Callout>
 
 <Steps>
-### Install all resource dependencies
+### Instalar todas as dependências do recurso
 - [ox_lib](../ox_lib/)
 
-### Download a [release](https://github.com/overextended/ox_target/releases) or clone the source code.
+### Baixe um [release](https://github.com/overextended/ox_target/releases) ou clone o código-fonte.
 
 ```bash
 git clone https://github.com/overextended/ox_target.git
 ```
 
-### Config
+### Configuração
 
-Resource configuration is handled using [convars](https://docs.fivem.net/docs/scripting-reference/convars/).
+A configuração do recurso é feita usando [convars](https://docs.fivem.net/docs/scripting-reference/convars/).
 
 ```bash
-# Toggle targeting when pressing the hotkey, instead of holding it down.
+# Alterna o targeting ao pressionar a tecla de atalho, em vez de mantê-la pressionada.
 setr ox_target:toggleHotkey 0
 
-# Change the key to enable targeting (https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard)
+# Altera a tecla para ativar o targeting (https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard)
 setr ox_target:defaultHotkey LMENU
 
-# Draw a sprite (circle) at the centroid of a zone.
+# Desenha um sprite (círculo) no centróide de uma zona.
 setr ox_target:drawSprite 1
 
-# Enable built-in targeting options, e.g. toggling vehicle doors.
+# Habilita opções de targeting embutidas, ex.: alternar portas de veículos.
 setr ox_target:defaults 1
 
-# Enable debugging / testing options, entity outlines, and a raycast indicator.
+# Habilita opções de depuração/teste, contornos de entidades e um indicador de raycast.
 setr ox_target:debug 0
 
-# Enable / Disable leftclick to select options
+# Ativar/Desativar clique esquerdo para selecionar opções
 setr ox_target:leftClick 1
 ```
 
 </Steps>
 
-## Supported Frameworks
+## Frameworks suportados
 
-These aren't necessary to run ox_target, but they will add additional features.
+Não são necessários para executar o `ox_target`, mas adicionam funcionalidades extras.
 
 - [ox_core](https://github.com/overextended/ox_core)
 - [esx](https://github.com/esx-framework/esx-legacy)

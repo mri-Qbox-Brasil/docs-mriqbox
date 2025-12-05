@@ -9,10 +9,10 @@ import { Callout } from 'nextra/components';
 
 ## lib.showTextUI
 
-Show the TextUI window.
+Exibe a janela do TextUI.
 
 <Callout type="warning">
-  **DO NOT** run this function every tick, it's intended to be used as a toggle.
+  **NÃO** execute esta função a cada tick; ela deve ser usada como um toggle.
 </Callout>
 
 <Tabs items={["Lua", "JS"]}>
@@ -31,19 +31,19 @@ Show the TextUI window.
 </Tabs>
 
 - text: `string`
-- options?: `table`
-  - position?: `'right-center'` or `'left-center'` or `'top-center'` or `'bottom-center'`
-    - Default: `'right-center'`
-  - icon?: `string` or `table` (`array`)
+-- options?: `table`
+  - position?: `'right-center'` ou `'left-center'` ou `'top-center'` ou `'bottom-center'`
+    - Padrão: `'right-center'`
+  - icon?: `string` ou `table` (`array`)
   - iconColor?: `string`
   - iconAnimation?: `'spin'` `'spinPulse'` `'spinReverse'` `'pulse'` `'beat'` `'fade'` `'beatFade'` `'bounce'` `'shake'`
   - style?: React.CSSProperties
-  - alignIcon?: `'top'` or `'center'`
-    - Default: `'center'`
+  - alignIcon?: `'top'` ou `'center'`
+    - Padrão: `'center'`
 
 ## lib.hideTextUI
 
-Hides the currently visible TextUI window
+Oculta a janela TextUI atualmente visível
 
 <Tabs items={["Lua", "JS"]}>
   <Tab>
@@ -62,7 +62,7 @@ Hides the currently visible TextUI window
 
 ## lib.isTextUIOpen
 
-Returns whether Text UI is opened or not. The currently displayed text is returned as the second value.
+Retorna se o TextUI está aberto. O texto atualmente exibido é retornado como o segundo valor.
 
 <Tabs items={["Lua", "JS"]}>
   <Tab>
@@ -79,33 +79,33 @@ Returns whether Text UI is opened or not. The currently displayed text is return
   </Tab>
 </Tabs>
 
-## Usage Example
+## Exemplos de uso
 
-### Basic
+### Básico
 
 <Tabs items={["Lua", "JS"]}>
   <Tab>
     ```lua
-    lib.showTextUI('[E] - Fuel vehicle')
+    lib.showTextUI('[E] - Abastecer veículo')
     ```
   </Tab>
   <Tab>
     ```ts
     import lib from '@overextended/ox_lib/client';
 
-    lib.showTextUI('[E] - Fuel vehicle');
+    lib.showTextUI('[E] - Abastecer veículo');
     ```
   </Tab>
 </Tabs>
 
 ![basic_example](https://i.imgur.com/uZS40fD.png)
 
-### Custom styling
+### Estilização personalizada
 
 <Tabs items={["Lua", "JS"]}>
   <Tab>
     ```lua
-    lib.showTextUI('[E] - Pick apple', {
+    lib.showTextUI('[E] - Colher maçã', {
         position = "top-center",
         icon = 'hand',
         style = {
@@ -120,7 +120,7 @@ Returns whether Text UI is opened or not. The currently displayed text is return
     ```ts
     import lib from '@overextended/ox_lib/client';
 
-    lib.showTextUI('[E] - Pick apple', {
+    lib.showTextUI('[E] - Colher maçã', {
       position: 'top-center',
       icon: 'hand',
       style: {

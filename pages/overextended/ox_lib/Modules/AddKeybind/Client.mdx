@@ -10,10 +10,10 @@ A table representing a keybind with the following properties.
 - description: `string`
 - currentKey: `string`
   - Key that the current user has this keybind set to
-- disabled: `boolean`
-  - Whether or not the keybind is currently disabled
-- isPressed: `boolean`
-  - "A state indicating whether the keybind is pressed or not
+-- disabled: `boolean`
+  - Se a keybind está atualmente desabilitada
+-- isPressed: `boolean`
+  - Estado indicando se a keybind está pressionada ou não
 - hash: `number`
   - Internal hash of the keybind that is used to reference it within the game itself
 - defaultKey?: `string`
@@ -44,13 +44,13 @@ lib.addKeybind(data)
   - name: `string`
   - description: `string`
   - defaultKey?: `string`
-    - Default: `None`
+    - Padrão: `None`
   - defaultMapper?: `string`
-    - Default: `keyboard`
+    - Padrão: `keyboard`
   - secondaryKey?: `string`
   - secondaryMapper?: `string`
   - disabled?: `boolean`
-    - Whether or not the keybind should be disabled by default
+    - Se a keybind deve começar desabilitada por padrão
   - onPressed?: `function(self: CKeybind)`
     - Function triggered on keybind press
   - onReleased?: `function(self: CKeybind)`
@@ -81,7 +81,7 @@ keybind:disable(false) -- enables the keybind
 
 ### Keybind pressed states
 
-All keybinds registered with `lib.addKeybind()` gets a boolean state, that shows if its pressed or not. 
+Todas as keybinds registradas com `lib.addKeybind()` possuem um estado booleano que indica se estão pressionadas ou não.
 
 You can get the state with the following method
 
