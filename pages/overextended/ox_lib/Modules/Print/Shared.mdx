@@ -2,9 +2,9 @@ import { Steps, Tabs, Tab } from 'nextra-theme-docs';
 
 # Shared
 
-Prints to console conditionally based on convars set. 
-Different level prints are colored and labeled. 
-Resource name is always included.
+Imprime no console condicionalmente com base nos convars configurados.
+Mensagens de diferentes níveis são coloridas e rotuladas.
+O nome do resource é sempre incluído.
 
 ## lib.print
 
@@ -17,9 +17,9 @@ lib.print.debug(...)
 ```
 
 - vararg: `any`
-  - What to print in console. Converts tables into a pretty-print format.
+    - O que imprimir no console. Converte tabelas em um formato legível (pretty-print).
 
-### Example
+### Exemplo
 
 ```lua
 lib.print.warn("query latency high: ", latency)
@@ -27,26 +27,27 @@ lib.print.warn("query latency high: ", latency)
 
 ### Levels
 
-- Error
-    - Indicates a failure in the system.
+- **Error**
+    - Indica uma falha no sistema.
 
-- Warn
-    - Warns of an unexpected condition, or a state which is likely to cause an error in the future.
+- **Warn**
+    - Aviso sobre uma condição inesperada, ou um estado que provavelmente causará um erro no futuro.
 
-- Info
-    - Information about high-level, successful operations.
+- **Info**
+    - Informações sobre operações de alto nível e bem-sucedidas.
 
-- Verbose
-    - More detailed information containing intermediate steps of high-level, operations
+- **Verbose**
+    - Informações mais detalhadas contendo passos intermediários de operações de alto nível.
 
-- Debug
-    - Used by developers to understand the system and may contain detailed trace information.
-Should generally not be turned on when not debugging.
+- **Debug**
+    - Usado por desenvolvedores para entender o sistema e pode conter informações detalhadas de rastreio.
+    - Geralmente não deve ser ativado quando não estiver depurando.
 
-### Config
-Use the following convars to set your print level. Prints less severe than the current level will not be executed.
-For example, a level of info will print error, warn, and info, but not verbose nor debug. Defaults to info if not set.
-Resource specific print levels override the global convar.
+### Configuração
+Use os seguintes convars para definir o nível de impressão. Mensagens com severidade menor que o nível atual não serão exibidas.
+Por exemplo, um nível `info` exibirá `error`, `warn` e `info`, mas não `verbose` nem `debug`.
+Padrão: `info` se não definido.
+Níveis específicos por resource sobrepõem o convar global.
 
 ```bash
 set ox:printlevel "info"

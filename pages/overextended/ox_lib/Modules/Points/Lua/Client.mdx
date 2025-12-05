@@ -1,26 +1,26 @@
-# Client
+# Cliente
 
-Simple and centralised distance checking, supporting callbacks when entering, leaving, and standing in-range of set coordinates.
+Verificações de distância simples e centralizadas, com suporte a callbacks ao entrar, sair e permanecer dentro do alcance de coordenadas definidas.
 
-## CPoint Class
+## Classe CPoint
 
-A table representing a point with the following properties.
+Uma tabela que representa um ponto com as seguintes propriedades.
 
 - id: `number`
 - coords: `vector3`
 - distance: `number`
-  - The distance for the player to be "inside" a point (i.e. the point's radius).
+  - Distância para o jogador ser considerado "dentro" de um ponto (ou seja, o raio do ponto).
 - currentDistance: `number`
-  - The players current distance from the centre of the point.
+  - Distância atual do jogador em relação ao centro do ponto.
 - isClosest?: `boolean`
 - remove: `function()`
-  - Removes the point from the points registry.
+  - Remove o ponto do registro de pontos.
 - onEnter?: `function(self: CPoint)`
-  - Function triggered when player gets within `distance` of the point
+  - Função disparada quando o jogador fica dentro de `distance` do ponto.
 - onExit?: `function(self: CPoint)`
-  - Function triggered when player goes beyond `distance` of the point
+  - Função disparada quando o jogador ultrapassa `distance` do ponto.
 - nearby?: `function(self: CPoint)`
-  - Function triggered on frame when within `distance` of the point
+  - Função chamada a cada frame enquanto estiver dentro de `distance` do ponto.
 
 ## lib.points.new
 
@@ -32,11 +32,11 @@ lib.points.new(data)
   - coords: `vector3`
   - distance: `number`
 
-Returns:
+Retorna:
 
 - point: `CPoint`
 
-### Usage Example
+### Exemplo de Uso
 ```lua
 local point = lib.points.new({
     coords = GetEntityCoords(cache.ped),
@@ -63,36 +63,36 @@ end
 
 ## lib.points.getAllPoints
 
-Get a table of all points created in the resource.
+Retorna uma tabela com todos os pontos criados no recurso.
 
 ```lua
 lib.points.getAllPoints()
 ```
 
-Return:
+Retorno:
 
 - points: `CPoint[]`
 
 ## lib.points.getNearbyPoints
 
-Get an array of all points in range of the player.
+Retorna um array com todos os pontos no alcance do jogador.
 
 ```lua
 lib.points.getNearbyPoints()
 ```
 
-Return:
+Retorno:
 
 - nearbyPoints: `CPoint[]`
 
 ## lib.points.getClosestPoint
 
-Get the data for the closest point to the player.
+Retorna os dados do ponto mais próximo do jogador.
 
 ```lua
 lib.points.getClosestPoint()
 ```
 
-Return:
+Retorno:
 
 - closestPoint?: `CPoint`

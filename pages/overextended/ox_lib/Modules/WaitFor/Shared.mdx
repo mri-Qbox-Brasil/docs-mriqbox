@@ -2,19 +2,19 @@
 
 ## lib.waitFor
 
-Calls a function repeatedly until it receives a non-nil value, or it times out.  
-The function result is then returned.
+Chama uma função repetidamente até que ela retorne um valor não-nil, ou até que o tempo se esgote.
+O resultado da função é então retornado.
 
 ```lua
 lib.waitFor(cb, errMessage, timeout)
 ```
 
 - cb: `function`
-  - A function to call each frame.
+  - Uma função a ser chamada a cada frame.
 - errMessage?: `string`
-  - The error message to display if the function times out.
+  - A mensagem de erro a ser exibida caso a função atinja o timeout.
 - timeout?: `number | false`
-  - The duration to run the function for, defaulting to 1000ms, unless set to `false`.
+  - A duração para executar a função, com padrão `1000ms`, a menos que seja definido como `false`.
 
 
 ```lua

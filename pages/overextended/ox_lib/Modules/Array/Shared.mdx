@@ -2,7 +2,7 @@
 
 ## lib.array
 
-A table used as a prototype for the Array class. Functions can be used as class methods or standard functions.
+Uma tabela usada como protótipo para a classe Array. Funções podem ser usadas como métodos de classe ou funções padrão.
 
 ### lib.array:new
 
@@ -20,7 +20,7 @@ lib.array:new(...)
 
 ### lib.isArray
 
-Determines if the given table is an instance of Array or an array-like table.
+Determina se a tabela fornecida é uma instância de Array ou uma tabela do tipo array.
 
 ```lua
 lib.array.isArray(tbl)
@@ -145,7 +145,7 @@ lib.array.forEach(arr, function(element) end, reverse)
 
 ### lib.array.join
 
-Concatenates all elements of an array into a string, separated by commas or the specified seperator.
+Concatena todos os elementos de um array em uma string, separados por vírgulas ou pelo separador especificado.
 
 - arr: `Array`
 - seperator?: `string`
@@ -203,7 +203,7 @@ lib.array.shift(arr)
 
 ### lib.array.reduce
 
-The "reducer" function is applied to every element in an array, with the previous result serving as the accumulator.  
+The "reducer" function is applied to every element in an array, with the previous result serving as the accumulator.
 If an initial value is provided it's used as the accumulator for the first index; otherwise iteration starts at the second index, with the first index as the accumulator.
 
 - arr: `Array`

@@ -1,28 +1,28 @@
 # Shared
 
-A table containing cached function results, which may be constants or infrequently changed.
+Uma tabela contendo resultados de funções em cache, que podem ser constantes ou pouco alterados.
 
-## Default values
+## Valores Padrão
 
 - resource: `string`
-  - the value returned by [GetCurrentResourceName](https://docs.fivem.net/natives/?_0xE5E9EBBB).
+  - valor retornado por [GetCurrentResourceName](https://docs.fivem.net/natives/?_0xE5E9EBBB).
 - game: `'fxserver' | 'fivem' | 'redm'`
-  - the value returned by [GetGameName](https://docs.fivem.net/natives/?_0xE8EAA18B).
+  - valor retornado por [GetGameName](https://docs.fivem.net/natives/?_0xE8EAA18B).
 
-## Adding new cached values
+## Adicionando novos valores em cache
 
-Values can be cached permanently, or added with a timeout.
+Valores podem ser armazenados permanentemente em cache ou adicionados com um tempo de expiração.
 
 ```lua
 cache(key, func, timeout)
 ```
 
 - key: `string`
-  - a unique name to store and access the cached state.
+  - nome único para armazenar e acessar o estado em cache.
 - func: `function`
-  - a function to call when the cache is invalidated/empty.
+  - função a ser chamada quando o cache estiver inválido/vazio.
 - timeout?: `number`
-  - a timer in milliseconds to clear the cached state.
+  - tempo em milissegundos para limpar o estado em cache.
 
 ```lua
 local i = 0

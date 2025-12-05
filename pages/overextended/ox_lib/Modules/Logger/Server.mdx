@@ -8,17 +8,17 @@ import { Steps, Tabs, Tab } from 'nextra-theme-docs';
 lib.logger(source, event, message, ...)
 ```
 
-- source: `number` or `string`
-  - Preferably an active player id, otherwise an identifier, or wherever else it originated from.
+- source: `number` ou `string`
+  - Preferencialmente um id de player ativo, caso contrário um identificador, ou a origem do evento.
 - event: `string`
-  - A name for the log event (i.e. the trigerring event or a description)
+  - Um nome para o evento de log (ex.: o evento que disparou ou uma descrição).
 - message: `string`
-  - The content for the log.
+  - O conteúdo do log.
 - vararg: `string`
-  - Additional arguments are converted to tags for additional filtering and searching.
+  - Argumentos adicionais convertidos em tags para filtragem e busca.
 
 <br />
-<u>**Example**</u>
+<u>**Exemplo**</u>
 
 ```lua
 local vehicle = Ox.CreateVehicle(false, `sultanrs`, vector4(-56.479122, -1116.870362, 26.432250, 0.000030517578))
@@ -28,17 +28,17 @@ lib.logger(-1, 'CreateVehicle', json.encode(vehicle))
 ## Datadog
 
 <Steps>
-  ### Create your [Datadog](https://www.datadoghq.com/) account
-  You will receive a free 14 day trial, otherwise refer to their [pricing](https://www.datadoghq.com/pricing/) guide.  
-  Free accounts are limited, however logs will still be retained for 14 days.
+  ### Crie sua conta no [Datadog](https://www.datadoghq.com/)
+  Você receberá um teste gratuito de 14 dias; caso contrário, consulte o guia de [preços](https://www.datadoghq.com/pricing/).
+  Contas gratuitas têm limitações, porém os logs ainda serão retidos por 14 dias.
 
-  ### Create an [API key](https://app.datadoghq.com/organization-settings/api-keys)
+  ### Crie uma [chave de API](https://app.datadoghq.com/organization-settings/api-keys)
 
-  This is a UUID used to submit logs to your Datadog organisation.
+  Esta é um UUID usado para enviar logs para sua organização no Datadog.
 
-  ### Config
+  ### Configuração
 
-  Set your API key and [Datadog site](https://docs.datadoghq.com/getting_started/site/) using the following convars.
+  Defina sua chave de API e o [Datadog site](https://docs.datadoghq.com/getting_started/site/) usando os seguintes convars.
 
   ```bash
   set datadog:key "yourapikey"
@@ -46,38 +46,39 @@ lib.logger(-1, 'CreateVehicle', json.encode(vehicle))
   ```
 </Steps>
 
+
 ## Grafana Loki
 
-Loki is a horizontally scalable, highly available, multi-tenant log aggregation system inspired by Prometheus.  
-It is designed to be very cost effective and easy to operate.
+Loki é um sistema de agregação de logs, escalável horizontalmente, altamente disponível e multi-tenant, inspirado pelo Prometheus.
+Foi projetado para ser econômico e fácil de operar.
 
 <Tabs items={["Cloud", "Self-hosted"]}>
   <Tab>
-    - Has free tier with some restrictions
-    - Easy to manage
-    - Easier to setup
-    - Mostly managed by Grafana
+    - Possui tier gratuito com algumas restrições
+    - Fácil de gerenciar
+    - Mais fácil de configurar
+    - Principalmente gerenciado pela Grafana
 
     <Steps>
-      ### Create your [Grafana](https://grafana.com/) account
-      ### Head to [My Account](https://grafana.com/auth/sign-in/?plcmt=top-nav&cta=myaccount)
-      ### Setup Loki
-      Find the Loki section in your account panel, and click "Details".
-      Generate a password and save the API key, as well as your `user` and `url`.
+      ### Crie sua conta em [Grafana](https://grafana.com/)
+      ### Acesse [My Account](https://grafana.com/auth/sign-in/?plcmt=top-nav&cta=myaccount)
+      ### Configure o Loki
+      Encontre a seção do Loki no painel da sua conta e clique em "Details".
+      Gere uma senha e salve a chave de API, bem como seu `user` e `url`.
     </Steps>
   </Tab>
   <Tab>
-    To setup a grafana instance you'll need docker, and knowledge on containers or kubernetes.  
-    Please find a guide to setup a grafana stack (min requirement grafana and grafana loki) and follow that.
-    
-    Once done, setup authentication and use the username and password securing your endpoint.
+    Para configurar uma instância Grafana você precisará de Docker e conhecimento em containers ou Kubernetes.
+    Procure um guia para configurar uma stack Grafana (requisito mínimo: Grafana e Grafana Loki) e siga-o.
 
-    - By default self-hosted loki instances do not provide any authentication layers and will require an external authentication layer such as NGINX basic auth or Cloudflare Access.
+    Uma vez pronto, configure a autenticação e utilize o usuário e senha para proteger seu endpoint.
+
+    - Por padrão, instâncias Loki self-hosted não fornecem camadas de autenticação e exigirão uma camada externa, como NGINX basic auth ou Cloudflare Access.
   </Tab>
 </Tabs>
 
-  ### Config
-  Use the following convars to set your logging service, endpoint, and authentication details.
+  ### Configuração
+  Use os seguintes convars para definir seu serviço de logging, endpoint e detalhes de autenticação.
 
   ```bash
   set ox:logger "loki"
@@ -88,16 +89,16 @@ It is designed to be very cost effective and easy to operate.
 
 
 ## Fivemanage
-[Fivemanage](https://fivemanage.com/?ref=overextended) is an easy-to-use, all-in-one SaaS for game servers that provides logging.
+[Fivemanage](https://fivemanage.com/?ref=overextended) é uma solução SaaS tudo-em-um, fácil de usar, para servidores de jogos que fornece logging.
 
 <Steps>
-    ### Create an account
-    Sign up at [Fivemanage](https://fivemanage.com/?ref=overextended).
-    ### Make sure you have the `Hobby` or `Pro` plan. 
-    You'll get a 14-days free trial if you do not already have an subscription, you can find more information [here](https://fivemanage.com/profile/billing?ref=overextended) and on the [pricing](https://fivemanage.com/pricing?ref=overextended) page.
-    ### Create a new token
-    You'll need to create a new token with the type `Logs`.
-    ### Config
+    ### Crie uma conta
+    Inscreva-se em [Fivemanage](https://fivemanage.com/?ref=overextended).
+    ### Certifique-se de ter o plano `Hobby` ou `Pro`.
+    Você terá um teste gratuito de 14 dias se não possuir uma assinatura; mais informações estão disponíveis [aqui](https://fivemanage.com/profile/billing?ref=overextended) e na página de [preços](https://fivemanage.com/pricing?ref=overextended).
+    ### Crie um novo token
+    Será necessário criar um novo token com o tipo `Logs`.
+    ### Configuração
   ```bash
   set ox:logger "fivemanage"
   set fivemanage:key "YOUR_API_KEY"

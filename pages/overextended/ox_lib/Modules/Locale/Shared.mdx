@@ -1,17 +1,17 @@
 import { Tabs, Tab } from 'nextra-theme-docs';
 
-Allows servers to set a preferred language and attempt to load locale files in any resources using the module.
-Locale files should use the [ISO Language Code](http://www.lingoes.net/en/translator/langcode.htm) and be saved as `./locales/langcode.json`
+Permite que servidores definam um idioma preferido e tente carregar arquivos de locale em quaisquer recursos que utilizem o módulo.
+Arquivos de locale devem usar o [Código de Idioma ISO](http://www.lingoes.net/en/translator/langcode.htm) e ser salvos como `./locales/langcode.json`
 
-## Setup
+## Configuração
 
-To change the preferred language from English, add the convar to your server.cfg and change `en` to the desired language code.
+Para alterar o idioma preferido do inglês, adicione o convar ao seu `server.cfg` e troque `en` pelo código de idioma desejado.
 
 ```yaml
 setr ox:locale en
 ```
 
-Create a locales directory and a file for your language.
+Crie um diretório `locales` e um arquivo para o seu idioma.
 
 ```json filename="locales/en.json"
 {
@@ -37,9 +37,9 @@ files {
 }
 ```
 
-## Usage
+## Uso
 
-Initialise the locale module in your resource (once).
+Inicialize o módulo de locale no seu resource (uma vez).
 
 <Tabs items={["Lua", "JS"]}>
   <Tab>
@@ -56,8 +56,8 @@ Initialise the locale module in your resource (once).
   </Tab>
 </Tabs>
 
-Format your strings with the new locale global.
-Additional arguments can be sent to format the locale output.
+Formate suas strings com o novo global de locale.
+Argumentos adicionais podem ser enviados para formatar a saída do locale.
 
 <Tabs items={['Lua', 'JS']}>
   <Tab>
@@ -77,29 +77,29 @@ Additional arguments can be sent to format the locale output.
 </Tabs>
 
 - str: `string`
-- vararg?: `string` or `number`
+- vararg?: `string` ou `number`
 
-<u>**Example**</u>
+<u>**Exemplo**</u>
 
 <Tabs items={['Lua', 'JS']}>
   <Tab>
 
-  ```lua
-  -- Load the locale module
-  lib.locale()
+    ```lua
+    -- Carrega o módulo de locale
+    lib.locale()
 
-  SetInterval(function()
+    SetInterval(function()
       print(locale('grand_theft_auto'))
       print(locale('suspect_sex', locale('male')))
-  end, 5000)
-  ```
+    end, 5000)
+    ```
   </Tab>
   <Tab>
 
     ```ts
     import { initLocale, locale } from '@overextended/ox_lib/shared
 
-    // Load the locale module
+    // Carrega o módulo de locale
     initLocale()
 
     setInterval(() => {
@@ -111,9 +111,9 @@ Additional arguments can be sent to format the locale output.
 </Tabs>
 
 
-## Phrases
+## Frases
 
-You can create a locale string that references other locales to construct a phrase, rather than calling locale multiple times.
+Você pode criar uma string de locale que referencia outros locales para construir uma frase, em vez de chamar `locale` várias vezes.
 
 ```json
 {
@@ -142,7 +142,7 @@ You can create a locale string that references other locales to construct a phra
 
 ## lib.getLocale
 
-Gets a locale string from another resource and adds it to the dict.
+Obtém uma string de locale de outro resource e adiciona ao dicionário.
 
 ```lua
 lib.getLocale(resource, key)

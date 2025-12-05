@@ -4,7 +4,7 @@
 
 ### lib.callback
 
-The response is handled in a separate coroutine.
+A resposta é tratada em uma coroutine separada.
 
 ```lua
 lib.callback(name, playerId, cb, ...)
@@ -25,7 +25,7 @@ end, args.radius)
 
 ### lib.callback.await
 
-The current coroutine is yielded until a response is received.
+A coroutine atual é suspensa até que uma resposta seja recebida.
 
 ```lua
 lib.callback.await(name, playerId, ...)
@@ -47,7 +47,7 @@ end
 
 ### lib.callback.register
 
-Register an event handler for responding to client requests.
+Registra um manipulador de evento para responder a requisições do cliente.
 
 ```lua
 lib.callback.register(name, cb)

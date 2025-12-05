@@ -1,7 +1,6 @@
-# Client
+# Cliente
 
-Simple and centralised dui creation, supporting sending message, change url and deletion
-
+Criação simples e centralizada de DUIs, suportando envio de mensagens, alteração de URL e remoção.
 
 ```js
 Dui(data)
@@ -13,7 +12,7 @@ Dui(data)
   - height: `number`
   - debug?: `boolean`
 
-Returns:
+Retorna:
 
 - dui: `Dui`
   - url: `string`
@@ -27,26 +26,26 @@ Returns:
   - sendMessage: `function`(data: `object`)
   - remove: `function`
 
-### Usage Example
+### Exemplo de Uso
 ```js
 import { Dui, cache } from '@overextended/ox_lib/client'
 
 const dui = new Dui({
-	url: `nui://${cache.resource}/web/index.html`, 
-	width: 1920, 
-	height: 1080,
-	debug: true
+    url: `nui://${cache.resource}/web/index.html`,
+    width: 1920,
+    height: 1080,
+    debug: true
 })
 
-// Change url
+// Alterar URL
 dui.setUrl("https://google.com")
 
-// Send a message
+// Enviar uma mensagem
 dui.sendMessage({
-	action: "display",
-	value: true
+    action: "display",
+    value: true
 })
 
-// Destroy
+// Remover
 dui.remove()
 ```

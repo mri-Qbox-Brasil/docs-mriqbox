@@ -1,13 +1,13 @@
 ---
-title: Input Dialog
+title: Diálogo de Entrada
 ---
 
 import { Tabs, Tab } from 'nextra-theme-docs';
 import { Callout } from 'nextra/components';
 
-# Input Dialog
+# Diálogo de Entrada
 
-The input dialog window allows you to take data from the user by setting input fields.
+A janela de diálogo de entrada permite coletar dados do usuário através de campos de input.
 
 ## lib.inputDialog
 
@@ -27,14 +27,14 @@ The input dialog window allows you to take data from the user by setting input f
 </Tabs>
 
 - heading: `string`
-- rows: `string[]` or `table` (`array`)
-  - type: `'input'` or `'number'` or `'checkbox'` or `'select'` or `'slider'` or `'color'` or `'multi-select'` or `'date'` or `'date-range'` or `'time'` or `'textarea'`
+- rows: `string[]` ou `table` (`array`)
+  - type: `'input'` ou `'number'` ou `'checkbox'` ou `'select'` ou `'slider'` ou `'color'` ou `'multi-select'` ou `'date'` ou `'date-range'` ou `'time'` ou `'textarea'`
 - options?: `table`(`object`)
   - allowCancel: `boolean`
-    - If false the user will not be able to cancel and close the input dialog until submitted.
-    - If not defined, the user is able to cancel and close the input dialog.
+    - Se `false`, o usuário não poderá cancelar e fechar o diálogo de entrada até submetê-lo.
+    - Se não definido, o usuário poderá cancelar e fechar o diálogo de entrada.
 
-### Field Type Properties
+### Propriedades dos Tipos de Campo
 
 - input
 
@@ -82,11 +82,11 @@ The input dialog window allows you to take data from the user by setting input f
   - required? `boolean`
   - disabled?: `boolean`
   - default?: `string` | `table` (only for `multi-select`)
-    - value of the default option.
+    - valor da opção padrão.
   - clearable?: `boolean`
   - searchable?: `boolean`
   - maxSelectedValues?: `number` (only for `multi-select`)
-    - Maxmimum number of options that can be selected.
+    - Número máximo de opções que podem ser selecionadas.
 
 - slider
 
@@ -118,12 +118,12 @@ The input dialog window allows you to take data from the user by setting input f
   - icon?: `string`
   - required? `boolean`
   - disabled?: `boolean`
-  - default?: `string` or `true`
-    - True defaults to current date
+  - default?: `string` ou `true`
+    - `true` define por padrão a data atual
   - format?: `string`
-    - Date format to display in the field
+    - Formato de data para exibir no campo
   - returnString?: `boolean`
-    - Returns the date as a string, default format is `DD/MM/YYYY`, but if `format` is defined it will use that.
+    - Retorna a data como string; o formato padrão é `DD/MM/YYYY`, mas se `format` estiver definido ele será utilizado.
   - clearable?: `boolean`
   - min?: `string`
     - "01/01/2000"
@@ -139,9 +139,9 @@ The input dialog window allows you to take data from the user by setting input f
   - disabled?: `boolean`
   - default?: `[string, string]`
   - format?: `string`
-    - Date format to display in the field
+    - Formato de data para exibir no campo
   - returnString?: `boolean`
-    - Returns the date as a string, default format is `DD/MM/YYYY`, but if `format` is defined it will use that.
+    - Retorna a data como string; o formato padrão é `DD/MM/YYYY`, mas se `format` estiver definido ele será utilizado.
   - clearable?: `boolean`
 
 - time
@@ -152,7 +152,7 @@ The input dialog window allows you to take data from the user by setting input f
   - required? `boolean`
   - disabled?: `boolean`
   - default?: `string`
-  - format?: `'12'` or `'24'`
+  - format?: `'12'` ou `'24'`
   - clearable?: `boolean`
 
 - textarea
@@ -164,23 +164,23 @@ The input dialog window allows you to take data from the user by setting input f
   - disabled?: `boolean`
   - default?: `number`
   - min?: `number`
-    - Minimum amount of rows the text area will take.
+    - Quantidade mínima de linhas que a área de texto ocupará.
   - max?: `number`
-    - Maxmimum amount of rows the text area will take, when exceeded goes into overflow.
+    - Quantidade máxima de linhas que a área de texto pode ocupar; quando excedido, entra em overflow.
   - autosize?: `boolean`
-    - If true text area will grow with content until max rows are reached.
+    - Se `true`, a área de texto crescerá com o conteúdo até atingir o máximo de linhas.
 
-The callback data is promise based meaning that the thread will not continue executing until the user either sends the data or exits the popup.
+Os dados de retorno são baseados em promessas, o que significa que a execução não continuará até que o usuário envie os dados ou feche o popup.
 
-The data returned will be a table (array), indexes represent the rows sent to the dialog, so if we want data from the first field that would be index `1` (`0`), if we want data from the third field, that would be index `3` (`2`), etc...
+Os dados retornados serão uma tabela (array); os índices representam as linhas enviadas ao diálogo. Por exemplo, o primeiro campo está no índice `1` (`0`), o terceiro no índice `3` (`2`), etc.
 
 <Callout>
-  Field types such as `date`, `date-range` and `time` return a unix timestamp on the set value.
+  Tipos de campo como `date`, `date-range` e `time` retornam um timestamp Unix no valor definido.
 </Callout>
 
 ## lib.closeInputDialog
 
-Force closes the active input dialog and sets its return data as `nil`.
+Fecha forçadamente o diálogo de entrada ativo e define seus dados de retorno como `nil`.
 
 <Tabs items={["Lua", "JS"]}>
   <Tab>
@@ -197,9 +197,9 @@ Force closes the active input dialog and sets its return data as `nil`.
   </Tab>
 </Tabs>
 
-## Usage Example
+## Exemplo de Uso
 
-### Basic
+### Básico
 
 <Tabs items={["Lua", "JS"]}>
   <Tab>
@@ -212,7 +212,7 @@ Force closes the active input dialog and sets its return data as `nil`.
   </Tab>
   <Tab>
     <Callout>
-      This function is **asynchronous** requiring you to do a `.then` callback on the promise or make your function `async`.
+      Esta função é **assíncrona**, exigindo que você use `.then` no promise ou torne sua função `async`.
     </Callout>
 
     ```ts
@@ -241,17 +241,17 @@ Force closes the active input dialog and sets its return data as `nil`.
 
     print(json.encode(input))
 
-    -- Getting rgb values from colour picker
+    -- Obtendo valores RGB a partir do seletor de cores
     local rgb = lib.math.torgba(input[4])
 
-    -- Transforming date timestamp to a readable format with Lua's os library (server-only)
+    -- Transformando timestamp de data para um formato legível com a biblioteca os do Lua (apenas no servidor)
     local timestamp = math.floor(input[5] / 1000)
     local date = os.date('%Y-%m-%d %H:%M:%S', timestamp)
     ```
   </Tab>
   <Tab>
     <Callout>
-      This function is **asynchronous** requiring you to do a `.then` callback on the promise or make your function `async`.
+      Esta função é **assíncrona**, exigindo que você use `.then` no promise ou torne sua função `async`.
     </Callout>
 
     ```ts
@@ -265,7 +265,7 @@ Force closes the active input dialog and sets its return data as `nil`.
 
     console.log(JSON.stringify(input, null, 2));
 
-    // Getting r, g and b values from colour picker
+    // Obtendo os valores r, g e b a partir do seletor de cores
     const regExp = /rgb\((\d+),\s*(\d+),\s*(\d+)\)/;
     const colourInput = input[3];
 

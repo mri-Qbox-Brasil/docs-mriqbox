@@ -1,19 +1,19 @@
 ---
-title: Radial Menu
+title: Menu Radial
 ---
 
 import { Tabs, Tab } from 'nextra-theme-docs';
 import { Callout } from 'nextra/components';
 
-# Radial Menu
+# Menu Radial
 
-- Radial menu has a global menu that's by default accessed with `z` and only displays when there is at least one item.
-- You can add and remove items from the global menu using `lib.addRadialItem` and `lib.removeRadialItem`.
-- Use `lib.registerRadial` for creating sub menus and use the `menu` property on the items to open those sub menus.
+- O menu radial possui um menu global que, por padrão, é acessado com `z` e só é exibido quando há pelo menos um item.
+- Você pode adicionar e remover itens do menu global usando `lib.addRadialItem` e `lib.removeRadialItem`.
+- Use `lib.registerRadial` para criar submenus e utilize a propriedade `menu` nos itens para abrir esses submenus.
 
 ## lib.addRadialItem
 
-Item or array of items added to the global radial menu.
+Item ou array de itens adicionados ao menu radial global.
 
 <Tabs items={["Lua", "JS"]}>
   <Tab>
@@ -30,25 +30,25 @@ Item or array of items added to the global radial menu.
   </Tab>
 </Tabs>
 
-- items: `table` (`object` or `array`)
+- items: `table` (`object` ou `array`)
   - id: `string`
-    - Id that is used for removing options.
+    - Id usado para remover opções.
   - icon: `string`
-    - Either a font awesome or a custom URI.1
+    - Ou um ícone do Font Awesome ou uma URI customizada.
   - iconWidth?: `number`
   - iconHeight?: `number`
-    - In the case of a custom URI, adjust the size of the icon.
+    - No caso de uma URI customizada, ajuste o tamanho do ícone.
   - label: `string`
-    - Label uses `  \n` to insert a newline
+    - O label usa `  \\n` para inserir uma nova linha
   - menu?: `string`
-    - Id of a menu to open.
+    - Id de um menu para abrir.
   - onSelect: `function(currentMenu: string | nil, itemIndex: number)` | `string`
-    - Function that's ran when a user clicks the item.
+    - Função executada quando um usuário clica no item.
   - keepOpen?: `boolean`
 
 ## lib.removeRadialItem
 
-Id of an item to be removed from the global menu.
+Id de um item a ser removido do menu global.
 
 <Tabs items={["Lua", "JS"]}>
   <Tab>
@@ -69,7 +69,7 @@ Id of an item to be removed from the global menu.
 
 ## lib.clearRadialItems
 
-Removes all items from the radial menu.
+Remove todos os itens do menu radial.
 
 <Tabs items={["Lua", "JS"]}>
   <Tab>
@@ -88,7 +88,7 @@ Removes all items from the radial menu.
 
 ## lib.registerRadial
 
-Registers a radial sub menu with predefined options.
+Registra um submenu radial com opções predefinidas.
 
 <Tabs items={["Lua", "JS"]}>
   <Tab>
@@ -107,19 +107,19 @@ Registers a radial sub menu with predefined options.
 
 - radial: `table` (`object`)
   - id: `string`
-    - Unique menu id used to open with `menu` prop on an item.
+    - Id único do menu usado para abrir via propriedade `menu` em um item.
   - items: `array`
     - icon: `string`
     - label: `string`
-      - Label uses `  \n` to insert a newline
+      - O label usa `  \n` para inserir uma nova linha
     - menu?: `string`
-      - Id of a menu to open.
+      - Id de um menu para abrir.
     - onSelect?: `function(currentMenu: string | nil, itemIndex: number)` | `string`
-      - Function that's ran when a user clicks the item.
+      - Função executada quando um usuário clica no item.
 
 ## lib.hideRadial
 
-Hides the radial menu if one is open.
+Oculta o menu radial se estiver aberto.
 
 <Tabs items={["Lua", "JS"]}>
   <Tab>
@@ -138,7 +138,7 @@ Hides the radial menu if one is open.
 
 ## lib.disableRadial
 
-Disallow players from opening the radial menu.
+Impede que jogadores abram o menu radial.
 
 <Tabs items={["Lua", "JS"]}>
   <Tab>
@@ -156,11 +156,11 @@ Disallow players from opening the radial menu.
 </Tabs>
 
 - state: `boolean`
-  - Whether or not radial menu should be disabled
+  - Se o menu radial deve ser desabilitado
 
 ## lib.getCurrentRadialId
 
-Returns the id of the currently open radial menu.
+Retorna o id do menu radial atualmente aberto.
 
 <Tabs items={["Lua", "JS"]}>
   <Tab>
@@ -177,14 +177,13 @@ Returns the id of the currently open radial menu.
   </Tab>
 </Tabs>
 
-## Usage Example
+## Exemplo de Uso
 
 <Callout>
-  When adding radial menu items whether they are global or for a sub menu, make sure to stick to short as possible labels
-  as long labels will look out of place and should not be used with the radial menu because of its density.
+  Ao adicionar itens ao menu radial, sejam globais ou de submenu, use labels o mais curtos possível — labels longos ficarão fora de lugar e não devem ser usados no menu radial devido à sua densidade.
 </Callout>
 
-Here's a use case example with some global options and an option utilising the lib's points system.
+Aqui está um exemplo de uso com algumas opções globais e uma opção utilizando o sistema de pontos da lib.
 
 <Tabs items={["Lua", "JS"]}>
   <Tab>
@@ -265,7 +264,7 @@ Here's a use case example with some global options and an option utilising the l
   </Tab>
   <Tab>
     <Callout>
-      Points system in the lib isn't available for the npm package.
+      O sistema de pontos da lib não está disponível no pacote npm.
     </Callout>
 
     ```ts

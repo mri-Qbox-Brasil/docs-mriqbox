@@ -2,7 +2,7 @@
 
 ## lib.math
 
-Extends the standard Lua math table with extra functions.
+Estende a tabela padrão `math` do Lua com funções adicionais.
 
 ```
 math = lib.math
@@ -10,7 +10,7 @@ math = lib.math
 
 ### math.toscalars
 
-Takes a string and returns a set of scalar values.
+Recebe uma string e retorna um conjunto de valores escalares.
 
 ```lua
 math.toscalars(input, min, max, round)
@@ -21,30 +21,30 @@ math.toscalars(input, min, max, round)
 - max?: `number`
 - round?: `boolean`
 
-Return:
+Retorno:
 
 - ...: `number`
 
 ### math.tovector
 
-Takes a string or table and returns a vector value, or a number if only one value was found.
+Recebe uma string ou tabela e retorna um valor `vector`, ou um número se apenas um valor for encontrado.
 
 ```lua
 math.tovector(input, min, max, round)
 ```
 
-- input: `string` or `table`
+- input: `string` ou `table`
 - min?: `number`
 - max?: `number`
 - round?: `boolean`
 
-Return:
+Retorno:
 
-- value: `number` or `vector2` or `vector3` or `vector4`
+- value: `number` ou `vector2` ou `vector3` ou `vector4`
 
 ### math.normaltorotation
 
-Takes a surface normal and tries to convert it to a vector3 rotation.
+Recebe uma normal de superfície e tenta convertê-la em uma rotação `vector3`.
 
 ```lua
 math.normaltorotation(input)
@@ -52,37 +52,37 @@ math.normaltorotation(input)
 
 - input: `vector3`
 
-Return:
+Retorno:
 
 - value: `vector3`
 
 ### math.torgba
 
-Takes a string or table and returns a vector value, or a number if only one value was found.  
-Values are rounded and must be within the range of 0-255.
+Recebe uma string ou tabela e retorna um valor `vector`, ou um número se apenas um valor for encontrado.
+Os valores são arredondados e devem estar no intervalo de 0 a 255.
 
 ```lua
 math.torgba(input)
 ```
 
-- input: `string` or `table`
+- input: `string` ou `table`
 
-Return:
+Retorno:
 
-- value: `number` or `vector2` or `vector3` or `vector4`
+- value: `number` ou `vector2` ou `vector3` ou `vector4`
 
 ### math.hextorgb
 
-Takes a hexadecimal string and returns three integers.
+Recebe uma string hexadecimal e retorna três inteiros.
 
 ```lua
 math.hextorgb(input)
 ```
 
 - input: `string`
-  - A hexadecimal value, e.g. `'eb4034'`.
+  - Um valor hexadecimal, por exemplo `'eb4034'`.
 
-Return:
+Retorno:
 
 - r: `number`
 - g: `number`
@@ -90,22 +90,23 @@ Return:
 
 ### math.tohex
 
-Takes a number or string and formats it as a hexadecimal string.
+Recebe um número ou string e formata como uma string hexadecimal.
 
 ```lua
 math.tohex(n, upper)
 ```
 
-- n: `number` or `string`
+- n: `number` ou `string`
 - upper?: `boolean`
 
-Return:
+Retorno:
 
 - hex: `string`
 
+
 ### math.groupdigits
 
-Takes a number and formats it into grouped digits.
+Recebe um número e formata seus dígitos em grupos.
 
 ```lua
 math.groupdigits(number, seperator)
@@ -113,15 +114,15 @@ math.groupdigits(number, seperator)
 
 - number: `number`
 - seperator?: `string`
-  - Default: `,`
+  - Padrão: `,`
 
-Return:
+Retorno:
 
 - groupedDigits: `string`
 
 ### math.clamp
 
-Clamps a number between a lower and upper limit.
+Limita um número entre um limite inferior e superior.
 
 ```lua
 math.clamp(number, lower, upper)
@@ -131,13 +132,13 @@ math.clamp(number, lower, upper)
 - lower: `number`
 - upper: `number`
 
-Return:
+Retorno:
 
 - number: `number`
 
 ### math.round
 
-Rounds a number to a whole number or to the specified number of decimal places.
+Arredonda um número para inteiro ou para o número especificado de casas decimais.
 
 ```lua
 math.round(value, places)
@@ -146,13 +147,13 @@ math.round(value, places)
 - value: `number` | `string`
 - places?: `number` | `string`
 
-Return:
+Retorno:
 
 - roundedValue: `number`
 
 ### math.interp
 
-Calculates an intermediate value between `start` and `finish` based on the interpolation `factor`.
+Calcula um valor intermediário entre `start` e `finish` com base no fator de interpolação `factor`.
 
 ```lua
 math.interp(start, finish, factor)
@@ -162,15 +163,15 @@ math.interp(start, finish, factor)
 - start: `T`
 - finish: `T`
 - factor: `number`
-  - The interpolation factor between 0 and 1.
+  - Fator de interpolação entre 0 e 1.
 
-Return:
+Retorno:
 
 - result: `T`
 
 ### math.lerp
 
-Linearly interpolates between two values over a specified duration, returning an iterator function that will run once per game-frame.
+Interpola linearmente entre dois valores ao longo de uma duração especificada, retornando uma função iteradora que será executada uma vez por frame do jogo.
 
 ```lua
 math.lerp(start, finish, duration)
@@ -178,12 +179,12 @@ math.lerp(start, finish, duration)
 
 - generic `T`: `number` | `table` | `vector2` | `vector3` | `vector4`
 - start: `T`
-  - The starting value of the interpolation
+  - Valor inicial da interpolação
 - finish: `T`
-  - The ending value of the interpolation
+  - Valor final da interpolação
 - duration: `number`
-  - The duration over which to interpolate over in milliseconds.
+  - Duração, em milissegundos, sobre a qual interpolar.
 
-Return:
+Retorno:
 
 - iteratorFunction: `fun(): T, number`

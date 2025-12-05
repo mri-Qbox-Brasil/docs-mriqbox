@@ -12,26 +12,26 @@ lib.disableControls()
 
 ## lib.disableControls:Add
 
-Adds the specified control(s) to the stored list.  
+Adds the specified control(s) to the stored list.
 If the control is already being tracked, the stored counter will be incremented.
 
 ```lua
 lib.disableControls:Add(...)
 ```
 
-- vararg: `number` or `number[]`
+- vararg: `number` ou `number[]`
   - Control(s) to add a stored count of
 
 ## lib.disableControls:Remove
 
-Removes the specified control(s) from the stored list.  
+Removes the specified control(s) from the stored list.
 If the stored counter for a given control is greater than one, the stored counter will be decremented.
 
 ```lua
 lib.disableControls:Remove(...)
 ```
 
-- vararg: `number` or `number[]`
+- vararg: `number` ou `number[]`
   - Control(s) to remove a stored count of
 
 ## lib.disableControls:Clear
@@ -42,5 +42,5 @@ Clears the stored counter(s) for the specified control(s).
 lib.disableControls:Clear(...)
 ```
 
-- vararg: `number` or `number[]`
+- vararg: `number` ou `number[]`
   - Control(s) to clear out from being tracked

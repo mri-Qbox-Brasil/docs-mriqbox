@@ -1,12 +1,12 @@
 ---
-title: Creating Shops
+title: Criando Lojas
 ---
 
-# Creating Shops
+## Criando Lojas
 
-Builtin shops are defined in [data/shops.lua](https://github.com/overextended/ox_inventory/blob/main/data/shops.lua), and more can be added here to benefit from the built-in markers or zones support.
+As lojas integradas são definidas em [data/shops.lua](https://github.com/overextended/ox_inventory/blob/main/data/shops.lua), e novas lojas podem ser adicionadas aqui para aproveitar os marcadores embutidos ou o suporte a zonas.
 
-## Shop definition
+## Definição da loja
 
 ```lua
 {
@@ -49,44 +49,44 @@ Builtin shops are defined in [data/shops.lua](https://github.com/overextended/ox
 ```
 
 - name: `string`
-  - The label to display when the shop is open.
+  - O rótulo exibido quando a loja estiver aberta.
 - blip?: `table`
-  - Creates a blip with the given settings. Leave it undefined for no blip to be created.
+  - Cria um blip com as configurações fornecidas. Deixe indefinido para não criar blip.
   - id: `number`
   - colour: `number`
   - scale: `number`
 - groups?: `table`
-  - Key-value pairs of job name and minimum grade to access the shop.
+  - Pares chave-valor de nome de job e grade mínima para acessar a loja.
     - `{["police"] = 0, ["ambulance"] = 2}`
 - inventory: `table`
   - name: `string`
   - price: `number`
   - currency?: `string`
-    - Item to be used as currency.
+    - Item a ser usado como moeda.
   - count?: `number`
-    - Amount of the item in the stock.
+    - Quantidade do item em estoque.
   - license?: `string`
-    - License required to purchase the item.
+    - Licença necessária para comprar o item.
   - metadata?: `table`
   - grade?: `number` | `number[]`
-    - Minimal grade required to purchase the item.
+    - Grade mínima necessária para comprar o item.
 - locations?: `vector3[]`
-  - An array of coordinates to create unique instances of the shop archetype at, using markers.
+  - Um array de coordenadas para criar instâncias únicas do arquétipo da loja, usando marcadores.
 - targets?: `table[]`
-  - An array of target settings to create unique instances of the shop archetype at, using peds or BoxZones (PolyZone data structure).
+  - Um array de configurações de target para criar instâncias únicas do arquétipo da loja, usando peds ou BoxZones (estrutura PolyZone).
 - model?: `number[]`
-  - An array of models that can be targetted to open a shop. Used for vending machines.
+  - Um array de modelos que podem ser alvo para abrir uma loja. Usado para máquinas de venda.
 
-Targets and model are only available when using a targeting resource like ox_target.
+Targets e model estão disponíveis apenas quando se utiliza um recurso de targeting como o `ox_target`.
 
-## Register during runtime
+## Registrar em tempo de execução
 
-Shops can be added using `exports.ox_inventory:RegisterShop` on the server, however they cannot utilise any client-only features.
+Lojas podem ser adicionadas usando `exports.ox_inventory:RegisterShop` no servidor, entretanto elas não podem utilizar recursos exclusivos do cliente.
 
-- Blips, markers, and zones will not be created.
-- Must use "locations" and not "targets" to define each shop using the archetype.
+- Blips, marcadores e zonas não serão criados.
+- Deve-se usar `locations` e não `targets` para definir cada loja usando o arquétipo.
 
-### Example
+### Exemplo
 
 ```lua
 exports.ox_inventory:RegisterShop('TestShop', {

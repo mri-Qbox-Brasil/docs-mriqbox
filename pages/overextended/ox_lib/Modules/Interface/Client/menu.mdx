@@ -7,11 +7,11 @@ import { Callout } from 'nextra/components';
 
 # Menu
 
-Keyboard navigation menu with specific event functions.
+Menu de navegação por teclado com funções de evento específicas.
 
 ## lib.registerMenu
 
-Registers and caches a menu under the specified id.
+Registra e armazena em cache um menu sob o `id` especificado.
 
 <Tabs items={["Lua", "JS"]}>
   <Tab>
@@ -36,46 +36,46 @@ Registers and caches a menu under the specified id.
     - progress?: `number`
     - colorScheme?: `string`
     - icon?: `string`
-      - FontAwesome icon that will be displayed on the left side, works the same as notification and textui icons.
-      - Also supports image urls, png and webp files but are not recommend to use over font awesome icons.
+      - Ícone FontAwesome exibido no lado esquerdo; funciona da mesma forma que os ícones de `notification` e `textui`.
+      - Também suporta URLs de imagem (`png`, `webp`), mas não é recomendado usá-las em vez dos ícones do FontAwesome.
     - iconColor?: `string`
     - iconAnimation?: `'spin'` `'spinPulse'` `'spinReverse'` `'pulse'` `'beat'` `'fade'` `'beatFade'` `'bounce'` `'shake'`
-    - values?: `string[]` or `{ label: string, description: string }[]`
-      - If provided creates a side scrollable list.
-      - When using object and setting description, the set description will be displayed in the menu tooltip.
+    - values?: `string[]` ou `{ label: string, description: string }[]`
+      - Se fornecido, cria uma lista lateral rolável.
+      - Ao usar um objeto e definir `description`, essa descrição será exibida na tooltip do menu.
     - checked?: `boolean`
-      - Setting either true or false will make the button a checkbox, if `values` is also provided the button will be a
-        scrollable list.
+      - Definindo `true` ou `false` o botão se comportará como um checkbox; se `values` também for fornecido, o botão será
+        uma lista rolável.
     - description?: `string`
-      - Displays tooltip below menu on hovered item with provided description.
+      - Exibe uma tooltip abaixo do menu no item quando o mouse estiver sobre ele, usando a descrição fornecida.
     - defaultIndex?: `number`
-      - Sets the current index for the list to specified number.
+      - Define o índice atual da lista para o número especificado.
     - args?: `{[string]: any}`
-      - Allows you to pass any arguments through the button.
-      - If the button has `values` then `isScroll` is automatically passed.
-      - If the button has `checked` to either true or false then `isCheck` is automatically passed.
+      - Permite passar quaisquer argumentos através do botão.
+      - Se o botão tiver `values`, então `isScroll` será passado automaticamente.
+      - Se o botão tiver `checked`, então `isCheck` será passado automaticamente.
     - close?: `boolean`
-      - If set to false, it won't close the menu upon interacting with this option.
-  - position?: `'top-left'` or `'top-right'` or `'bottom-left'` or `'bottom-right'`
-    - Default: `'top-left'`
+      - Se definido como `false`, o menu não será fechado ao interagir com essa opção.
+  - position?: `'top-left'` ou `'top-right'` ou `'bottom-left'` ou `'bottom-right'`
+    - Padrão: `'top-left'`
   - disableInput?: `boolean`
-    - Default: `false`
+    - Padrão: `false`
   - canClose: `boolean`
-    - If set to false the user won't be able to exit the menu without pressing one of the buttons.
+    - Se definido como `false`, o usuário não conseguirá sair do menu sem pressionar um dos botões.
   - onClose: `function`(keyPressed?: `'Escape' | 'Backspace'`)
-    - Function that runs when the menu is exited via ESC/Backspace.
+    - Função executada quando o menu é fechado via ESC/Backspace.
   - onSelected: `function`(selected: `number`, secondary: `number` | `boolean`, args: `{[string]: any}`)
-    - Function being ran when the selected button in the menu changes.
+    - Função executada quando o botão selecionado no menu for alterado.
   - onSideScroll: `function`(selected: `number`, scrollIndex: `number`, args: `{[string]: any}`)
-    - Function ran whenever a scroll list item is changed.
+    - Função executada sempre que um item de lista rolável for alterado.
   - onCheck: `function`(selected: `number`, checked: `boolean`, args: `{[string]: any}`)
-    - Function ran whenever a checkbox is toggled.
-- cb: `function`(selected: `number`, scrollIndex: `number`, args: `{[string]: any}`)
-  - Callback function when the menu item is pressed.
+    - Função executada sempre que um checkbox for alternado.
+-- cb: `function`(selected: `number`, scrollIndex: `number`, args: `{[string]: any}`)
+  - Função de callback executada quando um item do menu é pressionado.
 
 ## lib.showMenu
 
-Displays the menu with the provided id.
+Exibe o menu com o `id` fornecido.
 
 <Tabs items={["Lua", "JS"]}>
   <Tab>
@@ -111,12 +111,12 @@ Displays the menu with the provided id.
   </Tab>
 </Tabs>
 
-- onExit?: `boolean`
-  - If true runs the menu's `onClose` function.
+-- onExit?: `boolean`
+  - Se `true`, executa a função `onClose` do menu.
 
 ## lib.getOpenMenu
 
-Returns the id of the currently open menu.
+Retorna o `id` do menu atualmente aberto.
 
 <Tabs items={["Lua", "JS"]}>
   <Tab>
@@ -151,12 +151,12 @@ Returns the id of the currently open menu.
 </Tabs>
 
 - id: `string`
-- options: `table` (`object` or `array`)
-- index?: `number`
-  - If specified only sets the options table on the specified options index.
+- options: `table` (`object` ou `array`)
+-- index?: `number`
+  - Se especificado, atualiza apenas a tabela de opções no índice indicado.
 
-<u>**Example:**</u><br />
-Replaces the 3rd index option of the specified menu
+<u>**Exemplo:**</u><br />
+Substitui a opção no índice 3 do menu especificado
 
 <Tabs items={["Lua", "JS"]}>
   <Tab>
@@ -173,12 +173,12 @@ Replaces the 3rd index option of the specified menu
   </Tab>
 </Tabs>
 
-## Usage Example
+## Exemplo de uso
 
-First we register the menu with our specified options then we call the show function in the command.
+Primeiro registramos o menu com as opções especificadas e então chamamos a função `show` através de um comando.
 
 <Callout>
-  Avoid constantly re-registering a menu that does not depend on any outside values (A.K.A a static menu).
+  Evite re-registrar constantemente um menu que não dependa de valores externos (ou seja, um menu estático).
 </Callout>
 
 <Tabs items={["Lua", "JS"]}>
