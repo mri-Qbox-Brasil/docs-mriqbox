@@ -1,36 +1,36 @@
 ---
-title: Custom Stashes
+title: Stashes Personalizados
 ---
 
 import { GhButton } from '@components/button';
 
-# Custom Stashes
+# Stashes Personalizados
 
-We can set up custom stashes from outside the resource utilising the exported RegisterStash function.
+Podemos configurar stashes personalizados fora do recurso utilizando a função exportada `RegisterStash`.
 
-Firstly, we need to define the stashes properties.
+Primeiro, precisamos definir as propriedades do stash.
 
-## Stash properties
+## Propriedades do stash
 
 - id: `string`
-  - Unique name to identify the stash in the database.
+  - Nome único para identificar o stash no banco de dados.
 - label: `string`
-  - Display name when viewing the stash.
+  - Nome exibido ao visualizar o stash.
 - slots: `number`
-  - Number of slots the stash will have.
+  - Quantidade de slots que o stash terá.
 - weight: `number`
-  - Maximum weight of the stash inventory.
+  - Peso máximo do inventário do stash.
 - owner?: `string` or `boolean`
-  - `true`: Each player has their own unique stash, but can request to open the stash of another player
-  - `false`: Only a single stash exists and is shared between all players
-  - `string`: The stash explicitly belongs to the given owner, usually a player identifier
+  - `true`: Cada jogador tem seu próprio stash único, mas pode solicitar abrir o stash de outro jogador.
+  - `false`: Existe apenas um stash compartilhado entre todos os jogadores.
+  - `string`: O stash pertence explicitamente ao proprietário informado, geralmente um identificador de jogador.
 - groups?: `table`
-  - Key-value pairs of job name and minimum grade to be able to access the stash. (`{["police"] = 0, ["ambulance"] = 2}`)
+  - Pares chave-valor com nome do job e grade mínima para acessar o stash. (`{["police"] = 0, ["ambulance"] = 2}`)
   - name: `string`
   - grade: `number`
 - coords?: `vector3` or `table`
-  - You can set the stash coordinates to prevent the stash from being opened if the player isn't close enough.
-  - Vector or table containing the coordinates of the stash.
+  - Você pode definir as coordenadas do stash para impedir que ele seja aberto se o jogador não estiver próximo.
+  - Vetor ou tabela contendo as coordenadas do stash.
 
 ## Example
 
@@ -56,7 +56,7 @@ end)
 exports.ox_inventory:openInventory('stash', {id='42wallabyway', owner=property.owner})
 ```
 
-The following sample is based on esx_property's db data.
+O exemplo a seguir é baseado nos dados do banco do `esx_property`.
 
 ```lua
 -- Server
@@ -83,8 +83,8 @@ if ox_inventory:openInventory('stash', property.id) == false then
 end
 ```
 
-## Example Resource
+## Recurso de exemplo
 
-We put together an example resource showcasing how to properly utilise the stash API:
+Criamos um recurso de exemplo demonstrando como utilizar corretamente a API de stash:
 
 <GhButton link="https://www.github.com/overextended/ox_inventory_examples" label="Ox Inventory Examples" />
