@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://docs.mriqbox.com.br
+
+# Sitemaps
+Sitemap: https://docs.mriqbox.com.br/sitemap.xml
