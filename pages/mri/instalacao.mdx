@@ -8,23 +8,65 @@ import { Callout, Steps, Tabs } from 'nextra/components';
 
 <Callout type="info">
 Recomendamos fortemente usar **txAdmin** para instalar o seu servidor de FiveM.
-Para saber como fazer isso confira [Setting up a server using txAdmin](https://docs.fivem.net/docs/server-manual/setting-up-a-server-txadmin/).
+Em caso de dúvidas, consulte [Setting up a server using txAdmin(em inglês)](https://docs.fivem.net/docs/server-manual/setting-up-a-server-txadmin/).
 </Callout>
 
 <Steps>
-    ### Baixe os artefatos do servidor
+    ### Acesse nosso servidor do Discord
 
-    Baixe o último Artefato do FiveM conforme seu sistema operacional [Windows ](https://runtime.fivem.net/artifacts/fivem/build\_server\_windows/master/)/ [Linux](https://runtime.fivem.net/artifacts/fivem/build\_proot\_linux/master/) e extraia os arquivos para uma pasta onde o servidor ficará.
+    [Clique aqui para entrar](https://discord.mriqbox.com.br)
 
-    <Callout type="info">
-    O artefato recomendado pelo FiveM não é o mais recente, recomenados que utilize sempre o mais recente e somente versões anteriores em casos de BUGs.
+    ### Baixe os artefatos do servidor + txAdmin
+
+    O txAdmin é um componente do servidor FiveM que permite gerenciar e monitorar o seu servidor.
+    Utilize o comando `/download` em um canal de texto da comunidade discord para obter os links necessários.
+    Baixe o Artefato do FiveM recomendado pelo BOT conforme seu sistema operacional Windows / Linux e extraia os arquivos para uma pasta onde o servidor ficará¹.
+
+    <Callout type="warning">
+    Obs.: ¹ Não extraia os arquivos para a `Área de Trabalho` do Windows. Coloque em uma pasta em que o caminho não possuia acentos, espaços ou caracteres especiais.
+
+    Exemplos de caminhos aceitos: `C:\FiveM` ou `C:\FiveM\Server`.
+
+    Exemplos de caminhos não aceitos: `C:\FiveM Server` ou `C:\Cidade FiveM\João\Server`.
     </Callout>
 
-    ![Artefatos do Servidor](/static/images/artifacts.png)
+    ![Comando de download](/static/images/download1.png)
+    ![Comando de download](/static/images/download2.png)
+
+    Legenda dos botões:
+    - `FxServer Windows` - Artefato do FiveM recomendado pelo BOT para Windows.
+    - `FxServer Linux` - Artefato do FiveM recomendado pelo BOT para Linux.
+    - `Receita MriQbox` - Link para esta página onde se encontra a receita para o txAdmin.
 
     ### Inicie a instalação do servidor
 
     Abra a pasta dos artefatos e execute `FXServer.exe` para iniciar a instalação.
+
+    A tela abaixo deve aparecer:
+    ![txAdmin](/static/images/txAdmin1.png)
+
+    ### Segure o `Ctrl` e clique em `http://localhost:40120`.
+
+    A tela abaixo deve aparecer:
+    ![txAdmin](/static/images/txAdmin2.png)
+
+    ### Faça o link com sua conta da [CFX](https://forums.cfx.re/).
+
+    Caso não possua uma conta, crie uma. Você PRECISA de uma conta para utilizar o servidor de FiveM, e também para acessar recursos pagos, como aumetar limite de players, scripts e mapas pagos.
+    ![txAdmin](/static/images/txAdmin3.png)
+
+    <Callout type="warning">
+    Escolha uma senha forte de backup, para acessar o txAdmin mesmo sem acesso a conta da CFX.
+    </Callout>
+
+    ### Dê um nome ao seu servidor
+
+    Geralmente é o mesmo nome da cidade. Esse nome é apenas para conhecimento interno, e será exibido somente na interface do txAdmin.
+    ![txAdmin](/static/images/txAdmin4.png)
+
+    ### Escolha a opção: `Remote URL Template` e prossiga
+
+    ![txAdmin](/static/images/txAdmin5.png)
 
     ### Execute o deploy da receita
 
@@ -33,7 +75,42 @@ Para saber como fazer isso confira [Setting up a server using txAdmin](https://d
     ```ansi filename="Receita mri-Qbox" copy
     https://raw.githubusercontent.com/mri-Qbox-Brasil/txAdminRecipe/refs/heads/ps/recipe.yaml
     ```
-    ### Inicie o servidor
+    ![txAdmin](/static/images/txAdmin6.png)
 
-    Uma vez que a instalação esteja finalizada, você pode executar o servidor. A primeira inicialização pode levar um tempo.
+    ### Escolha o local de instalação
+
+    Se achar necessário, altere o local de instalação do servidor.
+    ![txAdmin](/static/images/txAdmin7.png)
+
+    ### Revise as configurações de banco de dados
+
+    Caso ainda não tenha instalado um banco de dados, acesse [OxMySQL](../../overextended/oxmysql) e veja porque instalar o [MariaDB](https://mariadb.com/downloads/community/). Atente-se ao campo de senha, caso tenha configurado uma.
+    ![txAdmin](/static/images/txAdmin8.png)
+
+    ### Execute o deploy da receita
+    Aguarde até que a instalação seja concluída. Nesse passo é comum aparecer 3 mensagens de erro:
+    - `Error 403: Forbidden`
+    - `Error 429: Too Many Requests`
+    - `Task Failed: Timeout awaiting 'request' for 150000ms`
+
+    Os 2 primeiros estão diretamente relacionados a API do Github, que pode limitar o acesso a páginas muito acessadas.
+    Nesse caso, o que deve ser feito, é aguardar pelo menos 1 hora, e ir tentando novamente, até que funcione.
+    Não se trata de um problema da MRI, mas sim da API do GitHub. Outras bases que ficam no Github podem ter o mesmo problema.
+
+    O terceiro erro pode ser um problema de conexão, a "solução" é a mesma, tentar novamente, se precisar, aguardar um tempo entre as tentativas.
+    ![txAdmin](/static/images/txAdmin9.png)
+
+    Ao finalizar a instalação com êxito, veremos a tela abaixo:
+    ![txAdmin](/static/images/txAdmin10.png)
+
+    ### Inicie o servidor
+    Clique em `Save & Run Server`!
+
+    Uma vez que a instalação esteja finalizada, você pode executar o servidor.
+    ![txAdmin](/static/images/txAdmin11.png)
+
+    <Callout type="warning">
+    A primeira inicialização pode levar um tempo, e é normal aparecer warnings no console.
+    Por que? O servidor está criando o cache, e isso demora. Além disso ele está inserindo dados no banco de dados, que pode demorar mais que o normal quando comparado ao uso diário.
+    </Callout>
 </Steps>
