@@ -11,7 +11,7 @@ All target actions are formated as an array containing objects with the followin
   - Name of a [Font Awesome](https://fontawesome.com/icons) icon.
 - iconColor?: `string`
 - distance?: `number`
-  - The max distance to display the option.
+  - Distância máxima para exibir a opção.
 - bones?: `string` or `string[]`
   - A bone name or array of bone names (see [GetEntityBoneIndexByName](https://docs.fivem.net/natives/?_0xFB71170B7E76ACBA)).
 - offset?: `vector3`
@@ -56,9 +56,9 @@ A selected option will trigger a single action, in order of priority:
   - entity: `number`
     - The id of the entity hit by the shape test. If triggering a server event, this is the network id instead.
   - coords: `vector3`
-    - The resulting coordinates where the shape test hit a collision. 
+    - As coordenadas resultantes onde o teste de colisão atingiu.
   - distance: `number`
-    - The player's distance from the coords.
+    - Distância do jogador até as coordenadas.
   - zone?: `number`
-    - The id of the selected zone, if applicable.
+    - O id da zona selecionada, se aplicável.
 

@@ -2,7 +2,7 @@
 
 All exports with the `options` argument expect a table with the targeting properties [here](../TargetOptions).
 
-For some examples you can refer to [defaults.lua](https://github.com/overextended/ox_target/blob/main/client/defaults.lua) or [debug.lua](https://github.com/overextended/ox_target/blob/main/client/debug.lua).
+Para alguns exemplos, consulte [defaults.lua](https://github.com/overextended/ox_target/blob/main/client/defaults.lua) ou [debug.lua](https://github.com/overextended/ox_target/blob/main/client/debug.lua).
 
 ## disableTargeting
 
@@ -13,7 +13,7 @@ exports.ox_target:disableTargeting(state)
 ```
 
 - state: `boolean`
-  - Setting `state` to `true` will turn off the targeting eye if it is active and prevent it from reopening until `state` is set to `false` again.
+  - Defina `state` como `true` para desativar o targeting (o "olho") se estiver ativo, e impedir que reabra até que `state` seja `false`.
 
 ## addGlobalOption
 
@@ -196,10 +196,10 @@ exports.ox_target:addSphereZone(parameters)
   - radius?: `number`
   - debug?: `boolean`
   - drawSprite?: `boolean`
-    - Draw a sprite at the centroid of the zone. Defaults to `true`.
+    - Desenha um sprite no centróide da zona. Padrão: `true`.
   - options: `TargetOptions`
 
-Return:
+Retorno:
 - id: `number`
 
 ## addBoxZone
@@ -218,10 +218,10 @@ exports.ox_target:addBoxZone(parameters)
   - rotation?: `number`
   - debug?: `boolean`
   - drawSprite?: `boolean`
-    - Draw a sprite at the centroid of the zone. Defaults to `true`.
+    - Desenha um sprite no centróide da zona. Padrão: `true`.
   - options: `TargetOptions`
 
-Return:
+Retorno:
 - id: `number`
 
 ## addPolyZone
@@ -241,10 +241,10 @@ exports.ox_target:addPolyZone(parameters)
     - The height of the polygon, defaulting to `4`.
   - debug?: `boolean`
   - drawSprite?: `boolean`
-    - Draw a sprite at the centroid of the zone. Defaults to `true`.
+    - Desenha um sprite no centróide da zona. Padrão: `true`.
   - options: `TargetOptions`
 
-Return:
+Retorno:
 - id: `number`
 
 ## removeZone
