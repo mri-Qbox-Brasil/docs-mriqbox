@@ -4,9 +4,9 @@ title: Crafting
 
 # Crafting
 
-Crafting locations, items and their ingredients are defined in [data/crafting.lua](https://github.com/overextended/ox_inventory/blob/main/data/crafting.lua).
+Locais de criação, itens e seus ingredientes são definidos em [data/crafting.lua](https://github.com/overextended/ox_inventory/blob/main/data/crafting.lua).
 
-## Crafting definition
+## Definição de crafting
 
 ```lua
 {
@@ -46,36 +46,35 @@ Crafting locations, items and their ingredients are defined in [data/crafting.lu
 },
 ```
 
-- items: `table`
+- items: `tabela`
   - name: `string`
-  - ingredients: `table`
-    - Item ingredients can be seen in the item tooltip.
-    - Key-value pairs of item name and consume count
-      - key - Item name.
-      - value - If 1 or above it's the consume count, if below 1 and above 0 it's the durability consume amount, if
-        set to 0 then the item is required but not consumed.
+  - ingredients: `tabela`
+    - Os ingredientes do item podem ser vistos na dica (tooltip) do item.
+    - Pares chave-valor com o nome do item e a quantidade consumida
+      - key - Nome do item.
+      - value - Se for 1 ou maior, é a quantidade a consumir; se estiver entre 0 e 1, é a quantidade de durabilidade consumida; se for 0, o item é requerido mas não é consumido.
   - duration: `number`
-    - Crafting duration in milliseconds.
-  - count: `number` or `table` (min, max)
-    - Item amount received upon crafting.
-    - If set it to table it requires two number first one is minimum number and second one is maximum, it will generate a random number between those two numbers to add the crafted item to player.
-  - metadata: `table`
-    - Metadata applied to the item being crafted.
+    - Duração da criação em milissegundos.
+  - count: `number` ou `tabela` (min, max)
+    - Quantidade de itens recebida ao fabricar.
+    - Se definido como tabela, precisa de dois números: o primeiro é o mínimo e o segundo é o máximo; será gerado um número aleatório entre esses dois valores para adicionar o item fabricado ao jogador.
+  - metadata: `tabela`
+    - Metadados aplicados ao item que está sendo fabricado.
 - points: `vector3[]`
-  - Interaction locations that will open the crafting inventory.
-- groups: `table`
-  - Key-value pairs of job name and minimum grade to access the crafting location.
+  - Locais de interação que abrirão o inventário de crafting.
+- groups: `tabela`
+  - Pares chave-valor com o nome do job e a grade mínima para acessar o local de crafting.
   - `{["police"] = 0, ["ambulance"] = 2}`
-- zones: `table`
-  - ox_lib targeting zones used for ox_target.
+- zones: `tabela`
+  - Zonas de targeting do `ox_lib` usadas pelo `ox_target`.
   - label: `string`
   - icon: `string`
   - coords: `vector3`
   - size: `vector3`
   - distance: `number`
   - rotation: `number`
-- blip: `table`
+- blip: `tabela`
   - id: `number`
-    - Blip sprite number.
+    - Número do sprite do blip.
   - colour: `number`
   - scale: `number`

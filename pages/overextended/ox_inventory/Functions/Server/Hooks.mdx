@@ -1,6 +1,6 @@
 # Hooks
 
-Event hooks allow 3rd party resources to define new behaviour without modifying the inventory code directly.
+Ganchos de evento permitem que recursos de terceiros definam novos comportamentos sem modificar diretamente o código do inventário.
 
 ## registerHook
 
@@ -20,9 +20,9 @@ exports.ox_inventory:registerHook(eventName, function(payload) end, options)
   - typeFilter?: `{ [string]: true }`
     - The event will only trigger for inventories with one of the provided types (e.g. 'player', 'stash')
 
-Return:
+  Retorno:
 
-- hookId: `number`
+  - hookId: `number`
 
 ### swapItems
 
@@ -40,7 +40,7 @@ By returning `false`, you can cancel the action and revert the inventory state.
   - toSlot?: `table` or `number`
   - count: `number`
 
-**Example**
+**Exemplo**
 
 Blacklists "water" from being moved into or from gloveboxes and trunks.
 
@@ -70,7 +70,7 @@ end, {
 Triggered when a player tries to open a secondary inventory.  
 By returning `false`, you can cancel the action and keep the player's inventory closed.
 
-**Example**
+**Exemplo**
 
 Disables gloveboxes and trunks.
 
@@ -98,7 +98,7 @@ end, {
 Triggered when an item is created, either by buying it, using AddItem, or when converting inventory data.  
 By returning a table you can modify or replace the metadata given to an item.
 
-**Example**
+**Exemplo**
 
 Sets the label for "water" to "Mineral Water".
 
@@ -133,7 +133,7 @@ end, {
 
 Triggered when an item is about to be purchased and can return `false` to prevent the transaction.
 
-**Example**
+**Exemplo**
 
 Prevents players from purchasing items at General stores.
 
@@ -166,7 +166,7 @@ end, {
   - toInventory: `number`
   - toSlot: `number`
 
-**Example**
+**Exemplo**
 
 Prevent lockpicks from being crafted by players.
 
@@ -185,8 +185,8 @@ end, {
 
 ## removeHooks
 
-Removes a hook created by the invoking resource with the the specified id.  
-If no id is specified then all hooks registered by the resource are removed.
+Remove ganchos criados pelo recurso invocador com o id especificado.  
+Se nenhum id for informado, todos os ganchos registrados pelo recurso serão removidos.
 
 ```lua
 exports.ox_inventory:removeHooks(id)

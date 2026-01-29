@@ -2,17 +2,17 @@ import { Callout } from 'nextra/components';
 
 # Server
 
-This is not a comprehensive list of events and is missing events intended for internal use only.
+Esta não é uma lista completa de eventos e está faltando eventos destinados apenas ao uso interno.
 
-## Handlers
+## Manipuladores
 
 <Callout type="warning">
-  These events **should not** be triggered by any other scripts.
+  Estes eventos **não devem** ser disparados por outros scripts.
 </Callout>
 
 ### ox_inventory:openedInventory
 
-Triggered after an inventory is opened by a player.
+Disparado após um inventário ser aberto por um jogador.
 
 ```lua
 AddEventHandler('ox_inventory:openedInventory', function(playerId, inventoryId) end)
@@ -23,7 +23,7 @@ AddEventHandler('ox_inventory:openedInventory', function(playerId, inventoryId) 
 
 ### ox_inventory:closedInventory
 
-Triggered after an inventory is closed by a player.
+Disparado após um inventário ser fechado por um jogador.
 
 ```lua
 AddEventHandler('ox_inventory:closedInventory', function(playerId, inventoryId) end)
