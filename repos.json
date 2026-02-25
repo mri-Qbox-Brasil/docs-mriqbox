@@ -34,6 +34,11 @@
             "name": "mri QRequest",
             "repo": "mri_Qrequest",
             "org": "mri-Qbox-Brasil"
+        },
+        {
+            "name": "mri Qadmin",
+            "repo": "mri_Qadmin",
+            "org": "mri-Qbox-Brasil"
         }
     ]
 }
