@@ -39,6 +39,11 @@
             "name": "mri Qadmin",
             "repo": "mri_Qadmin",
             "org": "mri-Qbox-Brasil"
+        },
+        {
+            "name": "Bob74 Ipl",
+            "repo": "bob74_ipl",
+            "org": "mri-Qbox-Brasil"
         }
     ]
 }
