@@ -26,24 +26,60 @@ jobs:
       - name: Baixar e processar READMEs
         run: |
           mkdir -p pages/mri/resources
-          jq -c '.repositories[]' repos.json | while read -r repo_info; do
+          
+          # Inicializar o _meta.json para a sidebar
+          echo "{" > pages/mri/resources/_meta.json
+          
+          repo_count=$(jq '.repositories | length' repos.json)
+          echo "Encontrados $repo_count repositórios para processar."
+          
+          cat repos.json | jq -c '.repositories[]' | while read -r repo_info; do
             org=$(echo $repo_info | jq -r '.org')
             repo=$(echo $repo_info | jq -r '.repo')
             name=$(echo $repo_info | jq -r '.name')
-            echo "Baixando README de $repo da organização $org ($name)..."
-            curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            
+            echo "---"
+            echo "Processando $name ($org/$repo)..."
+            
+            # Tentar baixar o README
+            # Usamos -f para falhar em erros HTTP e -w para ver o status code
+            status_code=$(curl -s -w "%{http_code}" \
+              -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
               -H "Accept: application/vnd.github.v3.raw" \
-              "https://api.github.com/repos/$org/$repo/readme" -o "pages/mri/resources/$repo.md" || echo "Falha ao baixar $repo"
+              "https://api.github.com/repos/$org/$repo/readme" \
+              -o "pages/mri/resources/$repo.md")
+            
+            if [ "$status_code" -eq 200 ]; then
+              echo "✅ Sucesso! README de $repo baixado."
+              # Adicionar ao _meta.json
+              echo "  \"$repo\": \"$name\"," >> pages/mri/resources/_meta.json
+            else
+              echo "❌ Erro ao baixar $repo (Status: $status_code)"
+              if [ "$status_code" -eq 404 ]; then
+                echo "   Dica: Verifique se o repositório existe e tem um README."
+              elif [ "$status_code" -eq 401 ] || [ "$status_code" -eq 403 ]; then
+                echo "   Dica: Problema de permissão. Se o repo for privado, use um PAT."
+              fi
+              # Se falhou, removemos o arquivo possivelmente corrompido ou com erro JSON
+              rm -f "pages/mri/resources/$repo.md"
+            fi
           done
+          
+          # Fechar o _meta.json (remover a última vírgula se existir e fechar a chave)
+          # Usando sed para remover a última vírgula da penúltima linha se necessário
+          sed -i '$ s/,$//' pages/mri/resources/_meta.json
+          echo "}" >> pages/mri/resources/_meta.json
+          
+          echo "---"
+          echo "Conteúdo do _meta.json gerado:"
+          cat pages/mri/resources/_meta.json
 
       - name: Commit e Push se houver mudanças
         run: |
           git add pages/mri/resources/
           if git diff --cached --quiet; then
-            echo "Sem mudanças, finalizando."
-            echo "no_changes=true" >> $GITHUB_ENV
+            echo "Sem mudanças nos READMEs ou metadados."
           else
-            git commit -m "Atualização automática dos READMEs"
+            git commit -m "chore: atualização automática dos READMEs e sidebar"
             git push
-            echo "no_changes=false" >> $GITHUB_ENV
           fi
