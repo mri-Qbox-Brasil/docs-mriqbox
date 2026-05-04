@@ -44,6 +44,11 @@
             "name": "Bob74 Ipl",
             "repo": "bob74_ipl",
             "org": "mri-Qbox-Brasil"
+        },
+        {
+            "name": "Car Keys",
+            "repo": "mri_Qcarkeys",
+            "org": "mri-Qbox-Brasil"
         }
     ]
 }
