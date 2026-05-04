@@ -31,12 +31,12 @@
             "org": "mri-Qbox-Brasil"
         },
         {
-            "name": "mri QRequest",
+            "name": "MRI QRequest",
             "repo": "mri_Qrequest",
             "org": "mri-Qbox-Brasil"
         },
         {
-            "name": "mri Qadmin",
+            "name": "MRI Qadmin",
             "repo": "mri_Qadmin",
             "org": "mri-Qbox-Brasil"
         },
@@ -46,7 +46,7 @@
             "org": "mri-Qbox-Brasil"
         },
         {
-            "name": "Car Keys",
+            "name": "MRI QCarKeys",
             "repo": "mri_Qcarkeys",
             "org": "mri-Qbox-Brasil"
         }
