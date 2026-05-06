@@ -2,115 +2,66 @@
 title: Instalação
 ---
 
-import { Callout, Steps, Tabs } from 'nextra/components';
+import { Callout, Steps } from 'nextra/components';
+import { DownloadButton } from '../../components/Button';
 
 # Instalação
 
+A instalação do MRI Qbox é feita pelo **instalador oficial**, que automatiza o download dos artefatos, o setup do banco de dados e a configuração inicial do servidor.
+
+<br /><DownloadButton link="https://github.com/mri-Qbox-Brasil/mri_installer_download/releases/latest" label="Baixar o instalador" />
+
 <Callout type="info">
-Recomendamos fortemente usar **txAdmin** para instalar o seu servidor de FiveM.
-Em caso de dúvidas, consulte [Setting up a server using txAdmin(em inglês)](https://docs.fivem.net/docs/server-manual/setting-up-a-server-txadmin/).
+O instalador exige autenticação via Discord. Entre na nossa comunidade antes de começar: [discord.mriqbox.com.br](https://discord.mriqbox.com.br).
+</Callout>
+
+<Callout type="error">
+Usuários **banidos do nosso Discord** não conseguirão autenticar e, portanto, não terão acesso ao download.
 </Callout>
 
 <Steps>
-    ### Acesse nosso servidor do Discord
+    ### Baixe o instalador
 
-    [Clique aqui para entrar](https://discord.mriqbox.com.br)
+    Use o botão acima para baixar a versão mais recente em [mri_installer_download/releases/latest](https://github.com/mri-Qbox-Brasil/mri_installer_download/releases/latest).
 
-    ### Baixe os artefatos do servidor + txAdmin
+    ### Execute o `mri_installer.exe`
 
-    O txAdmin é um componente do servidor FiveM que permite gerenciar e monitorar o seu servidor.
-    Utilize o comando `/download` no canal de texto `comandos` da comunidade discord para obter os links necessários.
-    Baixe o Artefato do FiveM recomendado pelo BOT conforme seu sistema operacional Windows / Linux e extraia os arquivos para uma pasta onde o servidor ficará¹.
+    <Callout type="info">
+    Ao abrir o instalador, o Windows pode exibir o aviso **"O Windows protegeu seu computador"** (SmartScreen), porque o executável não é assinado digitalmente.
 
-    <Callout type="warning">
-    Obs.: ¹ Não extraia os arquivos para a `Área de Trabalho` do Windows. Coloque em uma pasta em que o caminho não possuia acentos, espaços ou caracteres especiais.
+    Para prosseguir, clique em **Mais informações** e depois em **Executar assim mesmo**.
 
-    Exemplos de caminhos aceitos: `C:\FiveM` ou `C:\FiveM\Server`.
-
-    Exemplos de caminhos não aceitos: `C:\FiveM Server` ou `C:\Cidade FiveM\João\Server`.
+    Conforme mais pessoas baixam e executam cada release, o SmartScreen tende a reconhecer o arquivo como seguro e o aviso some automaticamente.
     </Callout>
 
-    ![Comando de download](/static/images/download1.png)
-    ![Comando de download](/static/images/download2.png)
-
-    Legenda dos botões:
-    - `FxServer Windows` - Artefato do FiveM recomendado pelo BOT para Windows.
-    - `FxServer Linux` - Artefato do FiveM recomendado pelo BOT para Linux.
-    - `Receita MriQbox` - Link para esta página onde se encontra a receita para o txAdmin.
-
-    ### Inicie a instalação do servidor
-
-    Abra a pasta dos artefatos e execute `FXServer.exe` para iniciar a instalação.
-
-    A tela abaixo deve aparecer:
-    ![txAdmin](/static/images/txAdmin1.png)
-
-    ### Segure o `Ctrl` e clique em `http://localhost:40120`.
-
-    A tela abaixo deve aparecer:
-    ![txAdmin](/static/images/txAdmin2.png)
-
-    ### Faça o link com sua conta da [CFX](https://forums.cfx.re/).
-
-    Caso não possua uma conta, crie uma. Você PRECISA de uma conta para utilizar o servidor de FiveM, e também para acessar recursos pagos, como aumetar limite de players, scripts e mapas pagos.
-    ![txAdmin](/static/images/txAdmin3.png)
+    Faça login com sua conta do Discord quando solicitado.
 
     <Callout type="warning">
-    Escolha uma senha forte de backup, para acessar o txAdmin mesmo sem acesso a conta da CFX.
+    Escolha uma pasta de instalação **sem espaços, acentos ou caracteres especiais**.
+
+    Aceito: `C:\FiveM` ou `C:\FiveM\Server`.
+
+    Não aceito: `C:\FiveM Server` ou `C:\Cidade FiveM\João\Server`.
     </Callout>
 
-    ### Dê um nome ao seu servidor
+    ### Siga os passos do assistente
 
-    Geralmente é o mesmo nome da cidade. Esse nome é apenas para conhecimento interno, e será exibido somente na interface do txAdmin.
-    ![txAdmin](/static/images/txAdmin4.png)
+    O instalador conduz todas as etapas (artefatos, banco de dados, receita e primeira inicialização). Basta seguir as instruções na tela.
 
-    ### Escolha a opção: `Remote URL Template` e prossiga
+    ### Pronto
 
-    ![txAdmin](/static/images/txAdmin5.png)
+    Ao final, seu servidor estará configurado e pronto para iniciar.
 
-    ### Execute o deploy da receita
+    Acesse o txAdmin em [http://localhost:40120](http://localhost:40120) para gerenciá-lo. As credenciais padrão são:
 
-    Use o link abaixo:
-
-    ```ansi filename="Receita mri-Qbox" copy
-    https://raw.githubusercontent.com/mri-Qbox-Brasil/txAdminRecipe/refs/heads/ps/recipe.yaml
-    ```
-    ![txAdmin](/static/images/txAdmin6.png)
-
-    ### Escolha o local de instalação
-
-    Se achar necessário, altere o local de instalação do servidor.
-    ![txAdmin](/static/images/txAdmin7.png)
-
-    ### Revise as configurações de banco de dados
-
-    Caso ainda não tenha instalado um banco de dados, acesse [OxMySQL](../../overextended/oxmysql) e veja porque instalar o [MariaDB](https://mariadb.com/downloads/community/). Atente-se ao campo de senha, caso tenha configurado uma.
-    ![txAdmin](/static/images/txAdmin8.png)
-
-    ### Execute o deploy da receita
-    Aguarde até que a instalação seja concluída. Nesse passo é comum aparecer 3 mensagens de erro:
-    - `Error 403: Forbidden`
-    - `Error 429: Too Many Requests`
-    - `Task Failed: Timeout awaiting 'request' for 150000ms`
-
-    Os 2 primeiros estão diretamente relacionados a API do Github, que pode limitar o acesso a páginas muito acessadas.
-    Nesse caso, o que deve ser feito, é aguardar pelo menos 1 hora, e ir tentando novamente, até que funcione.
-    Não se trata de um problema da MRI, mas sim da API do GitHub. Outras bases que ficam no Github podem ter o mesmo problema.
-
-    O terceiro erro pode ser um problema de conexão, a "solução" é a mesma, tentar novamente, se precisar, aguardar um tempo entre as tentativas.
-    ![txAdmin](/static/images/txAdmin9.png)
-
-    Ao finalizar a instalação com êxito, veremos a tela abaixo:
-    ![txAdmin](/static/images/txAdmin10.png)
-
-    ### Inicie o servidor
-    Clique em `Save & Run Server`!
-
-    Uma vez que a instalação esteja finalizada, você pode executar o servidor.
-    ![txAdmin](/static/images/txAdmin11.png)
+    - **Usuário:** `admin`
+    - **Senha:** `admin`
 
     <Callout type="warning">
-    A primeira inicialização pode levar um tempo, e é normal aparecer warnings no console.
-    Por que? O servidor está criando o cache, e isso demora. Além disso ele está inserindo dados no banco de dados, que pode demorar mais que o normal quando comparado ao uso diário.
+    Altere a senha padrão no primeiro acesso, especialmente se o txAdmin for ficar exposto na internet.
     </Callout>
 </Steps>
+
+<Callout type="info">
+Em caso de dúvidas ou problemas, peça suporte no nosso [Discord](https://discord.mriqbox.com.br).
+</Callout>
