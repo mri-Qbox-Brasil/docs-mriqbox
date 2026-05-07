@@ -34,12 +34,15 @@ Crie o arquivo `.github/workflows/notify-docs.yml` no repositório de recursos:
 ```yaml
 name: Notify Docs Update
 
+# Este workflow deve ser adicionado aos repositórios que querem notificar a documentação
+# Copie este arquivo para .github/workflows/update-docs.yml no repositório desejado
+
 on:
   push:
     branches: [main, master]
     paths:
-      - README.md
-  workflow_dispatch:
+      - MANUAL.md  # Só dispara quando o MANUAL for alterado
+  workflow_dispatch:  # Permite execução manual
 
 jobs:
   notify-docs:
@@ -49,10 +52,10 @@ jobs:
       - name: Disparar atualização na documentação
         uses: peter-evans/repository-dispatch@v3
         with:
-          token: ${{ secrets.DOCS_REPO_TOKEN }}
-          repository: mri-Qbox-Brasil/docs-mriqbox
-          event-type: update-readme
-          client-payload: '{"org": "mri-Qbox-Brasil", "repo": "${{ github.event.repository.name }}", "name": "${{ github.event.repository.name }}"}'
+          token: ${{ secrets.GH_TOKEN }}  # PAT com acesso ao repo da documentação
+          repository: mri-Qbox-Brasil/docs-mriqbox  # Ajuste conforme necessário
+          event-type: update-manual
+          client-payload: '{"org": "mri-Qbox-Brasil", "repo": "${{ github.event.repository.name }}", "name": "${{ github.repository }}"}'
 ```
 
 ### 4. Repetir para todos os repositórios
