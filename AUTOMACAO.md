@@ -1,0 +1,97 @@
+# Automação de Atualização de Documentação
+
+Este guia explica como automatizar a atualização da documentação quando um README é alterado em qualquer repositório.
+
+## Como funciona
+
+1. O repositório `docs-mriqbox` agora escuta eventos `repository_dispatch` do tipo `update-readme`
+2. Quando um repositório altera seu README, ele envia um evento para `docs-mriqbox`
+3. O `docs-mriqbox` baixa apenas o README atualizado e faz commit/push automaticamente
+
+## Configuração nos repositórios de recursos
+
+### 1. Criar um Personal Access Token (PAT)
+
+No GitHub, vá em Settings > Developer settings > Personal access tokens > Tokens (classic):
+- Generate new token (classic)
+- Nome: `docs-mriqbox-update`
+- Expiração: No expiration (ou conforme sua política)
+- Permissões: `repo` (acesso a repositórios privados) ou `public_repo` (apenas públicos)
+- Copie o token gerado
+
+### 2. Adicionar o token como secret no repositório de recursos
+
+No repositório que terá o README atualizado (ex: `mri_Qmenu`):
+- Settings > Secrets and variables > Actions
+- New repository secret
+- Name: `DOCS_REPO_TOKEN`
+- Value: (cole o PAT criado no passo 1)
+
+### 3. Adicionar o workflow no repositório de recursos
+
+Crie o arquivo `.github/workflows/notify-docs.yml` no repositório de recursos:
+
+```yaml
+name: Notify Docs Update
+
+on:
+  push:
+    branches: [main, master]
+    paths:
+      - README.md
+  workflow_dispatch:
+
+jobs:
+  notify-docs:
+    name: Notify Documentation Repo
+    runs-on: ubuntu-latest
+    steps:
+      - name: Disparar atualização na documentação
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.DOCS_REPO_TOKEN }}
+          repository: mri-Qbox-Brasil/docs-mriqbox
+          event-type: update-readme
+          client-payload: '{"org": "mri-Qbox-Brasil", "repo": "${{ github.event.repository.name }}", "name": "${{ github.event.repository.name }}"}'
+```
+
+### 4. Repetir para todos os repositórios
+
+Adicione o workflow acima em cada repositório listado em `repos.json`.
+
+## Fluxo atual vs Novo fluxo
+
+### Antes (manual):
+1. Alterar README no repositório de recursos → commit/push
+2. Alterar algo no `docs-mriqbox` ou esperar o cron job diário
+3. Workflow baixa TODOS os READMEs novamente
+
+### Agora (automático):
+1. Alterar README no repositório de recursos → commit/push
+2. Workflow no repositório de recursos dispara evento automaticamente
+3. `docs-mriqbox` recebe o evento e baixa APENAS aquele README
+4. Commit e push automático no `docs-mriqbox`
+
+## Lista de repositórios para configurar
+
+- [ ] cw-rep
+- [ ] mri_Qmenu
+- [ ] mri_Qtyrecontrol
+- [ ] mri_Qstashes
+- [ ] mri_Qboombox
+- [ ] mri_Qrequest
+- [ ] mri_Qadmin
+- [ ] bob74_ipl
+- [ ] mri_Qcarkeys
+
+## Troubleshooting
+
+### O evento não está disparando
+- Verifique se o secret `DOCS_REPO_TOKEN` está configurado corretamente
+- Verifique se o PAT tem as permissões necessárias
+- Confira se o arquivo `.github/workflows/notify-docs.yml` está na branch correta (main/master)
+
+### O docs-mriqbox não está recebendo o evento
+- Verifique os logs do workflow `notify-docs` no repositório de recursos
+- Confira se o `repository` no campo `repository-dispatch` está correto
+- Verifique se o `event-type` é exatamente `update-readme`
