@@ -13,6 +13,7 @@ interface Props {
 interface ReleaseInfo {
   tag_name: string;
   published_at: string;
+  downloads: number;
 }
 
 function formatRelativeTime(iso: string) {
@@ -50,13 +51,21 @@ function useLatestRelease(repo?: string) {
       }
     } catch {}
 
-    fetch(`https://api.github.com/repos/${repo}/releases/latest`)
+    fetch(`https://api.github.com/repos/${repo}/releases?per_page=100`)
       .then((r) => (r.ok ? r.json() : null))
-      .then((data) => {
-        if (!data) return;
+      .then((releases) => {
+        if (!Array.isArray(releases) || releases.length === 0) return;
+        const published = releases.filter((r: any) => !r.draft && !r.prerelease);
+        const latest = published[0] ?? releases[0];
+        const downloads = releases.reduce(
+          (sum: number, r: any) =>
+            sum + (r.assets ?? []).reduce((s: number, a: any) => s + (a.download_count ?? 0), 0),
+          0,
+        );
         const info: ReleaseInfo = {
-          tag_name: data.tag_name,
-          published_at: data.published_at,
+          tag_name: latest.tag_name,
+          published_at: latest.published_at,
+          downloads,
         };
         setRelease(info);
         try {
@@ -110,7 +119,7 @@ export function DownloadButton(props: Props) {
         <span>{props.label || "Download"}</span>
         {release && (
           <span className="text-xs opacity-75">
-            {release.tag_name} · atualizado {formatRelativeTime(release.published_at)}
+            {release.tag_name} · atualizado {formatRelativeTime(release.published_at)} · {release.downloads.toLocaleString('pt-BR')} downloads
           </span>
         )}
       </div>
