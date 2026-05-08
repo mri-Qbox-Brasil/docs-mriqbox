@@ -64,7 +64,8 @@ const config: DocsThemeConfig = {
     component: <Search />,
   },
   head: useHead,
-  primaryHue: { dark: 103, light: 103 },
+  primaryHue: { dark: 160, light: 160 },
+  primarySaturation: { dark: 100, light: 100 },
   sidebar: {
     defaultMenuCollapseLevel: 1,
   },

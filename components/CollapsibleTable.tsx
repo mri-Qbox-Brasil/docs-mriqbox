@@ -1,19 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
+import {
+  MriAccordion,
+  MriAccordionItem,
+  MriAccordionTrigger,
+  MriAccordionContent,
+} from '@mriqbox/ui-kit';
 
-const CollapsibleTable = ({ children }) => {
-  const [isCollapsed, setIsCollapsed] = useState(true);
+interface Props {
+  children?: React.ReactNode;
+  label?: string;
+}
 
+const CollapsibleTable: React.FC<Props> = ({ children, label = 'Lista' }) => {
   return (
-    <div className="mt-4 overflow-hidden overflow-x-hidden">
-      <button 
-        onClick={() => setIsCollapsed(!isCollapsed)} 
-        className="px-4 py-2 bg-green-500 rounded"
-      >
-        {isCollapsed ? 'Expandir Lista' : 'Esconder Lista'}
-      </button>
-      
-      {!isCollapsed && children}
-    </div>
+    <MriAccordion type="single" collapsible className="mt-4 w-full">
+      <MriAccordionItem value="list">
+        <MriAccordionTrigger>{label}</MriAccordionTrigger>
+        <MriAccordionContent>{children}</MriAccordionContent>
+      </MriAccordionItem>
+    </MriAccordion>
   );
 };
 
