@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { IconBrandGithub, IconTag, IconFileText, IconDownload, IconBrandNpm } from '@tabler/icons-react';
+import { MriButton } from '@mriqbox/ui-kit';
+import { Github, Tag, FileText, Download, Package } from 'lucide-react';
 
 interface Props {
-  icon?: React.ReactNode;
-  children?: React.ReactNode;
   side?: 'left' | 'right';
   link?: string;
   label?: string;
@@ -13,6 +12,7 @@ interface Props {
 interface ReleaseInfo {
   tag_name: string;
   published_at: string;
+  downloads: number;
 }
 
 function formatRelativeTime(iso: string) {
@@ -50,13 +50,21 @@ function useLatestRelease(repo?: string) {
       }
     } catch {}
 
-    fetch(`https://api.github.com/repos/${repo}/releases/latest`)
+    fetch(`https://api.github.com/repos/${repo}/releases?per_page=100`)
       .then((r) => (r.ok ? r.json() : null))
-      .then((data) => {
-        if (!data) return;
+      .then((releases) => {
+        if (!Array.isArray(releases) || releases.length === 0) return;
+        const published = releases.filter((r: any) => !r.draft && !r.prerelease);
+        const latest = published[0] ?? releases[0];
+        const downloads = releases.reduce(
+          (sum: number, r: any) =>
+            sum + (r.assets ?? []).reduce((s: number, a: any) => s + (a.download_count ?? 0), 0),
+          0,
+        );
         const info: ReleaseInfo = {
-          tag_name: data.tag_name,
-          published_at: data.published_at,
+          tag_name: latest.tag_name,
+          published_at: latest.published_at,
+          downloads,
         };
         setRelease(info);
         try {
@@ -69,67 +77,68 @@ function useLatestRelease(repo?: string) {
   return release;
 }
 
-const Button: React.FC = ({ side = 'left', children, icon, link }: Props) => {
-  return (
-    <div className="h-fit w-fit">
-      <a href={link}>
-        <div className="flex w-full items-center justify-center gap-2 rounded-md bg-green-500/20 p-2 text-green-500 hover:bg-green-500/30">
-          {side === 'left' && <div>{icon}</div>}
-          {children}
-          {side === 'right' && <div>{icon}</div>}
-        </div>
-      </a>
-    </div>
-  );
-};
+interface KitButtonProps extends Props {
+  icon: React.ReactNode;
+  defaultLabel: string;
+}
 
-export default Button;
-
-export function GhButton(props: Props) {
+function KitLinkButton({ icon, defaultLabel, label, link, side = 'left' }: KitButtonProps) {
   return (
-    <Button icon={<IconBrandGithub />} side={props.side} link={props.link}>
-      {props.label || "Github"}
-    </Button>
+    <a href={link} className="no-underline">
+      <MriButton variant="default" className="bg-primary/20 text-primary hover:bg-primary/30">
+        {side === 'left' && icon}
+        {label || defaultLabel}
+        {side === 'right' && icon}
+      </MriButton>
+    </a>
   );
 }
 
-export function DocButton(props: Props) {
+export default function Button(props: Props & { icon?: React.ReactNode; children?: React.ReactNode }) {
   return (
-    <Button icon={<IconFileText />} side={props.side} link={props.link}>
-      {props.label || "Documentação"}
-    </Button>
+    <KitLinkButton
+      icon={props.icon}
+      defaultLabel={typeof props.children === 'string' ? props.children : 'Button'}
+      label={typeof props.children === 'string' ? props.children : undefined}
+      link={props.link}
+      side={props.side}
+    />
   );
+}
+
+export function GhButton(props: Props) {
+  return <KitLinkButton icon={<Github />} defaultLabel="Github" {...props} />;
+}
+
+export function DocButton(props: Props) {
+  return <KitLinkButton icon={<FileText />} defaultLabel="Documentação" {...props} />;
 }
 
 export function DownloadButton(props: Props) {
   const release = useLatestRelease(props.repo);
 
   return (
-    <Button icon={<IconDownload />} side={props.side} link={props.link}>
-      <div className="flex flex-col leading-tight">
-        <span>{props.label || "Download"}</span>
-        {release && (
-          <span className="text-xs opacity-75">
-            {release.tag_name} · atualizado {formatRelativeTime(release.published_at)}
-          </span>
-        )}
-      </div>
-    </Button>
+    <a href={props.link} className="no-underline">
+      <MriButton variant="default" className="bg-primary/20 text-primary hover:bg-primary/30 h-auto">
+        <Download />
+        <div className="flex flex-col leading-tight">
+          <span>{props.label || 'Download'}</span>
+          {release && (
+            <span className="text-xs opacity-75">
+              {release.tag_name} · atualizado {formatRelativeTime(release.published_at)} ·{' '}
+              {release.downloads.toLocaleString('pt-BR')} downloads
+            </span>
+          )}
+        </div>
+      </MriButton>
+    </a>
   );
 }
 
 export function ReleaseButton(props: Props) {
-  return (
-    <Button icon={<IconTag />} side={props.side} link={props.link}>
-      {props.label || "Releases"}
-    </Button>
-  );
+  return <KitLinkButton icon={<Tag />} defaultLabel="Releases" {...props} />;
 }
 
 export function NpmButton(props: Props) {
-  return (
-    <Button icon={<IconBrandNpm />} side={props.side} link={props.link}>
-      {props.label || "Pacote"}
-    </Button>
-  );
+  return <KitLinkButton icon={<Package />} defaultLabel="Pacote" {...props} />;
 }

@@ -13,6 +13,12 @@ function useHead() {
     <>
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="icon" type="image/x-icon" href="/static/mri.ico" />
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Saira:wght@300;400;500;600;700;800&display=swap"
+      />
       <meta httpEquiv="Content-Language" content="en" />
       <meta name="description" content={description} />
       <meta name="og:title" content={title} />
@@ -47,7 +53,7 @@ const config: DocsThemeConfig = {
         fontWeight: 550,
       }}
     >
-      mri-Qbox
+      MRI QBOX BRASIL
     </div>
   ),
   project: {
@@ -58,13 +64,14 @@ const config: DocsThemeConfig = {
   },
   docsRepositoryBase: 'https://github.com/mri-Qbox-Brasil/docs-mriqbox/blob/main',
   footer: {
-    text: 'Copyright © 2024 - mri-Qbox',
+    text: 'Copyright © 2026 MRI QBOX BRASIL. Todos os direitos reservados.',
   },
   search: {
     component: <Search />,
   },
   head: useHead,
-  primaryHue: { dark: 103, light: 103 },
+  primaryHue: { dark: 160, light: 160 },
+  primarySaturation: { dark: 100, light: 100 },
   sidebar: {
     defaultMenuCollapseLevel: 1,
   },
