@@ -55,12 +55,43 @@ jobs:
 
           if [ "$status_code" -eq 200 ]; then
             echo "✅ MANUAL.md de ${{ env.REPO }} baixado com sucesso."
-            if [ ! -f pages/mri/resources/_meta.json ]; then
-              echo "{}" > pages/mri/resources/_meta.json
+
+            META="pages/mri/resources/_meta.ts"
+            if [ ! -f "$META" ]; then
+              printf 'export default {\n  index: { display: "hidden" },\n}\n' > "$META"
             fi
-            jq --arg repo "${{ env.REPO }}" --arg name "${{ env.NAME }}" \
-              '.[$repo] = $name' pages/mri/resources/_meta.json > tmp.json
-            mv tmp.json pages/mri/resources/_meta.json
+
+            node << 'SCRIPT'
+const fs = require('fs');
+const meta = 'pages/mri/resources/_meta.ts';
+const repo = process.env.REPO;
+const name = process.env.NAME;
+
+const content = fs.readFileSync(meta, 'utf8');
+
+// Extrai entradas key: "value" ou "key": "value" existentes
+const entries = {};
+const re = /^\s+"?([^":{}\s][^":{}\n]*?)"?\s*:\s+"([^"]+)",?$/gm;
+let m;
+while ((m = re.exec(content)) !== null) {
+  entries[m[1].trim()] = m[2];
+}
+
+// Adiciona/atualiza entrada do repo
+entries[repo] = name;
+
+// Ordena alfabeticamente (case-insensitive), mantém index no topo
+const sorted = Object.keys(entries).sort((a, b) =>
+  a.toLowerCase().localeCompare(b.toLowerCase())
+);
+
+const lines = sorted.map(k => `  "${k}": "${entries[k]}",`).join('\n');
+const hasIndex = /index:\s*\{/.test(content);
+const indexLine = hasIndex ? '  "index": { display: "hidden" },\n' : '';
+
+fs.writeFileSync(meta, `export default {\n${indexLine}${lines}\n}\n`);
+console.log(`_meta.ts atualizado: "${repo}": "${name}"`);
+SCRIPT
           else
             echo "❌ Erro ao baixar MANUAL.md de ${{ env.REPO }} (Status: $status_code)"
             rm -f "pages/mri/resources/${{ env.REPO }}.md"
