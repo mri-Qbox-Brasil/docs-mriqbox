@@ -1,5 +1,6 @@
 .next
 node_modules
+.claude/
 out
 .idea
 package-lock.json
