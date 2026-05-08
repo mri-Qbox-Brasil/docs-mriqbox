@@ -1,0 +1,4 @@
+export default {
+  oxmysql: "OxMySQL",
+  ox_lib: "Ox Lib",
+}

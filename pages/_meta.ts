@@ -1,0 +1,17 @@
+export default {
+  comparison: "Qual diferença entre QBCore, Qbox e mri Qbox?",
+  index: "Introdução",
+  guides: "Guias",
+  mri: "mri-Qbox",
+  overextended: "Overextended",
+  qbox: {
+    title: "Qbox",
+    type: "page",
+    href: "https://docs.qbox.re",
+  },
+  support: {
+    title: "Nos apoie",
+    type: "page",
+    href: "https://patreon.com/mriqboxbrasil",
+  },
+}
