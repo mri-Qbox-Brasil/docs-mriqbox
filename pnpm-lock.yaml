@@ -22,6 +22,9 @@ importers:
       '@mriqbox/ui-kit':
         specifier: ^4.0.0
         version: 4.0.0(@types/react@18.3.3)
+      lucide-react:
+        specifier: ^0.344.0
+        version: 0.344.0(react@18.3.1)
       next:
         specifier: ^15.5.15
         version: 15.5.15(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -358,10 +361,6 @@ packages:
     resolution: {integrity: sha512-zQH//gdOmuu7nt2oJR29vFhDv88oGPmVw6BggmrHeMI+xgEkp1B2dX9/bMBSYtK0dyLX/aOmesKS09g222K1/g==}
     peerDependencies:
       react: '>=16'
-
-  '@mriqbox/ui-kit@3.8.0':
-    resolution: {integrity: sha512-98oN6W7/h+AAVW2JMPDUfX8PUKL+hadPh6bQDyspsMlTKArekaV+P9AOTAEKO9myf2/tWEN2HMWrz6mrqggWfg==}
-    hasBin: true
 
   '@mriqbox/ui-kit@4.0.0':
     resolution: {integrity: sha512-XhwfNcT+DQGkyylO3//9jJqihxJO0xRZcLeOnJ9gWorSbVsY+TjFRbXpc6dfwaMt7lQ3iMp1hGIYegO5npu/LQ==}
@@ -1704,6 +1703,11 @@ packages:
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0
 
+  lucide-react@1.14.0:
+    resolution: {integrity: sha512-+1mdWcfSJVUsaTIjN9zoezmUhfXo5l0vP7ekBMPo3jcS/aIkxHnXqAPsByszMZx/Y8oQBRJxJx5xg+RH3urzxA==}
+    peerDependencies:
+      react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
+
   markdown-extensions@1.1.1:
     resolution: {integrity: sha512-WWC0ZuMzCyDHYCasEGs4IPvLyTGftYwh6wIEOULOF0HXcqZlhwRzrK0w2VUlxWA98xnvb/jszw4ZSkJ6ADpM6Q==}
     engines: {node: '>=0.10.0'}
@@ -2997,33 +3001,6 @@ snapshots:
       '@types/mdx': 2.0.13
       '@types/react': 18.3.3
       react: 18.3.1
-
-  '@mriqbox/ui-kit@3.8.0(@types/react@18.3.3)':
-    dependencies:
-      '@radix-ui/react-accordion': 1.2.12(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@radix-ui/react-avatar': 1.1.11(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@radix-ui/react-dialog': 1.1.15(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@radix-ui/react-popover': 1.1.15(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@radix-ui/react-scroll-area': 1.2.10(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@radix-ui/react-slot': 1.2.4(@types/react@18.3.3)(react@18.3.1)
-      chalk: 5.6.2
-      class-variance-authority: 0.7.1
-      clsx: 2.1.1
-      cmdk: 1.1.1(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      colord: 2.9.3
-      commander: 14.0.3
-      date-fns: 4.1.0
-      lucide-react: 0.344.0(react@18.3.1)
-      next-themes: 0.4.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      prompts: 2.4.2
-      react: 18.3.1
-      react-colorful: 5.7.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      react-day-picker: 8.10.2(date-fns@4.1.0)(react@18.3.1)
-      react-dom: 18.3.1(react@18.3.1)
-      tailwind-merge: 2.6.1
-    transitivePeerDependencies:
-      - '@types/react'
-      - '@types/react-dom'
 
   '@mriqbox/ui-kit@4.0.0(@types/react@18.3.3)':
     dependencies:
@@ -4336,6 +4313,10 @@ snapshots:
     dependencies:
       react: 18.3.1
 
+  lucide-react@1.14.0(react@18.3.1):
+    dependencies:
+      react: 18.3.1
+
   markdown-extensions@1.1.1: {}
 
   markdown-table@3.0.3: {}
@@ -4921,7 +4902,8 @@ snapshots:
     dependencies:
       '@docsearch/css': 3.6.0
       '@docsearch/react': 3.6.0(@algolia/client-search@4.23.3)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(search-insights@2.8.3)
-      '@mriqbox/ui-kit': 3.8.0(@types/react@18.3.3)
+      '@mriqbox/ui-kit': 4.0.0(@types/react@18.3.3)
+      lucide-react: 1.14.0(react@18.3.1)
       next: 15.5.15(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       next-sitemap: 4.2.3(next@15.5.15(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       nextra: 2.13.4(patch_hash=83fa49590048c96c31e9acbc827a4955c8d7b18eeaadcd54017e65ec57ed322e)(next@15.5.15(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
