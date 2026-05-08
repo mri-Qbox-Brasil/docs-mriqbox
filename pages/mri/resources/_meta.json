@@ -1,4 +1,7 @@
 {
-  "index": { "display": "hidden" },
-  "mri_Qbox": "MRI Qbox"
+  "index": {
+    "display": "hidden"
+  },
+  "mri_Qbox": "MRI Qbox",
+  "cw-rep": "CW Rep"
 }
