@@ -61,7 +61,7 @@ jobs:
 
           if [ "$status_code" -eq 200 ]; then
             echo "✅ Sucesso! MANUAL.md de $repo baixado."
-            # Atualizar _meta.json preservando outras entradas
+            # Preservar entradas existentes e adicionar/atualizar apenas esta
             if [ ! -f pages/mri/resources/_meta.json ]; then
               echo "{}" > pages/mri/resources/_meta.json
             fi
