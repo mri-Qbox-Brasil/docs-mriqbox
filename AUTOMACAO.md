@@ -60,7 +60,7 @@ jobs:
 
 ### 4. Repetir para todos os repositórios
 
-Adicione o workflow acima em cada repositório listado em `repos.json`.
+Adicione o workflow acima em cada repositório que deve publicar documentação. Não é necessário cadastrar o repositório em nenhuma lista — o processo é 100% automático.
 
 ## Fluxo atual vs Novo fluxo
 
@@ -70,22 +70,10 @@ Adicione o workflow acima em cada repositório listado em `repos.json`.
 3. Workflow baixa TODOS os READMEs novamente
 
 ### Agora (automático):
-1. Alterar README no repositório de recursos → commit/push
+1. Alterar `MANUAL.md` no repositório de recursos → commit/push
 2. Workflow no repositório de recursos dispara evento automaticamente
-3. `docs-mriqbox` recebe o evento e baixa APENAS aquele README
+3. `docs-mriqbox` recebe o evento e baixa APENAS aquele `MANUAL.md`
 4. Commit e push automático no `docs-mriqbox`
-
-## Lista de repositórios para configurar
-
-- [ ] cw-rep
-- [ ] mri_Qmenu
-- [ ] mri_Qtyrecontrol
-- [ ] mri_Qstashes
-- [ ] mri_Qboombox
-- [ ] mri_Qrequest
-- [ ] mri_Qadmin
-- [ ] bob74_ipl
-- [ ] mri_Qcarkeys
 
 ## Troubleshooting
 
@@ -97,4 +85,4 @@ Adicione o workflow acima em cada repositório listado em `repos.json`.
 ### O docs-mriqbox não está recebendo o evento
 - Verifique os logs do workflow `notify-docs` no repositório de recursos
 - Confira se o `repository` no campo `repository-dispatch` está correto
-- Verifique se o `event-type` é exatamente `update-readme`
+- Verifique se o `event-type` é exatamente `update-manual`
