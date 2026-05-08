@@ -53,7 +53,7 @@ const config: DocsThemeConfig = {
         fontWeight: 550,
       }}
     >
-      mri-Qbox
+      MRI QBOX BRASIL
     </div>
   ),
   project: {
@@ -64,7 +64,7 @@ const config: DocsThemeConfig = {
   },
   docsRepositoryBase: 'https://github.com/mri-Qbox-Brasil/docs-mriqbox/blob/main',
   footer: {
-    text: 'Copyright © 2024 - mri-Qbox',
+    text: 'Copyright © 2026 MRI QBOX BRASIL. Todos os direitos reservados.',
   },
   search: {
     component: <Search />,
