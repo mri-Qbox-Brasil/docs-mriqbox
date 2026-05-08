@@ -2,7 +2,7 @@
 title: Notificações
 ---
 
-import { Tabs, Tab } from 'nextra-theme-docs';
+import { Tabs } from 'nextra/components';
 import { Callout } from 'nextra/components';
 
 # Notificações
@@ -12,27 +12,27 @@ import { Callout } from 'nextra/components';
 Notificações customizadas com várias opções de estilo.
 
 <Tabs items={["Lua", "JS"]}>
-  <Tab>
+  <Tabs.Tab>
     <Tabs items={["Client", "Server"]}>
-      <Tab>
+      <Tabs.Tab>
         ```lua
         lib.notify(data)
         ```
-      </Tab>
-      <Tab>
+      </Tabs.Tab>
+      <Tabs.Tab>
         ```lua
         TriggerClientEvent('ox_lib:notify', source, data)
         ```
-      </Tab>
+      </Tabs.Tab>
     </Tabs>
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     ```ts
     import lib from '@overextended/ox_lib/client';
 
     lib.notify(data);
     ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 -- id?: `string`
@@ -75,7 +75,7 @@ Notificações customizadas com várias opções de estilo.
 ### Padrão
 
 <Tabs items={["Lua", "JS"]}>
-  <Tab>
+  <Tabs.Tab>
     ```lua
     lib.notify({
       title = 'Título da notificação',
@@ -83,8 +83,8 @@ Notificações customizadas com várias opções de estilo.
       type = 'success'
     })
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     ```ts
     import lib from '@overextended/ox_lib/client';
 
@@ -94,7 +94,7 @@ Notificações customizadas com várias opções de estilo.
       type: 'success',
     });
     ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 ![notification](https://i.imgur.com/UOISjlm.png)
@@ -102,7 +102,7 @@ Notificações customizadas com várias opções de estilo.
 ### Personalizado
 
 <Tabs items={["Lua", "JS"]}>
-  <Tab>
+  <Tabs.Tab>
     ```lua
     lib.notify({
       id = 'some_identifier',
@@ -121,8 +121,8 @@ Notificações customizadas com várias opções de estilo.
       iconColor = '#C53030'
     })
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     ```ts
     import lib from '@overextended/ox_lib/client';
 
@@ -143,7 +143,7 @@ Notificações customizadas com várias opções de estilo.
       iconColor: '#C53030',
     });
     ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 ![custom_notification](https://i.imgur.com/1qwsJsH.png)

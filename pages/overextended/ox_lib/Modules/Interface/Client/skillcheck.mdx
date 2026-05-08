@@ -2,7 +2,7 @@
 title: Skill Check
 ---
 
-import { Tabs, Tab } from 'nextra-theme-docs';
+import { Tabs } from 'nextra/components';
 
 # Skill Check
 
@@ -11,19 +11,19 @@ import { Tabs, Tab } from 'nextra-theme-docs';
 Executa um skill check com a dificuldade definida.
 
 <Tabs items={["Lua", "JS"]}>
-  <Tab>
+  <Tabs.Tab>
     ```lua
     lib.skillCheck(difficulty, inputs)
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     ```ts
     import lib from '@overextended/ox_lib/client';
 
     lib.skillCheck(difficulty, inputs);
     ```
 
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 - difficulty: `'easy'` ou `'medium'` ou `'hard'` ou `table`
@@ -45,19 +45,19 @@ Executa um skill check com a dificuldade definida.
 Retorna `true` se um skill check estiver ativo no momento.
 
 <Tabs items={["Lua", "JS"]}>
-  <Tab>
+  <Tabs.Tab>
     ```lua
     lib.skillCheckActive()
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     ```ts
     import lib from '@overextended/ox_lib/client'
 
     lib.skillCheckActive()
     ```
 
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 ## lib.cancelSkillCheck
@@ -65,30 +65,30 @@ Retorna `true` se um skill check estiver ativo no momento.
 Cancela o skill check atualmente em andamento.
 
 <Tabs items={["Lua", "JS"]}>
-  <Tab>
+  <Tabs.Tab>
     ```lua
     lib.cancelSkillCheck()
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     ```ts
     import lib from '@overextended/ox_lib/client'
 
     lib.cancelSkillCheck()
     ```
 
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 ## Exemplo de uso
 
 <Tabs items={["Lua", "JS"]}>
-  <Tab>
+  <Tabs.Tab>
     ```lua
     local success = lib.skillCheck({'easy', 'easy', {areaSize = 60, speedMultiplier = 2}, 'hard'}, {'w', 'a', 's', 'd'})
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     ```ts
     import lib from '@overextended/ox_lib/client';
 
@@ -98,7 +98,7 @@ Cancela o skill check atualmente em andamento.
     );
     ```
 
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 ![skillcheck_example](https://i.imgur.com/rgfkn0S.png)

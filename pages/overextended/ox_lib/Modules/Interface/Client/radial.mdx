@@ -2,7 +2,7 @@
 title: Menu Radial
 ---
 
-import { Tabs, Tab } from 'nextra-theme-docs';
+import { Tabs } from 'nextra/components';
 import { Callout } from 'nextra/components';
 
 # Menu Radial
@@ -16,18 +16,18 @@ import { Callout } from 'nextra/components';
 Item ou array de itens adicionados ao menu radial global.
 
 <Tabs items={["Lua", "JS"]}>
-  <Tab>
+  <Tabs.Tab>
     ```lua
     lib.addRadialItem(items)
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     ```ts
     import lib from '@overextended/ox_lib/client';
 
     lib.addRadialItem(items);
     ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 - items: `table` (`object` ou `array`)
@@ -51,18 +51,18 @@ Item ou array de itens adicionados ao menu radial global.
 Id de um item a ser removido do menu global.
 
 <Tabs items={["Lua", "JS"]}>
-  <Tab>
+  <Tabs.Tab>
     ```lua
     lib.removeRadialItem(item)
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     ```ts
     import lib from '@overextended/ox_lib/client';
 
     lib.removeRadialItem(item);
     ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 - id: `string`
@@ -72,18 +72,18 @@ Id de um item a ser removido do menu global.
 Remove todos os itens do menu radial.
 
 <Tabs items={["Lua", "JS"]}>
-  <Tab>
+  <Tabs.Tab>
     ```lua
     lib.clearRadialItems()
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     ```ts
     import lib from '@overextended/ox_lib/client';
 
     lib.clearRadialItems();
     ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 ## lib.registerRadial
@@ -91,18 +91,18 @@ Remove todos os itens do menu radial.
 Registra um submenu radial com opções predefinidas.
 
 <Tabs items={["Lua", "JS"]}>
-  <Tab>
+  <Tabs.Tab>
     ```lua
     lib.registerRadial(radial)
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     ```ts
     import lib from '@overextended/ox_lib/client';
 
     lib.registerRadial(radial);
     ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 - radial: `table` (`object`)
@@ -122,18 +122,18 @@ Registra um submenu radial com opções predefinidas.
 Oculta o menu radial se estiver aberto.
 
 <Tabs items={["Lua", "JS"]}>
-  <Tab>
+  <Tabs.Tab>
     ```lua
     lib.hideRadial()
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     ```ts
     import lib from '@overextended/ox_lib/client';
 
     lib.hideRadial();
     ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 ## lib.disableRadial
@@ -141,18 +141,18 @@ Oculta o menu radial se estiver aberto.
 Impede que jogadores abram o menu radial.
 
 <Tabs items={["Lua", "JS"]}>
-  <Tab>
+  <Tabs.Tab>
     ```lua
     lib.disableRadial(state)
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     ```ts
     import lib from '@overextended/ox_lib/client';
 
     lib.disableRadial(state);
     ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 - state: `boolean`
@@ -163,18 +163,18 @@ Impede que jogadores abram o menu radial.
 Retorna o id do menu radial atualmente aberto.
 
 <Tabs items={["Lua", "JS"]}>
-  <Tab>
+  <Tabs.Tab>
     ```lua
     local id = lib.getCurrentRadialId()
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     ```ts
     import lib from '@overextended/ox_lib/client';
 
     let id = lib.getCurrentRadialId();
     ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 ## Exemplo de Uso
@@ -186,7 +186,7 @@ Retorna o id do menu radial atualmente aberto.
 Aqui está um exemplo de uso com algumas opções globais e uma opção utilizando o sistema de pontos da lib.
 
 <Tabs items={["Lua", "JS"]}>
-  <Tab>
+  <Tabs.Tab>
     ```lua
     exports('myMenuHandler', function(menu, item)
         print(menu, item)
@@ -261,8 +261,8 @@ Aqui está um exemplo de uso com algumas opções globais e uma opção utilizan
       lib.removeRadialItem('garage_access')
     end
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     <Callout>
       O sistema de pontos da lib não está disponível no pacote npm.
     </Callout>
@@ -325,7 +325,7 @@ Aqui está um exemplo de uso com algumas opções globais e uma opção utilizan
       }
     ])
     ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 ![radial1](https://i.imgur.com/4eYU94s.png)

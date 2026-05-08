@@ -2,7 +2,7 @@
 title: TextUI
 ---
 
-import { Tabs, Tab } from 'nextra-theme-docs';
+import { Tabs } from 'nextra/components';
 import { Callout } from 'nextra/components';
 
 # TextUI
@@ -16,18 +16,18 @@ Exibe a janela do TextUI.
 </Callout>
 
 <Tabs items={["Lua", "JS"]}>
-  <Tab>
+  <Tabs.Tab>
     ```lua
     lib.showTextUI(text, options)
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     ```ts
     import lib from '@overextended/ox_lib/client';
 
     lib.showTextUI(text, options);
     ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 - text: `string`
@@ -46,18 +46,18 @@ Exibe a janela do TextUI.
 Oculta a janela TextUI atualmente visível
 
 <Tabs items={["Lua", "JS"]}>
-  <Tab>
+  <Tabs.Tab>
     ```lua
     lib.hideTextUI()
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     ```ts
     import lib from '@overextended/ox_lib/client';
 
     lib.hideTextUI();
     ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 ## lib.isTextUIOpen
@@ -65,18 +65,18 @@ Oculta a janela TextUI atualmente visível
 Retorna se o TextUI está aberto. O texto atualmente exibido é retornado como o segundo valor.
 
 <Tabs items={["Lua", "JS"]}>
-  <Tab>
+  <Tabs.Tab>
     ```lua
     local isOpen, text = lib.isTextUIOpen()
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     ```ts
     import lib from '@overextended/ox_lib/client';
 
     const [isOpen, text] = lib.isTextUIOpen();
     ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 ## Exemplos de uso
@@ -84,18 +84,18 @@ Retorna se o TextUI está aberto. O texto atualmente exibido é retornado como o
 ### Básico
 
 <Tabs items={["Lua", "JS"]}>
-  <Tab>
+  <Tabs.Tab>
     ```lua
     lib.showTextUI('[E] - Abastecer veículo')
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     ```ts
     import lib from '@overextended/ox_lib/client';
 
     lib.showTextUI('[E] - Abastecer veículo');
     ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 ![basic_example](https://i.imgur.com/uZS40fD.png)
@@ -103,7 +103,7 @@ Retorna se o TextUI está aberto. O texto atualmente exibido é retornado como o
 ### Estilização personalizada
 
 <Tabs items={["Lua", "JS"]}>
-  <Tab>
+  <Tabs.Tab>
     ```lua
     lib.showTextUI('[E] - Colher maçã', {
         position = "top-center",
@@ -115,8 +115,8 @@ Retorna se o TextUI está aberto. O texto atualmente exibido é retornado como o
         }
     })
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     ```ts
     import lib from '@overextended/ox_lib/client';
 
@@ -130,7 +130,7 @@ Retorna se o TextUI está aberto. O texto atualmente exibido é retornado como o
       },
     });
     ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 ![custom_example](https://i.imgur.com/sy9lPC0.png)

@@ -1,4 +1,4 @@
-import { Tabs, Tab } from 'nextra-theme-docs';
+import { Tabs } from 'nextra/components';
 
 Permite que servidores definam um idioma preferido e tente carregar arquivos de locale em quaisquer recursos que utilizem o módulo.
 Arquivos de locale devem usar o [Código de Idioma ISO](http://www.lingoes.net/en/translator/langcode.htm) e ser salvos como `./locales/langcode.json`
@@ -42,38 +42,38 @@ files {
 Inicialize o módulo de locale no seu resource (uma vez).
 
 <Tabs items={["Lua", "JS"]}>
-  <Tab>
+  <Tabs.Tab>
   ```lua
   lib.locale()
   ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
   ```ts
   import {initLocale} from '@overextended/ox_lib/shared'
 
   initLocale()
   ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 Formate suas strings com o novo global de locale.
 Argumentos adicionais podem ser enviados para formatar a saída do locale.
 
 <Tabs items={['Lua', 'JS']}>
-  <Tab>
+  <Tabs.Tab>
 
     ```lua
     locale(str, ...)
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
 
     ```ts
     import { locale } from '@overextended/ox_lib/shared'
 
     locale(str, ...)
     ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 - str: `string`
@@ -82,7 +82,7 @@ Argumentos adicionais podem ser enviados para formatar a saída do locale.
 <u>**Exemplo**</u>
 
 <Tabs items={['Lua', 'JS']}>
-  <Tab>
+  <Tabs.Tab>
 
     ```lua
     -- Carrega o módulo de locale
@@ -93,8 +93,8 @@ Argumentos adicionais podem ser enviados para formatar a saída do locale.
       print(locale('suspect_sex', locale('male')))
     end, 5000)
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
 
     ```ts
     import { initLocale, locale } from '@overextended/ox_lib/shared
@@ -107,7 +107,7 @@ Argumentos adicionais podem ser enviados para formatar a saída do locale.
       console.log(locale('suspect_sex', locale('male')))
     }, 5000)
     ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 
@@ -124,20 +124,20 @@ Você pode criar uma string de locale que referencia outros locales para constru
 ```
 
 <Tabs items={['Lua', 'JS']}>
-  <Tab>
+  <Tabs.Tab>
 
   ```lua
   print(locale('hello_my_name_is', 'doka', 'linden'))
   ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
 
     ```ts
     import { locale } from '@overextended/ox_lib/shared'
 
     console.log(locale('hello_my_name_is', 'doka', 'linden'))
     ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 ## lib.getLocale

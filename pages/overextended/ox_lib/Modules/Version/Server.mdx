@@ -1,4 +1,4 @@
-import { Tabs, Tab } from 'nextra-theme-docs';
+import { Tabs } from 'nextra/components';
 
 # Server
 
@@ -14,16 +14,16 @@ lib.versionCheck(repository)
 - repository: `string`
 
 <Tabs items={["Lua", "JS"]}>
-    <Tab>
+    <Tabs.Tab>
         ```lua
         lib.versionCheck('overextended/ox_lib')
         ```
-    </Tab>
-    <Tab>
+    </Tabs.Tab>
+    <Tabs.Tab>
         ```ts
         import lib from '@overextended/ox_lib/server'
 
         lib.versionCheck('overextended/ox_lib')
         ```
-    </Tab>
+    </Tabs.Tab>
 </Tabs>

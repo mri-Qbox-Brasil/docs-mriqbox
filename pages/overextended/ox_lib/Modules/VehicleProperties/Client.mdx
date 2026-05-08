@@ -3,7 +3,7 @@
 Segue em sua maioria o formato usado por ESX e QBCore, com dados extras como props danificados/ausentes.
 https://github.com/overextended/ox_lib/blob/master/resource/vehicleProperties/client.lua#L3
 
-import { Tabs, Tab } from 'nextra-theme-docs';
+import { Tabs } from 'nextra/components';
 
 ## lib.getVehicleProperties
 
@@ -16,18 +16,18 @@ lib.getVehicleProperties(vehicle)
 
 
 <Tabs items={["Lua", "JS"]}>
-  <Tab>
+  <Tabs.Tab>
     ```lua
     lib.getVehicleProperties(GetVehiclePedIsUsing(PlayerPedId()))
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     ```ts
     import lib from '@overextended/ox_lib/client'
 
     lib.getVehicleProperties(GetVehiclePedIsUsing(PlayerPedId()))
     ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 ## lib.setVehicleProperties
@@ -42,14 +42,14 @@ lib.setVehicleProperties(vehicle, props)
 - props: `table`
 
 <Tabs items={["Lua", "JS"]}>
-  <Tab>
+  <Tabs.Tab>
     ```lua
     RegisterNetEvent('ox_lib:setVehicleProperties', function(netid, data)
         lib.setVehicleProperties(NetToVeh(netid), data)
     end)
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     ```ts
     import { setVehicleProperties } from '@overextended/ox_lib/client'
 
@@ -57,7 +57,7 @@ lib.setVehicleProperties(vehicle, props)
       setVehicleProperties(NetToVeh(netid), data)
     })
     ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 **Retorna:**

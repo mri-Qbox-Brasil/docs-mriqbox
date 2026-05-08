@@ -1,4 +1,4 @@
-import { Tabs, Tab } from 'nextra-theme-docs';
+import { Tabs } from 'nextra/components';
 
 # Shared
 
@@ -14,17 +14,17 @@ lib.checkDependency(resource, version)
 - version: `string`
 
 <Tabs items={["Lua", "JS"]}>
-    <Tab>
+    <Tabs.Tab>
         ```lua
         if not lib.checkDependency('ox_lib', '1.5.0') then error() end
         ```
-    </Tab>
-    <Tab>
+    </Tabs.Tab>
+    <Tabs.Tab>
         ```ts
         import lib from '@overextended/ox_lib/shared'
         // import { checkDependency } from '@overextended/ox_lib/shared'
 
         if (!lib.checkDependency('ox_lib', '1.5.0')) error()
         ```
-    </Tab>
+    </Tabs.Tab>
 </Tabs>

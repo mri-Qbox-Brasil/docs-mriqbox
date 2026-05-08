@@ -2,7 +2,7 @@
 title: Menu
 ---
 
-import { Tabs, Tab } from 'nextra-theme-docs';
+import { Tabs } from 'nextra/components';
 import { Callout } from 'nextra/components';
 
 # Menu
@@ -14,18 +14,18 @@ Menu de navegação por teclado com funções de evento específicas.
 Registra e armazena em cache um menu sob o `id` especificado.
 
 <Tabs items={["Lua", "JS"]}>
-  <Tab>
+  <Tabs.Tab>
     ```lua
     lib.registerMenu(data, cb)
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     ```ts
     import lib from '@overextended/ox_lib/client';
 
     lib.registerMenu(data, cb);
     ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 - data: `table` (`object`)
@@ -78,18 +78,18 @@ Registra e armazena em cache um menu sob o `id` especificado.
 Exibe o menu com o `id` fornecido.
 
 <Tabs items={["Lua", "JS"]}>
-  <Tab>
+  <Tabs.Tab>
     ```lua
     lib.showMenu(id)
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     ```ts
     import lib from '@overextended/ox_lib/client';
 
     lib.showMenu(id);
     ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 - id: `string`
@@ -97,18 +97,18 @@ Exibe o menu com o `id` fornecido.
 ## lib.hideMenu
 
 <Tabs items={["Lua", "JS"]}>
-  <Tab>
+  <Tabs.Tab>
     ```lua
     lib.hideMenu(onExit)
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     ```ts
     import lib from '@overextended/ox_lib/client';
 
     lib.hideMenu(onExit);
     ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 -- onExit?: `boolean`
@@ -119,35 +119,35 @@ Exibe o menu com o `id` fornecido.
 Retorna o `id` do menu atualmente aberto.
 
 <Tabs items={["Lua", "JS"]}>
-  <Tab>
+  <Tabs.Tab>
     ```lua
     lib.getOpenMenu()
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     ```ts
     import lib from '@overextended/ox_lib/client';
 
     lib.getOpenMenu();
     ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 ## lib.setMenuOptions
 
 <Tabs items={["Lua", "JS"]}>
-  <Tab>
+  <Tabs.Tab>
     ```lua
     lib.setMenuOptions(id, options, index)
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     ```ts
     import lib from '@overextended/ox_lib/client';
 
     lib.setMenuOptions(id, options, index);
     ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 - id: `string`
@@ -159,18 +159,18 @@ Retorna o `id` do menu atualmente aberto.
 Substitui a opção no índice 3 do menu especificado
 
 <Tabs items={["Lua", "JS"]}>
-  <Tab>
+  <Tabs.Tab>
     ```lua
     lib.setMenuOptions('some_menu_id', {label = 'New option', icon = 'plus'}, 3)
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     ```ts
     import lib from '@overextended/ox_lib/client';
 
     lib.setMenuOptions('some_menu_id', { label: 'New option', icon: 'plus' }, 3);
     ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 ## Exemplo de uso
@@ -182,7 +182,7 @@ Primeiro registramos o menu com as opções especificadas e então chamamos a fu
 </Callout>
 
 <Tabs items={["Lua", "JS"]}>
-  <Tab>
+  <Tabs.Tab>
     ```lua
     lib.registerMenu({
         id = 'some_menu_id',
@@ -231,8 +231,8 @@ Primeiro registramos o menu com as opções especificadas e então chamamos a fu
         lib.showMenu('some_menu_id')
     end)
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     ```ts
     import lib from '@overextended/ox_lib/client';
 
@@ -298,7 +298,7 @@ Primeiro registramos o menu com as opções especificadas e então chamamos a fu
       false
     );
     ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 ![Example](https://i.imgur.com/2zxbsnN.png)

@@ -1,4 +1,4 @@
-import { Steps, Tabs, Tab } from 'nextra-theme-docs';
+import { Steps, Tabs } from 'nextra/components';
 
 # Server
 
@@ -53,7 +53,7 @@ Loki é um sistema de agregação de logs, escalável horizontalmente, altamente
 Foi projetado para ser econômico e fácil de operar.
 
 <Tabs items={["Cloud", "Self-hosted"]}>
-  <Tab>
+  <Tabs.Tab>
     - Possui tier gratuito com algumas restrições
     - Fácil de gerenciar
     - Mais fácil de configurar
@@ -66,15 +66,15 @@ Foi projetado para ser econômico e fácil de operar.
       Encontre a seção do Loki no painel da sua conta e clique em "Details".
       Gere uma senha e salve a chave de API, bem como seu `user` e `url`.
     </Steps>
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     Para configurar uma instância Grafana você precisará de Docker e conhecimento em containers ou Kubernetes.
     Procure um guia para configurar uma stack Grafana (requisito mínimo: Grafana e Grafana Loki) e siga-o.
 
     Uma vez pronto, configure a autenticação e utilize o usuário e senha para proteger seu endpoint.
 
     - Por padrão, instâncias Loki self-hosted não fornecem camadas de autenticação e exigirão uma camada externa, como NGINX basic auth ou Cloudflare Access.
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
   ### Configuração

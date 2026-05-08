@@ -1,4 +1,4 @@
-import { Tabs, Tab } from 'nextra-theme-docs';
+import { Tabs } from 'nextra/components';
 
 # Cliente
 
@@ -26,21 +26,21 @@ exports.ox_inventory:openInventory(invType, data)
 <u>**Exemplos**</u>
 
 <Tabs items={['Player', 'Shop', 'Stash']}>
-  <Tab>
+  <Tabs.Tab>
     Abre o inventário do jogador alvo.
 
     ```lua
     exports.ox_inventory:openInventory('player', 3)
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     Abre a quarta localização "General Store" [location](https://github.com/overextended/ox_inventory/blob/main/data/shops.lua#L14).
 
     ```lua
     exports.ox_inventory:openInventory('shop', { type = 'General', id = 4 })
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     Abre o primeiro stash em [data/stashes](https://github.com/overextended/ox_inventory/blob/main/data/stashes.lua#L2-L19).
 
     ```lua
@@ -58,7 +58,7 @@ exports.ox_inventory:openInventory(invType, data)
     ```lua
     exports.ox_inventory:openInventory('stash', { id = 'police_locker', owner = 'license:xxxxxxxx' })
     ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 ## openNearbyInventory
@@ -273,13 +273,13 @@ exports.ox_inventory:Search(search, item, metadata)
 ### Count
 
 <Tabs items={["Single item", "Multiple items"]}>
-  <Tab>
+  <Tabs.Tab>
     ```lua
     local count = exports.ox_inventory:Search('count', 'water')
     print('You have '..count.. ' water')
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     ```lua
     local inventory = exports.ox_inventory:Search('count', {'meat', 'skin'}, {grade="1"})
 
@@ -289,13 +289,13 @@ exports.ox_inventory:Search(search, item, metadata)
         end
     end
     ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 ### Slots
 
 <Tabs items={["Single item", "Multiple items"]}>
-  <Tab>
+  <Tabs.Tab>
     ```lua
     local water = exports.ox_inventory:Search('slots', 'water')
     local count = 0
@@ -307,8 +307,8 @@ exports.ox_inventory:Search(search, item, metadata)
 
     print('You have '..count..' water')
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     ```lua
     local items = exports.ox_inventory:Search('slots', {'meat', 'skin'}, 'deer')
 
@@ -327,7 +327,7 @@ exports.ox_inventory:Search(search, item, metadata)
         end
     end
     ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 ## GetItemCount

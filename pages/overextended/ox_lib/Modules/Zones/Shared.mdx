@@ -1,4 +1,4 @@
-import { Tabs, Tab } from 'nextra-theme-docs';
+import { Tabs } from 'nextra/components';
 import { Callout } from 'nextra/components';
 
 # Shared
@@ -150,7 +150,7 @@ Os controles disponíveis serão exibidos no lado direito.
 As zones serão salvas em `ox_lib/created_zones.lua` no formato escolhido.
 
 <Tabs items={["function", "array", "ox_target"]}>
-  <Tab>
+  <Tabs.Tab>
     ```lua
     local poly = lib.zones.poly({
         name = poly,
@@ -164,8 +164,8 @@ As zones serão salvas em `ox_lib/created_zones.lua` no formato escolhido.
         thickness = 2,
     })
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     ```lua
     {
         name = poly,
@@ -179,8 +179,8 @@ As zones serão salvas em `ox_lib/created_zones.lua` no formato escolhido.
         thickness = 2,
     },
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     ```lua
     exports.ox_target:addPolyZone({
         name = poly,
@@ -194,5 +194,5 @@ As zones serão salvas em `ox_lib/created_zones.lua` no formato escolhido.
         thickness = 2,
     })
     ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>

@@ -2,7 +2,7 @@
 title: scalar
 ---
 
-import { Tab, Tabs } from 'nextra-theme-docs';
+import { Tabs } from 'nextra/components';
 
 # Scalar
 
@@ -11,7 +11,7 @@ Retorna a primeira coluna de uma única linha.
 ## Promise
 
 <Tabs items={['Lua', 'JS']}>
-  <Tab>
+  <Tabs.Tab>
 
     ```lua
     local firstName = MySQL.scalar.await('SELECT `firstname` FROM `users` WHERE `identifier` = ? LIMIT 1', {
@@ -21,8 +21,8 @@ Retorna a primeira coluna de uma única linha.
     print(firstName)
     ```
 
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
 
     ```js
     const firstName = await MySQL.scalar('SELECT `firstname` FROM `users` WHERE `identifier` = ? LIMIT 1', [
@@ -32,7 +32,7 @@ Retorna a primeira coluna de uma única linha.
     console.log(firstName)
     ```
 
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 **Aliases**
@@ -44,7 +44,7 @@ Retorna a primeira coluna de uma única linha.
 ## Callback
 
 <Tabs items={['Lua', 'JS']}>
-  <Tab>
+  <Tabs.Tab>
 
     ```lua
     MySQL.scalar('SELECT `firstname` FROM `users` WHERE `identifier` = ? LIMIT 1', {
@@ -54,8 +54,8 @@ Retorna a primeira coluna de uma única linha.
     end)
     ```
 
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
 
     ```js
     MySQL.scalar('SELECT `firstname` FROM `users` WHERE `identifier` = ? LIMIT 1', [
@@ -65,7 +65,7 @@ Retorna a primeira coluna de uma única linha.
     })
     ```
 
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 **Aliases**

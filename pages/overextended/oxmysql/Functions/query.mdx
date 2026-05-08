@@ -2,7 +2,7 @@
 title: query
 ---
 
-import { Tab, Tabs } from 'nextra-theme-docs';
+import { Tabs } from 'nextra/components';
 
 # Query
 
@@ -11,7 +11,7 @@ Quando dados são selecionados, retorna todas as linhas e colunas correspondente
 ## Promise
 
 <Tabs items={['Lua', 'JS']}>
-  <Tab>
+  <Tabs.Tab>
 
     ```lua
     local response = MySQL.query.await('SELECT `firstname`, `lastname` FROM `users` WHERE `identifier` = ?', {
@@ -26,8 +26,8 @@ Quando dados são selecionados, retorna todas as linhas e colunas correspondente
     end
     ```
 
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
 
     ```js
     const response = await MySQL.query('SELECT `firstname`, `lastname` FROM `users` WHERE `identifier` = ?', [
@@ -41,7 +41,7 @@ Quando dados são selecionados, retorna todas as linhas e colunas correspondente
     }
     ```
 
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 **Aliases**
@@ -53,7 +53,7 @@ Quando dados são selecionados, retorna todas as linhas e colunas correspondente
 ## Callback
 
 <Tabs items={['Lua', 'JS']}>
-  <Tab>
+  <Tabs.Tab>
 
     ```lua
     MySQL.query('SELECT `firstname`, `lastname` FROM `users` WHERE `identifier` = ?', {
@@ -68,8 +68,8 @@ Quando dados são selecionados, retorna todas as linhas e colunas correspondente
     end)
     ```
 
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
 
     ```js
     MySQL.query('SELECT `firstname`, `lastname` FROM `users` WHERE `identifier` = ?', [
@@ -83,7 +83,7 @@ Quando dados são selecionados, retorna todas as linhas e colunas correspondente
     })
     ```
 
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 **Aliases**

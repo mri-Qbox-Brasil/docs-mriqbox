@@ -2,7 +2,7 @@
 title: Caixa de Alerta
 ---
 
-import { Tabs, Tab } from 'nextra-theme-docs';
+import { Tabs } from 'nextra/components';
 import { Callout } from 'nextra/components';
 
 # Caixa de Alerta
@@ -13,21 +13,21 @@ Retorna se o jogador pressionou o botão de confirmar ou se cancelou o diálogo.
 ## lib.alertDialog
 
 <Tabs items={["Lua", "JS"]}>
-  <Tab>
+  <Tabs.Tab>
     <Tabs items={["Client", "Server"]}>
-      <Tab>
+      <Tabs.Tab>
         ```lua
         lib.alertDialog(data)
         ```
-      </Tab>
-      <Tab>
+      </Tabs.Tab>
+      <Tabs.Tab>
         ```lua
         TriggerClientEvent('ox_lib:alertDialog', source, data)
         ```
-      </Tab>
+      </Tabs.Tab>
     </Tabs>
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     <Callout>
       Esta função é **assíncrona**, sendo necessário utilizar um callback `.then` ou tornar sua função `async`.
     </Callout>
@@ -37,7 +37,7 @@ Retorna se o jogador pressionou o botão de confirmar ou se cancelou o diálogo.
 
     lib.alertDialog(data);
     ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 - data: `table` (`object`)
@@ -64,24 +64,24 @@ Caso contrário, se pressionar cancelar ou sair com ESC, o retorno será `'cance
 Força o fechamento da caixa de alerta ativa e define seu retorno como `nil`.
 
 <Tabs items={["Lua", "JS"]}>
-  <Tab>
+  <Tabs.Tab>
     ```lua
     lib.closeAlertDialog()
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     ```ts
     import lib from '@overextended/ox_lib/client';
 
     lib.closeAlertDialog();
     ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 ## Exemplo
 
 <Tabs items={["Lua", "JS"]}>
-  <Tab>
+  <Tabs.Tab>
     ```lua
     local alert = lib.alertDialog({
         header = 'Olá!',
@@ -92,8 +92,8 @@ Força o fechamento da caixa de alerta ativa e define seu retorno como `nil`.
 
     print(alert)
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     ```ts
     import lib from '@overextended/ox_lib/client';
 
@@ -106,7 +106,7 @@ Força o fechamento da caixa de alerta ativa e define seu retorno como `nil`.
 
     console.log(alert);
     ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 ![alert_dialog](https://i.imgur.com/Xlx86aK.png)

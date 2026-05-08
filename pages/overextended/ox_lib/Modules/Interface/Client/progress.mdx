@@ -1,7 +1,7 @@
 title: Progresso
 ---
 
-import { Tabs, Tab } from 'nextra-theme-docs';
+import { Tabs } from 'nextra/components';
 import { Callout } from 'nextra/components';
 
 # Progresso
@@ -11,18 +11,18 @@ import { Callout } from 'nextra/components';
 Exibe uma barra de progresso em execução.
 
 <Tabs items={["Lua", "JS"]}>
-  <Tab>
+  <Tabs.Tab>
     ```lua
     lib.progressBar(data)
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     ```ts
     import lib from '@overextended/ox_lib/client'
 
     lib.progressBar(data)
     ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 - duration: `number`
@@ -80,7 +80,7 @@ Exibe uma barra de progresso em execução.
 ### Exemplo de uso
 
 <Tabs items={["Lua", "JS"]}>
-  <Tab>
+  <Tabs.Tab>
     ```lua
     if lib.progressBar({
       duration = 2000,
@@ -101,8 +101,8 @@ Exibe uma barra de progresso em execução.
         },
     }) then print('Executar ação quando concluído') else print('Executar ação quando cancelado') end
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     <Callout>
       Esta função é **assíncrona**: faça um `.then` no `Promise` retornado ou torne sua função `async` e use `await`.
     </Callout>
@@ -130,7 +130,7 @@ Exibe uma barra de progresso em execução.
     })) console.log('Executar ação quando concluído');
     else console.log('Executar ação quando cancelado')
     ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 ![progress_bar](https://i.imgur.com/7ZJgLjl.png)
@@ -140,18 +140,18 @@ Exibe uma barra de progresso em execução.
 Semelhante a `lib.progressBar`, porém exibe um círculo e permite definir uma posição.
 
 <Tabs items={["Lua", "JS"]}>
-  <Tab>
+  <Tabs.Tab>
     ```lua
     lib.progressCircle(data)
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     ```ts
     import lib from '@overextended/ox_lib/client'
 
     lib.progressCircle(data)
     ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 - duration: `number`
@@ -211,7 +211,7 @@ Semelhante a `lib.progressBar`, porém exibe um círculo e permite definir uma p
 ### Exemplo de uso
 
 <Tabs items={["Lua", "JS"]}>
-  <Tab>
+  <Tabs.Tab>
     ```lua
     if lib.progressCircle({
         duration = 2000,
@@ -232,8 +232,8 @@ Semelhante a `lib.progressBar`, porém exibe um círculo e permite definir uma p
         },
     }) then print('Do stuff when complete') else print('Do stuff when cancelled') end
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     <Callout>
       Esta função é **assíncrona**: faça um `.then` no `Promise` retornado ou torne sua função `async` e use `await`.
     </Callout>
@@ -261,7 +261,7 @@ Semelhante a `lib.progressBar`, porém exibe um círculo e permite definir uma p
     })) console.log('Do stuff when complete')
     else console.log('Do stuff when cancelled')
     ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 ![progress_circle](https://i.imgur.com/2tLbgrW.png)
@@ -271,18 +271,18 @@ Semelhante a `lib.progressBar`, porém exibe um círculo e permite definir uma p
 Retorna `true` se uma barra de progresso estiver ativa no momento.
 
 <Tabs items={["Lua", "JS"]}>
-  <Tab>
+  <Tabs.Tab>
     ```lua
     lib.progressActive()
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     ```ts
     import lib from '@overextended/ox_lib/client'
 
     lib.progressActive()
     ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 ## lib.cancelProgress
@@ -290,16 +290,16 @@ Retorna `true` se uma barra de progresso estiver ativa no momento.
 Se houver uma barra de progresso ativa e ela puder ser cancelada, esta função a cancela.
 
 <Tabs items={["Lua", "JS"]}>
-  <Tab>
+  <Tabs.Tab>
     ```lua
     lib.cancelProgress()
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     ```ts
     import lib from '@overextended/ox_lib/client'
 
     lib.cancelProgress()
     ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>

@@ -1,4 +1,4 @@
-import { Tabs, Tab } from 'nextra-theme-docs';
+import { Tabs } from 'nextra/components';
 import { Callout } from 'nextra/components';
 
 # Server
@@ -42,7 +42,7 @@ exports.ox_inventory:forceOpenInventory(playerId, invType, data)
 - data: `number` ou `string` ou `table`
 
 <Tabs items={["Player", "Stash"]}>
-  <Tab>
+  <Tabs.Tab>
     Open the target player's inventory.
 
     ```lua
@@ -56,8 +56,8 @@ exports.ox_inventory:forceOpenInventory(playerId, invType, data)
         exports.ox_inventory:forceOpenInventory(source, 'player', tonumber(args[1]))
     end, true)
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
 
     Abre um inventário de stash, (criado no servidor com RegisterStash).
 
@@ -70,7 +70,7 @@ exports.ox_inventory:forceOpenInventory(playerId, invType, data)
     ```lua
     exports.ox_inventory:forceOpenInventory(1, 'stash', { id = 'police_locker', owner = 'license:xxxxxxxx' })
     ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 ## UpdateVehicle

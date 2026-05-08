@@ -2,7 +2,7 @@
 title: transaction
 ---
 
-import { Tab, Tabs } from 'nextra-theme-docs';
+import { Tabs } from 'nextra/components';
 
 # Transaction
 
@@ -52,22 +52,22 @@ local values = {
 ## Promise
 
 <Tabs items={['Lua', 'JS']}>
-  <Tab>
+  <Tabs.Tab>
 
     ```lua
     local success = MySQL.transaction.await(queries, values --[[deixe nil para formato específico]])
     print(success)
     ```
 
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
 
     ```js
     const success = await MySQL.transaction(queries, values /*deixe nil para formato específico*/)
     console.log(success)
     ```
 
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 **Aliases**
@@ -79,7 +79,7 @@ local values = {
 ## Callback
 
 <Tabs items={['Lua', 'JS']}>
-  <Tab>
+  <Tabs.Tab>
 
     ```lua
     -- específico
@@ -93,8 +93,8 @@ local values = {
     end)
     ```
 
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
 
     ```js
     // específico
@@ -108,7 +108,7 @@ local values = {
     })
     ```
 
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 **Aliases**

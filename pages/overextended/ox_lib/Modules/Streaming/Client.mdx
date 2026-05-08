@@ -1,4 +1,4 @@
-import { Tabs, Tab } from 'nextra-theme-docs';
+import { Tabs } from 'nextra/components';
 import { Callout } from 'nextra/components';
 
 # Cliente
@@ -13,18 +13,18 @@ Lança erros para assets inválidos e retorna `true` se o asset foi carregado.
 </Callout>
 
 <Tabs items={["Lua", "JS"]}>
-  <Tab>
+  <Tabs.Tab>
     ```lua
     lib.requestAnimDict(dict, timeout)
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     ```ts
     import lib from '@overextended/ox_lib/client'
 
     lib.requestAnimDict(dict, timeout)
     ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 - dict: `string`
@@ -39,18 +39,18 @@ Lança erros para assets inválidos e retorna `true` se o asset foi carregado.
 </Callout>
 
 <Tabs items={["Lua", "JS"]}>
-  <Tab>
+  <Tabs.Tab>
     ```lua
     lib.requestAnimSet(set, timeout)
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     ```ts
     import lib from '@overextended/ox_lib/client'
 
     lib.requestAnimSet(set, timeout)
     ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 - set: `string`
@@ -65,18 +65,18 @@ Lança erros para assets inválidos e retorna `true` se o asset foi carregado.
 </Callout>
 
 <Tabs items={["Lua", "JS"]}>
-  <Tab>
+  <Tabs.Tab>
     ```lua
     lib.requestModel(model, timeout)
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     ```ts
     import lib from '@overextended/ox_lib/client'
 
     lib.requestModel(model, timeout)
     ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 - model: `string`
@@ -91,18 +91,18 @@ Lança erros para assets inválidos e retorna `true` se o asset foi carregado.
 </Callout>
 
 <Tabs items={["Lua", "JS"]}>
-  <Tab>
+  <Tabs.Tab>
     ```lua
     lib.requestStreamedTextureDict(dict, timeout)
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     ```ts
     import lib from '@overextended/ox_lib/client'
 
     lib.requestStreamedTextureDict(dict, timeout)
     ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 - dict: `string`
@@ -117,18 +117,18 @@ Lança erros para assets inválidos e retorna `true` se o asset foi carregado.
 </Callout>
 
 <Tabs items={["Lua", "JS"]}>
-  <Tab>
+  <Tabs.Tab>
     ```lua
     lib.requestNamedPtfxAsset(ptFxName, timeout)
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     ```ts
     import lib from '@overextended/ox_lib/client'
 
     lib.requestNamedPtfxAsset(ptFxName, timeout)
     ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 - ptFxName: `string`
@@ -143,18 +143,18 @@ Lança erros para assets inválidos e retorna `true` se o asset foi carregado.
 </Callout>
 
 <Tabs items={["Lua", "JS"]}>
-  <Tab>
+  <Tabs.Tab>
     ```lua
     lib.requestScaleformMovie(scaleformName, timeout)
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     ```ts
     import lib from '@overextended/ox_lib/client'
 
     lib.requestScaleformMovie(scaleformName, timeout)
     ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 - scaleformName: `string`
@@ -169,18 +169,18 @@ Lança erros para assets inválidos e retorna `true` se o asset foi carregado.
 </Callout>
 
 <Tabs items={["Lua", "JS"]}>
-  <Tab>
+  <Tabs.Tab>
     ```lua
     lib.requestWeaponAsset(weaponType, timeout, weaponResourceFlags, extraWeaponComponentFlags)
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     ```ts
     import lib from '@overextended/ox_lib/client'
 
     lib.requestWeaponAsset(weaponType, timeout, weaponResourceFlags, extraWeaponComponentFlags)
     ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 - weaponType: `string | number`

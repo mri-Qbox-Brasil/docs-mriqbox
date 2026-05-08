@@ -1,4 +1,4 @@
-import { Tabs, Tab } from 'nextra-theme-docs';
+import { Tabs } from 'nextra/components';
 
 # Cliente
 
@@ -29,7 +29,7 @@ Valores e funcionalidades de cache disponíveis no cliente, além dos valores [s
 Registra um manipulador de evento acionado quando um valor em cache é atualizado.
 
 <Tabs items={["Lua", "JS"]}>
-  <Tab>
+  <Tabs.Tab>
     ```lua
     lib.onCache(key, function(value) end)
     ```
@@ -48,8 +48,8 @@ Registra um manipulador de evento acionado quando um valor em cache é atualizad
         print('new vehicle:', value)
     end)
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     ```ts
     import { onCache } from '@overextended/ox_lib/client';
 
@@ -72,5 +72,5 @@ Registra um manipulador de evento acionado quando um valor em cache é atualizad
       console.log('new vehicle:', value);
     });
     ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>

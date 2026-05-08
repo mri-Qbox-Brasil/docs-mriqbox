@@ -2,7 +2,7 @@
 title: prepare
 ---
 
-import { Tab, Tabs } from 'nextra-theme-docs';
+import { Tabs } from 'nextra/components';
 
 # Prepare
 
@@ -17,7 +17,7 @@ Ao contrário de [rawExecute](./rawExecute), a instrução `SELECT` retornará u
 ## Promise
 
 <Tabs items={['Lua', 'JS']}>
-  <Tab>
+  <Tabs.Tab>
 
     ```lua
     local response = MySQL.prepare.await('SELECT `firstname`, `lastname` FROM `users` WHERE `identifier` = ?', {
@@ -28,8 +28,8 @@ Ao contrário de [rawExecute](./rawExecute), a instrução `SELECT` retornará u
     print(json.encode(response, { indent = true, sort_keys = true }))
     ```
 
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
 
     ```js
     const response = await MySQL.prepare('SELECT `firstname`, `lastname` FROM `users` WHERE `identifier` = ?', [
@@ -39,7 +39,7 @@ Ao contrário de [rawExecute](./rawExecute), a instrução `SELECT` retornará u
     console.log(JSON.stringify(response))
     ```
 
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 **Aliases**
@@ -49,7 +49,7 @@ Ao contrário de [rawExecute](./rawExecute), a instrução `SELECT` retornará u
 ## Callback
 
 <Tabs items={['Lua', 'JS']}>
-  <Tab>
+  <Tabs.Tab>
 
     ```lua
     MySQL.prepare('SELECT `firstname`, `lastname` FROM `users` WHERE `identifier` = ?', {
@@ -59,8 +59,8 @@ Ao contrário de [rawExecute](./rawExecute), a instrução `SELECT` retornará u
     end)
     ```
 
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
 
     ```js
     MySQL.prepare('SELECT `firstname`, `lastname` FROM `users` WHERE `identifier` = ?', [
@@ -70,7 +70,7 @@ Ao contrário de [rawExecute](./rawExecute), a instrução `SELECT` retornará u
     })
     ```
 
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 **Aliases**

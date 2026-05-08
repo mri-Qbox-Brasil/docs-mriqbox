@@ -1,5 +1,5 @@
 import { Callout } from 'nextra/components';
-import { Tabs, Tab, Steps } from 'nextra-theme-docs';
+import { Steps, Tabs } from 'nextra/components';
 import ResourceLinks from '@components/resource-links';
 
 # Ox Lib
@@ -52,7 +52,7 @@ add_ace resource.ox_lib command.remove_principal allow
 ## Uso
 
 <Tabs items={["Lua", "JS"]}>
-<Tab>
+<Tabs.Tab>
 
 Para habilitar a biblioteca no seu recurso, basta adicionar @ox_lib/init.lua como um shared_script no seu arquivo fxmanifest.lua.
 
@@ -83,8 +83,8 @@ Quando o ox_lib for importado no seu script, ele disponibilizará várias variá
 - `require` Para importar módulos do seu próprio script.
 - `cache` Veja [aqui](./ox_lib/Modules/Cache/Shared).
 
-</Tab>
-<Tab>
+</Tabs.Tab>
+<Tabs.Tab>
 
 <Callout>
 O pacote npm para a biblioteca **não** oferece suporte a todas as funções disponíveis para Lua.
@@ -106,7 +106,7 @@ import lib from '@overextended/ox_lib/server';
 import { versionCheck } from '@overextended/ox_lib/server';
 ```
 
-</Tab>
+</Tabs.Tab>
 </Tabs>
 
 Agora você pode usar as funções da biblioteca dentro do seu recurso; verifique o restante da documentação para ver como utilizá-las.
@@ -117,20 +117,20 @@ A biblioteca de ícones utilizada é a Font Awesome 6.0. Se você definir apenas
 Se quiser usar um tipo de ícone diferente (por exemplo, `apple` como brand), é necessário definir o ícone como uma tabela (`array`) com o primeiro valor sendo o tipo (`fas`, `far`, `fab`) como string, e o segundo sendo o nome do ícone.
 
 <Tabs items={["Lua", "JS"]}>
-<Tab>
+<Tabs.Tab>
 
 ```lua
 icon = {'fab', 'apple'}
 ```
 
-</Tab>
-<Tab>
+</Tabs.Tab>
+<Tabs.Tab>
 
 ```ts
 icon: ['fab', 'apple'];
 ```
 
-</Tab>
+</Tabs.Tab>
 </Tabs>
 
 ## Compilando a UI

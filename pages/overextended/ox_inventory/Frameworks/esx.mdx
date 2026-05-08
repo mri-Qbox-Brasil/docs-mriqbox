@@ -2,7 +2,7 @@
 title: ESX
 ---
 
-import { Tabs, Tab } from 'nextra-theme-docs';
+import { Tabs } from 'nextra/components';
 
 # ESX
 
@@ -47,7 +47,7 @@ The reasoning is fairly simple - there's now additional function references and 
 You should read through the functions section for further information, but the following should give you a decent idea.
 
 <Tabs items={["ESX", "Ox Inventory"]}>
-  <Tab>
+  <Tabs.Tab>
     ```lua
     if xPlayer.getInventoryItem('acetone').count > 2 and xPlayer.getInventoryItem('antifreeze').count > 4 and xPlayer.getInventoryItem('sudo').count > 9 then
         xPlayer.removeInventoryItem("acetone", 3)
@@ -55,8 +55,8 @@ You should read through the functions section for further information, but the f
         xPlayer.removeInventoryItem("sudo", 10)
     end
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     Add the following code somewhere in your resource to cache the exports metatable.
 
     ```lua
@@ -73,5 +73,5 @@ You should read through the functions section for further information, but the f
         ox_inventory:RemoveItem(source, 'sudo', 10)
     end
     ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>

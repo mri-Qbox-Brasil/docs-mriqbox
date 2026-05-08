@@ -2,7 +2,7 @@
 title: rawExecute
 ---
 
-import { Tab, Tabs } from 'nextra-theme-docs';
+import { Tabs } from 'nextra/components';
 
 # RawExecute
 
@@ -18,7 +18,7 @@ Quando usado com `SELECT`, o valor de retorno corresponderá a `query`, `single`
 ## Promise
 
 <Tabs items={['Lua', 'JS']}>
-  <Tab>
+  <Tabs.Tab>
 
     ```lua
     local response = MySQL.rawExecute.await('SELECT `firstname`, `lastname` FROM `users` WHERE `identifier` = ?', {
@@ -29,8 +29,8 @@ Quando usado com `SELECT`, o valor de retorno corresponderá a `query`, `single`
     print(json.encode(response, { indent = true, sort_keys = true }))
     ```
 
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
 
     ```js
     const response = await MySQL.rawExecute('SELECT `firstname`, `lastname` FROM `users` WHERE `identifier` = ?', [
@@ -40,7 +40,7 @@ Quando usado com `SELECT`, o valor de retorno corresponderá a `query`, `single`
     console.log(JSON.stringify(response))
     ```
 
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 **Aliases**
@@ -50,7 +50,7 @@ Quando usado com `SELECT`, o valor de retorno corresponderá a `query`, `single`
 ## Callback
 
 <Tabs items={['Lua', 'JS']}>
-  <Tab>
+  <Tabs.Tab>
 
     ```lua
     MySQL.rawExecute('SELECT `firstname`, `lastname` FROM `users` WHERE `identifier` = ?', {
@@ -60,8 +60,8 @@ Quando usado com `SELECT`, o valor de retorno corresponderá a `query`, `single`
     end)
     ```
 
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
 
     ```js
     MySQL.rawExecute('SELECT `firstname`, `lastname` FROM `users` WHERE `identifier` = ?', [
@@ -71,7 +71,7 @@ Quando usado com `SELECT`, o valor de retorno corresponderá a `query`, `single`
     })
     ```
 
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 **Aliases**

@@ -2,7 +2,7 @@
 title: Área de Transferência
 ---
 
-import { Tabs, Tab } from 'nextra-theme-docs';
+import { Tabs } from 'nextra/components';
 import { Callout } from 'nextra/components';
 
 # Área de Transferência
@@ -20,18 +20,18 @@ Define o conteúdo da área de transferência do jogador com o valor da string e
 </Callout>
 
 <Tabs items={["Lua", "JS"]}>
-    <Tab>
+    <Tabs.Tab>
         ```lua
         lib.setClipboard(value)
         ```
-    </Tab>
-    <Tab>
+    </Tabs.Tab>
+    <Tabs.Tab>
         ```ts
         import lib from '@overextended/ox_lib/client';
 
         lib.setClipboard(value);
         ```
-    </Tab>
+    </Tabs.Tab>
 </Tabs>
 
 - value: `string`

@@ -2,7 +2,7 @@
 title: Creating Items
 ---
 
-import { Tabs, Tab } from 'nextra-theme-docs';
+import { Tabs } from 'nextra/components';
 
 # Creating Items
 
@@ -77,7 +77,7 @@ opções do item.
 ### Exemplos
 
 <Tabs items={["Burger", "Burger com descrição", "Burger com notificação"]}>
-  <Tab>
+  <Tabs.Tab>
     ```lua
     ['burger'] = {
         label = 'Burger',
@@ -96,8 +96,8 @@ opções do item.
         }
     }
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     Um item burger modificado que inclui uma descrição.
 
     ```lua
@@ -119,8 +119,8 @@ opções do item.
         }
     }
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     Um item burger modificado que envia notificações nos argumentos add e remove.
 
     ```lua
@@ -144,7 +144,7 @@ opções do item.
         }
     }
     ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 ## Tornando o item utilizável

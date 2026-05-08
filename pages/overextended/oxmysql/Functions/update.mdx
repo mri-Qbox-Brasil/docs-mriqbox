@@ -2,7 +2,7 @@
 title: update
 ---
 
-import { Tab, Tabs } from 'nextra-theme-docs';
+import { Tabs } from 'nextra/components';
 
 # Update
 
@@ -11,7 +11,7 @@ Retorna o número de linhas afetadas pela consulta.
 ## Promise
 
 <Tabs items={['Lua', 'JS']}>
-  <Tab>
+  <Tabs.Tab>
 
     ```lua
     local affectedRows = MySQL.update.await('UPDATE users SET firstname = ? WHERE identifier = ?', {
@@ -21,8 +21,8 @@ Retorna o número de linhas afetadas pela consulta.
     print(affectedRows)
     ```
 
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
 
     ```js
     const affectedRows = await MySQL.update('UPDATE users SET firstname = ? WHERE identifier = ?', [
@@ -32,7 +32,7 @@ Retorna o número de linhas afetadas pela consulta.
     console.log(affectedRows)
     ```
 
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 **Aliases**
@@ -44,7 +44,7 @@ Retorna o número de linhas afetadas pela consulta.
 ## Callback
 
 <Tabs items={['Lua', 'JS']}>
-  <Tab>
+  <Tabs.Tab>
 
     ```lua
     MySQL.update('UPDATE users SET firstname = ? WHERE identifier = ?', {
@@ -54,8 +54,8 @@ Retorna o número de linhas afetadas pela consulta.
     end)
     ```
 
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
 
     ```js
     MySQL.update('UPDATE users SET firstname = ? WHERE identifier = ?', [
@@ -65,7 +65,7 @@ Retorna o número de linhas afetadas pela consulta.
     })
     ```
 
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 **Aliases**

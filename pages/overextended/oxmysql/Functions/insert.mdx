@@ -2,7 +2,7 @@
 title: insert
 ---
 
-import { Tab, Tabs } from 'nextra-theme-docs';
+import { Tabs } from 'nextra/components';
 
 # Inserir
 
@@ -11,7 +11,7 @@ Insere uma nova entrada no banco de dados e retorna o ID da linha inserida, se v
 ## Promise
 
 <Tabs items={['Lua', 'JS']}>
-  <Tab>
+  <Tabs.Tab>
 
     ```lua
     local id = MySQL.insert.await('INSERT INTO `users` (identifier, firstname, lastname) VALUES (?, ?, ?)', {
@@ -21,8 +21,8 @@ Insere uma nova entrada no banco de dados e retorna o ID da linha inserida, se v
     print(id)
     ```
 
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
 
     ```js
     const id = await MySQL.insert('INSERT INTO `users` (identifier, firstname, lastname) VALUES (?, ?, ?)', [
@@ -32,7 +32,7 @@ Insere uma nova entrada no banco de dados e retorna o ID da linha inserida, se v
     console.log(id)
     ```
 
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 **Aliases**
@@ -44,7 +44,7 @@ Insere uma nova entrada no banco de dados e retorna o ID da linha inserida, se v
 ## Callback
 
 <Tabs items={['Lua', 'JS']}>
-  <Tab>
+  <Tabs.Tab>
 
     ```lua
     MySQL.insert('INSERT INTO `users` (identifier, firstname, lastname) VALUES (?, ?, ?)', {
@@ -54,8 +54,8 @@ Insere uma nova entrada no banco de dados e retorna o ID da linha inserida, se v
     end)
     ```
 
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
 
     ```js
     MySQL.insert('INSERT INTO `users` (identifier, firstname, lastname) VALUES (?, ?, ?)', [
@@ -65,7 +65,7 @@ Insere uma nova entrada no banco de dados e retorna o ID da linha inserida, se v
     })
     ```
 
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 **Aliases**

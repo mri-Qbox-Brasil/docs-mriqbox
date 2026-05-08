@@ -2,7 +2,7 @@
 title: Diálogo de Entrada
 ---
 
-import { Tabs, Tab } from 'nextra-theme-docs';
+import { Tabs } from 'nextra/components';
 import { Callout } from 'nextra/components';
 
 # Diálogo de Entrada
@@ -12,18 +12,18 @@ A janela de diálogo de entrada permite coletar dados do usuário através de ca
 ## lib.inputDialog
 
 <Tabs items={["Lua", "JS"]}>
-  <Tab>
+  <Tabs.Tab>
     ```lua
     lib.inputDialog(heading, rows, options)
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     ```ts
     import lib from '@overextended/ox_lib/client';
 
     lib.inputDialog(heading, rows, options);
     ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 - heading: `string`
@@ -183,18 +183,18 @@ Os dados retornados serão uma tabela (array); os índices representam as linhas
 Fecha forçadamente o diálogo de entrada ativo e define seus dados de retorno como `nil`.
 
 <Tabs items={["Lua", "JS"]}>
-  <Tab>
+  <Tabs.Tab>
     ```lua
     lib.closeInputDialog()
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     ```ts
     import lib from '@overextended/ox_lib/client';
 
     lib.closeInputDialog();
     ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 ## Exemplo de Uso
@@ -202,15 +202,15 @@ Fecha forçadamente o diálogo de entrada ativo e define seus dados de retorno c
 ### Básico
 
 <Tabs items={["Lua", "JS"]}>
-  <Tab>
+  <Tabs.Tab>
     ```lua
     local input = lib.inputDialog('Basic dialog', {'First row', 'Second row'})
 
     if not input then return end
     print(json.encode(input), input[1], input[2])
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     <Callout>
       Esta função é **assíncrona**, exigindo que você use `.then` no promise ou torne sua função `async`.
     </Callout>
@@ -221,7 +221,7 @@ Fecha forçadamente o diálogo de entrada ativo e define seus dados de retorno c
     if (!input) return;
     console.log(input, input[0], input[1]);
     ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 ![Example image](https://i.imgur.com/KnZ0sEW.png)
@@ -229,7 +229,7 @@ Fecha forçadamente o diálogo de entrada ativo e define seus dados de retorno c
 ### Advanced
 
 <Tabs items={["Lua", "JS"]}>
-  <Tab>
+  <Tabs.Tab>
     ```lua
     local input = lib.inputDialog('Dialog title', {
       {type = 'input', label = 'Text input', description = 'Some input description', required = true, min = 4, max = 16},
@@ -248,8 +248,8 @@ Fecha forçadamente o diálogo de entrada ativo e define seus dados de retorno c
     local timestamp = math.floor(input[5] / 1000)
     local date = os.date('%Y-%m-%d %H:%M:%S', timestamp)
     ```
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     <Callout>
       Esta função é **assíncrona**, exigindo que você use `.then` no promise ou torne sua função `async`.
     </Callout>
@@ -275,7 +275,7 @@ Fecha forçadamente o diálogo de entrada ativo e define seus dados de retorno c
 
     console.log(+color[1], +color[2], +color[3]);
     ```
-  </Tab>
+  </Tabs.Tab>
 </Tabs>
 
 ![Example image](https://i.imgur.com/v44YEkC.png)
