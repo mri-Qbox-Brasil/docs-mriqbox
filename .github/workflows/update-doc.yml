@@ -70,34 +70,34 @@ jobs:
               printf 'export default {\n  index: { display: "hidden" },\n}\n' > "$META"
             fi
 
-            node << 'SCRIPT'
-const fs = require('fs');
-const meta = 'pages/mri/resources/_meta.ts';
-const repo = process.env.REPO;
-const name = process.env.NAME;
+            node -e '
+              const fs = require("fs");
+              const meta = "pages/mri/resources/_meta.ts";
+              const repo = process.env.REPO;
+              const name = process.env.NAME;
 
-const content = fs.readFileSync(meta, 'utf8');
+              const content = fs.readFileSync(meta, "utf8");
 
-const entries = {};
-const re = /^\s+"?([^":{}\s][^":{}\n]*?)"?\s*:\s+"([^"]+)",?$/gm;
-let m;
-while ((m = re.exec(content)) !== null) {
-  entries[m[1].trim()] = m[2];
-}
+              const entries = {};
+              const re = /^\s+"?([^":{}\s][^":{}\n]*?)"?\s*:\s+"([^"]+)",?$/gm;
+              let m;
+              while ((m = re.exec(content)) !== null) {
+                entries[m[1].trim()] = m[2];
+              }
 
-entries[repo] = name;
+              entries[repo] = name;
 
-const sorted = Object.keys(entries).sort((a, b) =>
-  a.toLowerCase().localeCompare(b.toLowerCase())
-);
+              const sorted = Object.keys(entries).sort((a, b) =>
+                a.toLowerCase().localeCompare(b.toLowerCase())
+              );
 
-const lines = sorted.map(k => `  "${k}": "${entries[k]}",`).join('\n');
-const hasIndex = /index:\s*\{/.test(content);
-const indexLine = hasIndex ? '  "index": { display: "hidden" },\n' : '';
+              const lines = sorted.map(k => `  "${k}": "${entries[k]}",`).join("\n");
+              const hasIndex = /index:\s*\{/.test(content);
+              const indexLine = hasIndex ? "  \"index\": { display: \"hidden\" },\n" : "";
 
-fs.writeFileSync(meta, `export default {\n${indexLine}${lines}\n}\n`);
-console.log(`_meta.ts atualizado: "${repo}": "${name}"`);
-SCRIPT
+              fs.writeFileSync(meta, `export default {\n${indexLine}${lines}\n}\n`);
+              console.log(`_meta.ts atualizado: "${repo}": "${name}"`);
+            '
           else
             echo "❌ Erro ao baixar ${{ env.DOC_FILE }} de ${{ env.REPO }} (Status: $status_code)"
             rm -f "pages/mri/resources/${{ env.REPO }}.md"
