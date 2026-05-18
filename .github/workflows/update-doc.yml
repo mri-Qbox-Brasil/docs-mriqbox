@@ -57,7 +57,7 @@ jobs:
           echo "Processando ${{ env.NAME }} (${{ env.ORG }}/${{ env.REPO }})..."
 
           status_code=$(curl -s -w "%{http_code}" \
-            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Authorization: token ${{ secrets.GH_TOKEN }}" \
             -H "Accept: application/vnd.github.v3.raw" \
             "https://api.github.com/repos/${{ env.ORG }}/${{ env.REPO }}/contents/${{ env.DOC_FILE }}" \
             -o "pages/mri/resources/${{ env.REPO }}.md")
