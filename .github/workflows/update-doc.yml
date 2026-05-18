@@ -1,5 +1,8 @@
 name: Update Documentation
 
+# Este workflow pertence ao repositório de documentação (docs-mriqbox).
+# Copie este arquivo para .github/workflows/update-docs.yml no repo da docs.
+
 on:
   workflow_dispatch:
     inputs:
@@ -13,6 +16,10 @@ on:
       name:
         description: 'Nome amigável para a sidebar'
         required: true
+      doc_file:
+        description: 'Arquivo de documentação (README.md ou MANUAL.md)'
+        required: false
+        default: 'MANUAL.md'
   repository_dispatch:
     types: [update-manual]
 
@@ -35,13 +42,15 @@ jobs:
             echo "ORG=${{ github.event.client_payload.org }}" >> $GITHUB_ENV
             echo "REPO=${{ github.event.client_payload.repo }}" >> $GITHUB_ENV
             echo "NAME=${{ github.event.client_payload.name }}" >> $GITHUB_ENV
+            echo "DOC_FILE=${{ github.event.client_payload.doc_file || 'MANUAL.md' }}" >> $GITHUB_ENV
           else
             echo "ORG=${{ inputs.org }}" >> $GITHUB_ENV
             echo "REPO=${{ inputs.repo }}" >> $GITHUB_ENV
             echo "NAME=${{ inputs.name }}" >> $GITHUB_ENV
+            echo "DOC_FILE=${{ inputs.doc_file || 'MANUAL.md' }}" >> $GITHUB_ENV
           fi
 
-      - name: Baixar MANUAL.md e atualizar sidebar
+      - name: Baixar documentação e atualizar sidebar
         run: |
           mkdir -p pages/mri/resources
 
@@ -50,11 +59,11 @@ jobs:
           status_code=$(curl -s -w "%{http_code}" \
             -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
             -H "Accept: application/vnd.github.v3.raw" \
-            "https://api.github.com/repos/${{ env.ORG }}/${{ env.REPO }}/contents/MANUAL.md" \
+            "https://api.github.com/repos/${{ env.ORG }}/${{ env.REPO }}/contents/${{ env.DOC_FILE }}" \
             -o "pages/mri/resources/${{ env.REPO }}.md")
 
           if [ "$status_code" -eq 200 ]; then
-            echo "✅ MANUAL.md de ${{ env.REPO }} baixado com sucesso."
+            echo "✅ ${{ env.DOC_FILE }} de ${{ env.REPO }} baixado com sucesso."
 
             META="pages/mri/resources/_meta.ts"
             if [ ! -f "$META" ]; then
@@ -69,7 +78,6 @@ const name = process.env.NAME;
 
 const content = fs.readFileSync(meta, 'utf8');
 
-// Extrai entradas key: "value" ou "key": "value" existentes
 const entries = {};
 const re = /^\s+"?([^":{}\s][^":{}\n]*?)"?\s*:\s+"([^"]+)",?$/gm;
 let m;
@@ -77,10 +85,8 @@ while ((m = re.exec(content)) !== null) {
   entries[m[1].trim()] = m[2];
 }
 
-// Adiciona/atualiza entrada do repo
 entries[repo] = name;
 
-// Ordena alfabeticamente (case-insensitive), mantém index no topo
 const sorted = Object.keys(entries).sort((a, b) =>
   a.toLowerCase().localeCompare(b.toLowerCase())
 );
@@ -93,7 +99,7 @@ fs.writeFileSync(meta, `export default {\n${indexLine}${lines}\n}\n`);
 console.log(`_meta.ts atualizado: "${repo}": "${name}"`);
 SCRIPT
           else
-            echo "❌ Erro ao baixar MANUAL.md de ${{ env.REPO }} (Status: $status_code)"
+            echo "❌ Erro ao baixar ${{ env.DOC_FILE }} de ${{ env.REPO }} (Status: $status_code)"
             rm -f "pages/mri/resources/${{ env.REPO }}.md"
             exit 1
           fi
