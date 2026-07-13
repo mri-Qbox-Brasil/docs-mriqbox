@@ -1,10 +1,10 @@
 export default {
   "index": { display: "hidden" },
-  "ars_ambulancejob": "Ars Ambulancejob",
+  "ars_ambulancejob": "ARS Ambulancejob",
   "bob74_ipl": "Bob74 IPL",
   "cw-rep": "CW Rep",
   "illenium-appearance": "Illenium Appearance",
-  "mm_radio": "Mm Radio",
+  "mm_radio": "MM Radio",
   "mri_Qadmin": "MRI Qadmin",
   "mri_Qbackpack": "MRI Qbackpack",
   "mri_Qblips": "MRI Qblips",
