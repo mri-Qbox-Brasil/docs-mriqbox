@@ -1,27 +1,36 @@
 name: Update Documentation
 
-# Este workflow pertence ao repositório de documentação (docs-mriqbox).
-# Copie este arquivo para .github/workflows/update-docs.yml no repo da docs.
+# Recebe a notificação de um repositório de script (via callable-repo-dispatch)
+# e publica o MANUAL.md dele em pages/mri/resources.
+#
+# A lógica de verdade mora em .release/ingest-docs.js, compartilhada com o
+# sync-all-docs.yml — assim o caminho incremental e o de lote não divergem.
 
 on:
   workflow_dispatch:
     inputs:
-      org:
-        description: 'Organização do repositório'
-        required: true
-        default: 'mri-Qbox-Brasil'
       repo:
-        description: 'Nome do repositório'
+        description: 'Repositório de origem (de onde baixar o MANUAL.md)'
         required: true
       name:
-        description: 'Nome amigável para a sidebar'
-        required: true
+        description: 'Nome amigável na sidebar (vazio => nome do repo)'
+        required: false
+      slug:
+        description: 'Slug publicado (vazio => nome do repo; use em repos -source)'
+        required: false
       doc_file:
-        description: 'Arquivo de documentação (README.md ou MANUAL.md)'
+        description: 'Arquivo de documentação'
         required: false
         default: 'MANUAL.md'
   repository_dispatch:
     types: [update-manual]
+
+# Vários repos podem notificar ao mesmo tempo. Sem isto, os jobs concorrentes
+# commitam e dão push no mesmo branch, e todos menos um falham com
+# non-fast-forward. Serializa em vez de cancelar: cada notificação importa.
+concurrency:
+  group: docs-ingest
+  cancel-in-progress: false
 
 jobs:
   update-docs:
@@ -31,85 +40,61 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Configurar Git
-        run: |
-          git config --global user.name 'github-actions'
-          git config --global user.email 'github-actions@github.com'
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
 
-      - name: Definir variáveis
-        run: |
-          if [ "${{ github.event_name }}" = "repository_dispatch" ]; then
-            echo "ORG=${{ github.event.client_payload.org }}" >> $GITHUB_ENV
-            echo "REPO=${{ github.event.client_payload.repo }}" >> $GITHUB_ENV
-            echo "NAME=${{ github.event.client_payload.name }}" >> $GITHUB_ENV
-            echo "DOC_FILE=${{ github.event.client_payload.doc_file || 'MANUAL.md' }}" >> $GITHUB_ENV
-          else
-            echo "ORG=${{ inputs.org }}" >> $GITHUB_ENV
-            echo "REPO=${{ inputs.repo }}" >> $GITHUB_ENV
-            echo "NAME=${{ inputs.name }}" >> $GITHUB_ENV
-            echo "DOC_FILE=${{ inputs.doc_file || 'MANUAL.md' }}" >> $GITHUB_ENV
-          fi
+      - name: Instalar dependências
+        run: pnpm install --frozen-lockfile
 
       - name: Baixar documentação e atualizar sidebar
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          PAYLOAD: ${{ toJSON(github.event.client_payload) }}
+          IN_REPO: ${{ inputs.repo }}
+          IN_NAME: ${{ inputs.name }}
+          IN_SLUG: ${{ inputs.slug }}
+          IN_DOC: ${{ inputs.doc_file }}
         run: |
-          mkdir -p pages/mri/resources
-
-          echo "Processando ${{ env.NAME }} (${{ env.ORG }}/${{ env.REPO }})..."
-
-          status_code=$(curl -s -w "%{http_code}" \
-            -H "Authorization: token ${{ secrets.GH_TOKEN }}" \
-            -H "Accept: application/vnd.github.v3.raw" \
-            "https://api.github.com/repos/${{ env.ORG }}/${{ env.REPO }}/contents/${{ env.DOC_FILE }}" \
-            -o "pages/mri/resources/${{ env.REPO }}.md")
-
-          if [ "$status_code" -eq 200 ]; then
-            echo "✅ ${{ env.DOC_FILE }} de ${{ env.REPO }} baixado com sucesso."
-
-            META="pages/mri/resources/_meta.ts"
-            if [ ! -f "$META" ]; then
-              printf 'export default {\n  index: { display: "hidden" },\n}\n' > "$META"
-            fi
-
-            node -e '
-              const fs = require("fs");
-              const meta = "pages/mri/resources/_meta.ts";
-              const repo = process.env.REPO;
-              const name = process.env.NAME;
-
-              const content = fs.readFileSync(meta, "utf8");
-
-              const entries = {};
-              const re = /^\s+"?([^":{}\s][^":{}\n]*?)"?\s*:\s+"([^"]+)",?$/gm;
-              let m;
-              while ((m = re.exec(content)) !== null) {
-                entries[m[1].trim()] = m[2];
-              }
-
-              entries[repo] = name;
-
-              const sorted = Object.keys(entries).sort((a, b) =>
-                a.toLowerCase().localeCompare(b.toLowerCase())
-              );
-
-              const lines = sorted.map(k => `  "${k}": "${entries[k]}",`).join("\n");
-              const hasIndex = /index:\s*\{/.test(content);
-              const indexLine = hasIndex ? "  \"index\": { display: \"hidden\" },\n" : "";
-
-              fs.writeFileSync(meta, `export default {\n${indexLine}${lines}\n}\n`);
-              console.log(`_meta.ts atualizado: "${repo}": "${name}"`);
-            '
+          if [ "${{ github.event_name }}" = "repository_dispatch" ]; then
+            echo "$PAYLOAD" > /tmp/item.json
           else
-            echo "❌ Erro ao baixar ${{ env.DOC_FILE }} de ${{ env.REPO }} (Status: $status_code)"
-            rm -f "pages/mri/resources/${{ env.REPO }}.md"
-            exit 1
+            node -e '
+              const o = { org: "mri-Qbox-Brasil", repo: process.env.IN_REPO };
+              if (process.env.IN_NAME) o.name = process.env.IN_NAME;
+              if (process.env.IN_SLUG) o.slug = process.env.IN_SLUG;
+              if (process.env.IN_DOC)  o.doc_file = process.env.IN_DOC;
+              require("fs").writeFileSync("/tmp/item.json", JSON.stringify(o));
+            '
           fi
 
-      - name: Commit e Push se houver mudanças
+          node .release/ingest-docs.js "$(cat /tmp/item.json)"
+
+      # O .md publicado vira MDX no Nextra: chaves nuas viram expressão JS e
+      # quebram o site. O ingest já sanitiza, mas só o build prova que a página
+      # renderiza. Se quebrar, falha aqui — antes de commitar.
+      - name: Validar build
+        run: pnpm build
+
+      - name: Commit e push se houver mudanças
         run: |
+          git config user.name 'github-actions'
+          git config user.email 'github-actions@github.com'
           git add pages/mri/resources/
+
           if git diff --cached --quiet; then
             echo "Sem mudanças para commitar."
-          else
-            git commit -m "chore: atualiza documentação de ${{ env.REPO }}"
-            git push
+            exit 0
           fi
+
+          git commit -m "docs: atualiza documentação de recursos"
+
+          for i in 1 2 3 4 5; do
+            git push && exit 0
+            echo "push falhou (tentativa $i), rebase e retry..."
+            git pull --rebase origin "${GITHUB_REF_NAME}" || exit 1
+            sleep $((i * 3))
+          done
+          exit 1
