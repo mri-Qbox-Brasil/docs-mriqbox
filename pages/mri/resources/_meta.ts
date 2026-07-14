@@ -40,5 +40,6 @@ export default {
   "qbx_vehiclefailure": "Qbx Vehiclefailure",
   "qbx_vehicles": "Qbx Vehicles",
   "qbx_vehicleshop": "Qbx Vehicleshop",
+  "randol_combatlog": "Randol Combatlog",
   "scully_emotemenu": "Scully Emotemenu",
 }
