@@ -1,5 +1,6 @@
 export default {
   "index": { display: "hidden" },
+  "Angelicxs CivilianJobs": "Angelicxs CivilianJobs",
   "ars_ambulancejob": "ARS Ambulancejob",
   "bob74_ipl": "Bob74 IPL",
   "cw-rep": "CW Rep",
