@@ -30,6 +30,7 @@ export default {
   "pma-voice": "PMA Voice",
   "ps-banking": "PS Banking",
   "ps-dispatch": "PS Dispatch",
+  "ps-realtor": "PS Realtor",
   "qbx_adminmenu": "Qbx Adminmenu",
   "qbx_core": "Qbx Core",
   "qbx_management": "Qbx Management",
