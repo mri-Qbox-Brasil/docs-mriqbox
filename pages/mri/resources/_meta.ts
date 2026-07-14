@@ -16,6 +16,7 @@ export default {
   "mri_Qcrafting": "MRI Qcrafting",
   "mri_Qdraw": "MRI Qdraw",
   "mri_Qelevators": "MRI Qelevators",
+  "mri_Qfarm": "MRI Qfarm",
   "mri_Qfps": "MRI Qfps",
   "mri_Qhud": "MRI Qhud",
   "mri_Qjobsystem": "MRI Qjobsystem",
