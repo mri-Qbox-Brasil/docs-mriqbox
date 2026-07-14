@@ -5,6 +5,7 @@ export default {
   "bob74_ipl": "Bob74 IPL",
   "cw-rep": "CW Rep",
   "illenium-appearance": "Illenium Appearance",
+  "interact-sound": "Interact Sound",
   "mm_radio": "MM Radio",
   "mri_Qadmin": "MRI Qadmin",
   "mri_Qbackpack": "MRI Qbackpack",
