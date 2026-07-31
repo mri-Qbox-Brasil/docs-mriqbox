@@ -41,6 +41,7 @@ export default {
   "mri_Qcrafting": "MRI Qcrafting",
   "mri_Qdraw": "MRI Qdraw",
   "mri_Qelevators": "MRI Qelevators",
+  "mri_Qemotemenu": "mri_Qemotemenu",
   "mri_QexoticPaints": "MRI QexoticPaints",
   "mri_Qfarm": "MRI Qfarm",
   "mri_Qfleecaheist": "MRI Qfleecaheist",
