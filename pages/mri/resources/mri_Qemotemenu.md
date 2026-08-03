@@ -2,9 +2,9 @@
 
 ## Visão Geral
 
-Sistema de emotes do servidor: catálogo completo de animações, menu em NUI com preview do personagem, atalhos nas setas e preferências salvas por personagem.
+Sistema de emotes do servidor: catálogo completo de animações, menu em NUI com preview do personagem, roda de emotes, atalhos nas setas e preferências salvas por personagem.
 
-Nasceu como substituto do `rpemotes-reborn`. O catálogo de animações e os assets de stream são os mesmos, entrada por entrada — nenhum emote foi renomeado ou removido na migração, inclusive os que tinham nome divergente do que fazem.
+O catálogo traz alguns nomes que não descrevem bem o que o emote faz. Eles foram mantidos como estão de propósito, para não quebrar quem já usava o comando — e é justamente para isso que existe o renomear, que deixa cada jogador ajustar o nome para si.
 
 ## Funcionalidades
 
@@ -29,7 +29,7 @@ Cada seta resolve o emote em três níveis, do mais forte para o mais fraco:
 
 Consequência prática: quando um administrador troca o padrão de uma seta, **quem já personalizou aquele slot não sente diferença**. A mudança só alcança quem estava no padrão.
 
-Padrões de fábrica, herdados do rpemotes-reborn:
+Padrões de fábrica:
 
 | Seta | Emote |
 |---|---|
@@ -142,20 +142,72 @@ Opções em `shared/config.lua`.
 | `studio` (padrão) | Um clone do personagem é levado para um ponto isolado e uma câmera própria o enquadra. Fundo limpo, iluminação previsível e o mesmo enquadramento sempre, de dia ou de madrugada. |
 | `world` | O clone fica visível no mundo, reposicionado a cada frame na frente da câmera do jogo. Mais leve — não troca a câmera nem carrega área nova — mas pega a iluminação do lugar e pode encostar em parede ou carro. |
 
-#### Por que não existe modo "menu de pausa"
+> **Nota para quem for mexer no preview:** existe um caminho no jogo que desenha
+> o ped no menu de pausa (`GivePedToPauseMenu`), com enquadramento e iluminação
+> muito bons. Ele **não serve aqui**: aquele render ignora qualquer animação que
+> o script mande, e a única que aceita é a de dormir, que é dele. Já foi tentado
+> e descartado com o ped confirmadamente executando a animação enquanto a tela
+> mostrava outra pose. Serve para retrato parado, não para preview de emote.
 
-Uma versão anterior entregava o clone à scaleform do menu de pausa do jogo
-(`GivePedToPauseMenu`), que dá um enquadramento e uma iluminação muito bons.
-**Ela não pode mostrar emote**, e isso é uma limitação do próprio jogo, não um
-defeito de configuração: aquela scaleform desenha o ped mas ignora qualquer
-animação que a gente mande. A única que ela aceita é a de dormir, que é dela.
+### HUD com o menu aberto
 
-Foi confirmado por quatro caminhos: a documentação do native, dois relatos de
-quem tentou exatamente este caso de uso, e o nosso próprio diagnóstico in-game —
-o clone reportava estar tocando a animação enquanto a tela mostrava a pose dela.
+A HUD sai da frente ao abrir o menu e volta ao fechar. São dois problemas
+diferentes, resolvidos de formas diferentes em `client/hud.lua`:
 
-Não vale tentar de novo. Se a intenção for um **retrato parado** do personagem,
-aí sim ela serve.
+**HUD nativa do GTA** (minimapa, estrelas de procurado, dinheiro). Os natives de
+esconder valem por um frame só, então rodam num thread enquanto o menu está
+aberto. Não há nada a restaurar: parar de chamar já devolve. Desliga em
+`Config.HideNativeHudWhileOpen`.
+
+**HUD em NUI** (`ghds_advancedhud`, `jg-hud`, ...). Cada uma some do seu jeito, e
+a lista está em `Config.HudIntegrations`. Aqui é ida e volta, e é onde mora o
+risco: se a ida falhar e a volta rodar assim mesmo, o jogador fica sem HUD depois
+de fechar o menu. Por isso o módulo guarda uma trava por integração e **só
+devolve o que ele mesmo escondeu** — uma HUD que já estava escondida por outro
+motivo continua escondida, porque o estado dela não é nosso.
+
+Se a HUD reiniciar com o menu aberto, ela volta desenhada e a trava passaria a
+mentir; há um `onClientResourceStart` que reaplica. E um `onResourceStop` devolve
+tudo se este resource cair com o menu aberto — senão o jogador ficaria sem HUD e
+sem nada para clicar que a trouxesse de volta.
+
+Desliga tudo de uma vez em `Config.HideHudWhileOpen`.
+
+#### O caso do mri_Qhud
+
+Ele não expunha nada — nenhum export, nenhum evento de visibilidade global, só
+`hud:client:*` por widget. E mandar `hudtick` de fora não resolve: o loop de
+update dele reescreve no tick seguinte.
+
+Então a contraparte foi adicionada no próprio `mri_Qhud` (`client.lua`), como um
+flag que o loop respeita, no mesmo ponto em que ele já tratava o menu de pausa:
+
+```lua
+local hudHidden = false
+
+RegisterNetEvent('hud:client:setVisible', function(visible)
+    hudHidden = not visible
+end)
+```
+
+```lua
+if IsPauseMenuActive() or hudHidden then
+    show = false
+end
+```
+
+O `show` alimenta as duas HUDs dele (`updatePlayerHud` e `updateVehicleHud`),
+então um ponto só cobre jogador e veículo.
+
+Foi preciso mexer também no `restartHud` (o `/resethud`), que mandava
+`hudtick show = true` direto. Esses envios passam por fora do `updatePlayerHud`
+e não atualizam o `prevPlayerStats`, então um `true` ali com a HUD escondida
+ficaria: no tick seguinte o loop calcula `show = false`, compara com o `prev`
+(que ainda diz `false`), conclui que nada mudou e não reenvia — a HUD voltaria e
+ficaria visível. Passou a mandar `not hudHidden`.
+
+> Num `mri_Qhud` sem esse trecho, a entrada em `Config.HudIntegrations` não faz
+> efeito: o `GetResourceState` passa, o evento é disparado e ninguém escuta.
 
 #### Calibrar o enquadramento
 
