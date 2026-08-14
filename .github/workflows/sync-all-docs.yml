@@ -75,7 +75,17 @@ jobs:
             require("fs").writeFileSync("/tmp/items.json", JSON.stringify(items));
           '
 
-          node .release/ingest-docs.js "$(cat /tmp/items.json)"
+          # --prune só neste caminho: aqui o lote é o catálogo inteiro, então o
+          # que não veio nele é página órfã (slug antigo que ficou no ar). O
+          # update-doc.yml publica um repo só e apagaria todo o resto.
+          #
+          # Com "only" o lote é parcial de propósito, e o prune apagaria
+          # justamente o que foi deixado de fora.
+          if [ -n "$ONLY" ]; then
+            node .release/ingest-docs.js "$(cat /tmp/items.json)"
+          else
+            node .release/ingest-docs.js "$(cat /tmp/items.json)" --prune
+          fi
 
       - name: Validar build
         run: pnpm build

@@ -29,7 +29,6 @@ export default {
   "mhacking": "Mhacking",
   "mm_radio": "MM Radio",
   "mri_Qadmin": "MRI Qadmin",
-  "mri_Qadmin-source": "mri_Qadmin-source",
   "mri_Qautoshot": "mri_Qautoshot",
   "mri_Qbackpack": "MRI Qbackpack",
   "mri_Qblackout": "MRI Qblackout",
