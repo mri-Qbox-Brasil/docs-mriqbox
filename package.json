@@ -9,8 +9,6 @@
         "postbuild": "next-sitemap"
     },
     "dependencies": {
-        "@docsearch/css": "^3.6.0",
-        "@docsearch/react": "^3.6.0",
         "@mriqbox/ui-kit": "^4.0.0",
         "lucide-react": "^0.344.0",
         "next": "^15.5.15",

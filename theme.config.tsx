@@ -1,7 +1,6 @@
 import React from 'react';
 import { DocsThemeConfig, useConfig } from 'nextra-theme-docs';
 import { useRouter } from 'next/router';
-import Search from '@components/Search';
 
 function useHead() {
   const { asPath } = useRouter();
@@ -64,8 +63,16 @@ const config: DocsThemeConfig = {
   footer: {
     content: 'Copyright © 2026 MRI QBOX BRASIL. Todos os direitos reservados.',
   },
+  // Busca nativa do Nextra (flexsearch), alimentada pelo índice que o próprio
+  // build gera. Substituiu o DocSearch/Algolia, cujo crawl externo ficou
+  // defasado: servia link 404 (/overextended/ox_core) e não continha nenhuma
+  // das páginas de pages/mri/resources. O índice nativo é reconstruído a cada
+  // deploy, então não tem como ficar fora de sincronia com o site.
   search: {
-    component: <Search />,
+    placeholder: 'Buscar na documentação…',
+    emptyResult: 'Nenhum resultado encontrado.',
+    error: 'Falha ao carregar a busca.',
+    loading: 'Carregando…',
   },
   head: useHead,
   color: {
