@@ -35,7 +35,6 @@ export default {
   "mri_Qbox": "MRI Qbox",
   "mri_Qcarkeys": "MRI Qcarkeys",
   "mri_Qcarwash": "MRI Qcarwash",
-  "mri_Qchat": "MRI Qchat",
   "mri_Qcrafting": "MRI Qcrafting",
   "mri_Qdraw": "MRI Qdraw",
   "mri_Qelevators": "MRI Qelevators",
